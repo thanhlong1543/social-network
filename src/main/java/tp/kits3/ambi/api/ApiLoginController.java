@@ -22,6 +22,5 @@ public class ApiLoginController {
 			return new ResponseEntity<>("invalid", HttpStatus.BAD_REQUEST);
 		}
 		return new ResponseEntity<>(HttpStatus.OK);
-		
 	}
 }
