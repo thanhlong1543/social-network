@@ -5,9 +5,7 @@ import javax.validation.constraints.Email;
 import org.hibernate.validator.constraints.Length;
 
 public class LoginDto {
-	
 
-	
 	@Override
 	public String toString() {
 		return "LoginDto [email=" + email + ", password1=" + password1 + ", password2=" + password2 + "]";
@@ -15,10 +13,10 @@ public class LoginDto {
 
 	@Email(message = "Invalid email")
 	private String email;
-	@Length(min = 8,max = 20,message = "Password is 8-20 numbers")
+	@Length(min = 8, max = 20, message = "Password is 8-20 numbers")
 	private String password1;
-	
-	@Length(min = 8,max = 20,message = "Password is 8-20 numbers")
+
+	@Length(min = 8, max = 20, message = "Password is 8-20 numbers")
 	private String password2;
 
 	public LoginDto() {
@@ -59,6 +57,4 @@ public class LoginDto {
 		this.password2 = password2;
 	}
 
-	
-	
 }
