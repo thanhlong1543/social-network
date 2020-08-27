@@ -1,0 +1,247 @@
+*{font-family:'Nunito',sans-serif; margin: 0; padding: 0;}
+a{
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.btn-general{
+    background-color: #40A798;
+    border-radius: 5px;
+    border: none;
+    padding: 10px 20px;
+}
+.btn-general:hover{
+    cursor: pointer;
+    color:#fff;
+    background-color: #333;
+    transition: all .3s;
+    
+}
+.active-tab{
+    /* border-bottom: 2px solid #fff; */
+    color: rgba(255, 255, 255, 1)!important;
+}
+input{
+    font-weight: 400;
+    width: 100%;
+    display: inline-block;
+    padding: 7px;
+    font-size: 18px;
+    border: 1px solid #ddd;
+    margin-bottom: 18px;
+    box-sizing: border-box;
+}
+input:focus{
+    transition: all .3s;
+    outline:1px solid #40A798;
+}
+.bgr{
+    height: 100vh;
+    background-color: rgba(64,167,152,0.3);
+    /* background-image:linear-gradient(#40A798,#fff, #40A798); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.bgr img{
+    width: 300px;
+    animation: fadein .6s;
+    margin-right: 100px;
+}
+.bgr .form{
+    color: #fff;
+    z-index: 5;
+    height: 550px;
+    width: 400px;
+    background-color: #fff;
+    border: 1px solid rgb(165, 162, 162);
+    border-radius: 10px;
+    padding: 50px 20px;
+    box-sizing: border-box;
+    box-shadow: 2px 2px 10px 0px rgb(165, 162, 162);
+    background: url('../img/bgr-login.jpg') no-repeat;
+    background-position: -5px -470px;
+    overflow: hidden;
+}
+.bgr .form .tab-header{
+    position: relative;
+    width: 50%;
+}
+.bgr .form .tab-header .tab-action{
+    width: 100%;
+    display: flex;
+}
+.bgr .form .tab-header .tab-action a{
+    color: rgba(255, 255, 255, 0.3);
+    width: 50%;
+    display: inline-block;
+    text-align: center;
+}
+.bgr .form .tab-header .tab-action a:hover{
+    color: rgba(255, 255, 255, 1);
+}
+.bgr .form .tab-header #tab-indicator{
+    position: absolute;
+    left: 0;
+    height: 3px;
+    margin-top: 5px;
+    width: 50%;
+    background-color: #fff;
+    border-radius: 5px;
+    transition: .4s;
+    display: inline-block;
+}
+.bgr .form .form-container{
+    position: relative;
+    display: block;
+}
+.bgr .form .form-container form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* margin: 20px 0; */
+    /* opacity: 0; */
+    
+}
+.bgr .form .form-container form h1{
+    font-family: 'Rock Salt', sans-serif;
+    padding-bottom: 20px;
+}
+.bgr .form .form-container form h2{
+    font-weight: 100;
+    padding-bottom: 20px;
+}
+.bgr .form .form-container form > div{}
+.bgr .form .form-container form > div label{
+    display: block;
+}
+.bgr .form .form-container form > div input{
+    
+}
+.bgr .form .form-container form > input{
+}
+
+.bgr .form .form-container>.signin-container{
+}
+.bgr .form .form-container .signin-container h1{}
+.bgr .form .form-container .signin-container h2{}
+.bgr .form .form-container .signup-container{
+}
+.bgr .form .form-container .signup-container form{
+    position: absolute;
+}
+
+.bgr .form .form-container .signup-container>div{
+    position: absolute;
+    top: 100px;
+    left: 450px;
+}
+.bgr .form .form-container .signup-container{}
+
+
+.dialog-bgr{
+    top: 0;
+    z-index: 10;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    display: none;
+}
+.dialog-bgr .dialog-regist{
+    position: relative;
+    width: 600px;
+    height: 500px;
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+
+}
+.dialog-bgr .dialog-regist .step-indicator{
+    position: absolute;
+    left: 0;
+    height: 14px;
+    background-color: #40A798;
+    border-radius: 10px;
+    width: calc(100%/3);
+    display: inline-block;
+    transition: all .3s;
+}
+.dialog-body{
+    position: relative;
+    padding: 50px;
+    box-sizing: border-box;
+    width: 500px;
+    /* overflow: hidden; */
+    height: 100%;
+}
+.dialog-body .form-regist{
+    width: 100%;
+    position: absolute;
+    transition: all .3s;
+}
+.dialog-body form{
+    
+}
+.dialog-body form h1{}
+.dialog-body form h2{}
+.dialog-body form div{}
+.dialog-body form div label{
+    display: block;
+}
+.dialog-body form div input{
+    width: 500px;
+}
+.form-regist form>input{
+    width: 200px;
+    float: right;
+}
+
+.dialog-body .step-2{
+    width: 500px;
+    position: absolute;
+    left: 650px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all .3s;
+
+}
+.dialog-body .step-2 div{
+    width: 400px;
+}
+.dialog-body .step-2 p{}
+
+.dialog-body .step-3{
+    position: absolute;
+    left: 650px;
+    transition: all .3s;
+}
+.dialog-body .step-3 h1{
+    margin-bottom: 20px;
+}
+.dialog-body .step-3 form{
+    margin: 20px 0;
+}
+.dialog-body .step-3 form>input{
+    width: 200px;
+    float: right;
+}
+.fa-times{
+    font-size: 30px;
+    color: #40A798;
+    position: absolute;
+    bottom: 10px;
+    right: 15px;
+    transition:  color .2s;
+}
+.fas:hover{
+    color: black!important;
+    cursor: pointer;
+}

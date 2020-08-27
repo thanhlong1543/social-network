@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mappers.relationshipMapper">
+	<resultMap type="relationshipVO" id="relationshipResult">
+	</resultMap>
+	
+	<select id="selectAll" resultMap="relationshipResult">
+		<![CDATA[
+			select * from relationship
+		]]>
+	</select>
+	<select id="selectOne" resultMap="relationshipResult" parameterType="int">
+		<![CDATA[
+			select * from relationship
+			where reid = #{reid}
+		]]>
+	</select>
+	<insert id="insert" parameterType="relationshipVO">
+		<![CDATA[
+			insert into relationship
+			(description,name)
+			values
+			(#{description}, #{name})
+		]]>
+	</insert>
+	
+	<update id="update " parameterType="relationshipVO">
+		<![CDATA[
+			update relationship set
+			description = #{description},
+			name = #{name}
+			where reid = #{reid}
+			
+		]]>
+	</update>
+	
+	<delete id="delete" parameterType="int">
+		<![CDATA[
+			delete from relationship 
+			where reid = #{reid}
+		]]>
+	</delete>
+
+</mapper>

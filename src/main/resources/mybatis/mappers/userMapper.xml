@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- create SQL Mapper-->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="mappers.userMapper"> <!-- like package -->
+	<!-- no need loop resultSet -->
+	<resultMap type="userVO" id="userResult">
+		<!-- <result property="bkid" column="bkid"/>-->
+	</resultMap>
+	<!-- make sql statement -->
+	
+	<!-- List<Book> books = selectAll -->
+	<select id="selectAll" resultMap="userResult"> <!-- mapper.bookMapper.selectAll -->
+		<![CDATA[
+			select * from user 
+		]]>
+	</select>
+	<select id="selectOne" resultMap="userResult" parameterType="int">
+		<![CDATA[
+			select * from user 
+			where userid = #{userid}
+		]]>
+	</select>
+	<insert id="insert" parameterType="userVO">
+		<![CDATA[
+			insert into user
+			(name,phone,email,password,isactive,roleid,userurl)
+			values
+			(#{name},#{phone},#{email},#{password},#{isactive},#{roleid},#{userurl})
+		]]>
+	</insert>
+	<update id="update" parameterType="userVO">
+		<![CDATA[
+			update user set
+			name=#{name},
+			phone=#{phone},
+			email=#{email},
+			password=#{password},
+			isactive=#{isactive},
+			roleid = #{roleid},
+			userurl = #{userurl}
+			where userid = #{userid}
+		]]>
+	</update>
+	<delete id="delete" parameterType="int">
+		
+			delete from user WHERE userid=#{userid}
+		
+	</delete>
+</mapper>
