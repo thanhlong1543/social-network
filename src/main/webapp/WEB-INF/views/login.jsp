@@ -25,7 +25,7 @@
                     <form:form id="form-signup" modelAttribute="login">
                         <h1>Sign up</h1>
                         <h2>New experiences</h2>
-                        <!-- <img src="logoblack.png" alt=""> -->
+                        <!--  <img src="resources/img/logoblack.png" alt="">  -->
                         <div>
                             <form:label path="email" for="email">Email</form:label>
                             <form:input type="text" path="email" id="email" ></form:input>
