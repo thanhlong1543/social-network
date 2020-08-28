@@ -31,17 +31,17 @@
 </head>
 <body>
 
-	<jsp:include page="/WEB-INF//views/decorators/header.jsp" />
+	<jsp:include page="/WEB-INF//views/user/decorators/header.jsp" />
 	<div id="page-contents">
     	<div class="container">
     		<div class="row">
-    				<jsp:include page="/WEB-INF/views/decorators/sidebarleft.jsp" />
+    				<jsp:include page="/WEB-INF/views/user/decorators/sidebarleft.jsp" />
     					<dec:body />
-    				<jsp:include page="/WEB-INF/views/decorators/sidebarright.jsp" />
+    				<jsp:include page="/WEB-INF/views/user/decorators/sidebarright.jsp" />
 			</div>
 		</div>
 	</div>
-	<jsp:include page="/WEB-INF//views/decorators/footer.jsp" />
+	<jsp:include page="/WEB-INF//views/user/decorators/footer.jsp" />
 	   
     <!--preloader-->
     <div id="spinner-wrapper">

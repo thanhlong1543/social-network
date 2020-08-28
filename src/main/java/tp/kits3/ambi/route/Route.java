@@ -8,7 +8,7 @@ public class Route {
 
     public static final String host = "/ambi";
     public static final String admin = "/admin";
-    public static final String home = "/home";
+    public static final String home = "/";
     public static final String friend = "/friend";
     public static final String login = "/login";
     public static final String logout = "/logout";
