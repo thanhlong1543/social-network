@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import tp.kits3.ambi.dao.AboutDao;
 import tp.kits3.ambi.dto.LoginDto;
+import tp.kits3.ambi.route.Route;
 
 /**
  * Handles requests for the application home page.
@@ -19,16 +20,28 @@ import tp.kits3.ambi.dto.LoginDto;
 @Controller
 public class HomeController {
 	@Autowired
-	AboutDao aboutDao;
+	private AboutDao aboutDao;
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
-	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Locale locale, Model model) {
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	public String login(Locale locale, Model model) {
 		model.addAttribute("login", new LoginDto());
 		return "login";
+	}
+	
+	@RequestMapping(value = Route.home, method = RequestMethod.GET)
+	public String home(Model model) {
+		model.addAttribute("routes.home", Route.getRoutes());
+		return "home/newsfeed";
+	}
+	
+	@RequestMapping(value = Route.friend, method = RequestMethod.GET)
+	public String friend(Model model) {
+		model.addAttribute("routes.home", Route.getRoutes());
+		return "home/friend";
 	}
 	
 }
