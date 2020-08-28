@@ -29,7 +29,6 @@
                         <div>
                             <form:label path="email" for="email">Email</form:label>
                             <form:input type="text" path="email" id="email" ></form:input>
-                            <form:errors path="email" cssClass="text-danger" />
                         </div>
                         <div>
                             <form:label path="password1">Password</form:label>
@@ -41,6 +40,8 @@
                         </div>
                         <input type="submit" value="Sign up" class="btn-general"  readonly>
                         
+                        <p id="alert-signup" class="text-alert">Please fill out the form</p>
+                            
                     </form:form>
                 </div>
                 <div class="step-2">
@@ -60,8 +61,14 @@
                             <label for="">Verify code</label>
                             <input type="text" pattern="[0-9]" placeholder="Verify code">
                         </div>
-                        <input type="submit" value="Verify" class="btn-general">
+                        <a id="verify-code" onclick="getCount()">Get code</a><input type="submit" value="Verify" class="btn-general">
                     </form>
+                    <div id="spin-container">
+                        <div id="loader">
+                        </div>
+
+                        <h1 id="count-display"></h1>
+                    </div>
                 </div>
             </div>
             <i class="fas fa-times"onclick="closeSignUpForm()"></i>
@@ -212,11 +219,44 @@
 				/*window.location.replace('http://localhost:8080/livedinner/menu');*/
             },
             error : function(e){
-				console.log("error"),
-				console.log(e.responseText)
+				$("#alert-signup").css("opacity","1");
+				setInterval(function(){
+					$("#alert-signup").css("opacity","0");
+				}, 5000);
             }
         });
     });
-    
+    function getCount(){
+        time = 9;
+        a = document.getElementById("verify-code");
+        x = document.getElementById("spin-container");
+        a.style.display = 'none';
+        y = document.getElementById("count-display");
+        count = setInterval(function(){
+
+            x.style.display = "inline-block";
+            y.innerHTML = time;
+            if (time > 0) time--;
+            else {
+                y.innerHTML = "";
+                clearInterval(count);
+                a.style.display = "inline-block";
+                x.style.display = "none";
+            }
+        }, 1000);
+        $.ajax({
+        	 contentType : 'application/json; charset=utf-8',
+             type: "POST",
+             url: "http://localhost:8080/ambi/api/sendmail",
+             success : function(callback){
+ 				console.log("success");
+ 				console.log(callback);
+ 				/*window.location.replace('http://localhost:8080/livedinner/menu');*/
+             },
+             error : function(e){
+             }
+        });
+        
+    }
 </script>
 </html>
