@@ -13,6 +13,7 @@ import tp.kits3.ambi.dao.GenericDao;
 public abstract class GenericDaoImpl<T> implements GenericDao<T>{
 	private SqlSessionFactory factory = null;
 	String mapper;
+	
 	public GenericDaoImpl(String mapper) {
 		this.mapper = mapper;
 	}
@@ -31,6 +32,7 @@ public abstract class GenericDaoImpl<T> implements GenericDao<T>{
 		}
 		return factory;
 	}
+	
 	@Override
 	public List<T> selectAll() {
 		SqlSession session = getInstance().openSession(); // your choice get return factory
