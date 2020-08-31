@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- create SQL Mapper-->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="mappers.tagMapper"> <!-- like package -->
+	<!-- no need loop resultSet -->
+	<resultMap type="tagVO" id="tagResult">
+		<!-- <result property="bkid" column="bkid"/>-->
+	</resultMap>
+	<!-- make sql statement -->
+	
+	<!-- List<Book> books = selectAll -->
+	<select id="selectAll" resultMap="tagResult"> <!-- mapper.bookMapper.selectAll -->
+		<![CDATA[
+			select * from tag 
+		]]>
+	</select>
+	<select id="selectOne" resultMap="tagResult" parameterType="int">
+		<![CDATA[
+			select * from tag 
+			where tagid = #{tagid}
+		]]>
+	</select>
+	<insert id="insert" parameterType="tagVO">
+		<![CDATA[
+			insert into tag
+			(postid,commentid,userid)
+			values
+			(#{postid},#{commentid},#{userId})
+		]]>
+	</insert>
+	<update id="update" parameterType="tagVO">
+		<![CDATA[
+			update tag set
+			postid=#{postid},
+			commentid=#{commentid},
+			userid=#{userId}
+			where tagid = #{tagid}
+		]]>
+	</update>
+	<delete id="delete" parameterType="int">
+		
+			delete from tag WHERE tagid=#{tagid}
+		
+	</delete>
+</mapper>
