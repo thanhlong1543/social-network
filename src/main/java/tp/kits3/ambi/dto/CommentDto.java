@@ -2,7 +2,7 @@ package tp.kits3.ambi.dto;
 
 import java.util.List;
 
-import tp.kits3.ambi.vo.Subcomment;
+import tp.kits3.ambi.vo.User;
 
 public class CommentDto {
 	private Integer commentId;
@@ -16,7 +16,15 @@ public class CommentDto {
 	private Integer postId;
 
 	private Boolean isdelete;
-	private List<Subcomment> subComments;
+	private List<SubCommentDto> subComments;
+	private User user;
+	
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
+	}
 	public Integer getCommentId() {
 		return commentId;
 	}
@@ -53,11 +61,11 @@ public class CommentDto {
 	public void setIsdelete(Boolean isdelete) {
 		this.isdelete = isdelete;
 	}
-	public List<Subcomment> getSubComments() {
+	public List<SubCommentDto> getSubComments() {
 		return subComments;
 	}
-	public void setSubComments(List<Subcomment> subComments) {
-		this.subComments = subComments;
+	public void setSubComments(List<SubCommentDto> subCommentDtos) {
+		this.subComments = subCommentDtos;
 	}
 	
 	

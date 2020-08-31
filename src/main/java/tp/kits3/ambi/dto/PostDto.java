@@ -2,6 +2,8 @@ package tp.kits3.ambi.dto;
 
 import java.util.List;
 
+import tp.kits3.ambi.vo.User;
+
 public class PostDto {
 	private Integer postId;
 
@@ -15,6 +17,14 @@ public class PostDto {
 
     private Integer privacyId;
 	private List<CommentDto> comments;
+	private User user;
+
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
+	}
 	public Integer getPostId() {
 		return postId;
 	}

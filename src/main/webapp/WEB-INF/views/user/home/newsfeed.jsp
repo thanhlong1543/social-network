@@ -39,12 +39,12 @@
 		<img src='<c:url value="resources/images/post-images/1.jpg"></c:url>'
 			alt="post-image" class="img-responsive post-image" />
 		<div class="post-container">
-			<img src='<c:url value="resources/images/users/user-5.jpg"></c:url>'
+			<img src='<c:url value="resources/albums/user/avt/${post.user.useravt}"></c:url>'
 				alt="user" class="profile-photo-md pull-left" />
 			<div class="post-detail">
 				<div class="user-info">
 					<h5>
-						<a href="timeline.html" class="profile-link">Alexis Clark</a> <span
+						<a href="timeline.html" class="profile-link">${post.user.name}</a> <span
 							class="following">following</span>
 					</h5>
 					<p class="text-muted">Published a photo about 3 mins ago</p>
@@ -65,20 +65,20 @@
 				<c:forEach items="${post.comments}" var="comment">
 					<div class="post-comment">
 					<img
-						src='<c:url value="resources/images/users/user-11.jpg"></c:url>'
+						src='<c:url value="resources/albums/user/avt/${comment.user.useravt}"></c:url>'
 						alt="" class="profile-photo-sm" />
 					<p>
-						<a href="timeline.html" class="profile-link">Diana </a><i
+						<a href="timeline.html" class="profile-link">${comment.user.name}</a><i
 							class="em em-laughing"></i> 
 						${comment.content}
 					</p>
 					<c:forEach items="${comment.subComments}" var="subcomment">
 						<div class="post-comment">
 							<img
-								src='<c:url value="resources/images/users/user-11.jpg"></c:url>'
+								src='<c:url value="resources/albums/user/avt/${subcomment.user.useravt}"></c:url>'
 								alt="" class="profile-photo-sm" />
 							<p>
-								<a href="timeline.html" class="profile-link">Diana </a><i
+								<a href="timeline.html" class="profile-link">${subcomment.user.name} </a><i
 									class="em em-laughing"></i>
 							${subcomment.content}					
 						</div>
