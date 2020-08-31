@@ -17,7 +17,12 @@
 		where postid = #{postid}
 		]]>
 	</select>
-	
+	<select id="selectByUserid" resultMap="postResult" parameterType="int">
+		<![CDATA[
+		select * from post
+		where userId = #{userid}
+		]]>
+	</select>
 	<insert id="insert" parameterType="postVO">
 		<![CDATA[
 			insert into post 

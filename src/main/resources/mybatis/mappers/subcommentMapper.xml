@@ -20,7 +20,13 @@
 	<select id="selectOne" resultMap="subcommentResult" parameterType="int">
 		<![CDATA[
 			select * from subcomment 
-			where subcommentid = #{subcommentid}
+			where subcommentId = #{subcommentid}
+		]]>
+	</select>
+	<select id="selectByCommentid" resultMap="subcommentResult" parameterType="int">
+		<![CDATA[
+			select * from subcomment 
+			where commentId = #{id}
 		]]>
 	</select>
 	<insert id="insert" parameterType="subcommentVO">
