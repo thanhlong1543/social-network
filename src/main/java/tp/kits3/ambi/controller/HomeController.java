@@ -27,10 +27,10 @@ public class HomeController {
 		return "user/home/newsfeed";
 	}
 	
-	@RequestMapping(value = Route.friend, method = RequestMethod.GET)
-	public String friend(Model model) {
-		model.addAttribute("routes", Route.getRoutes());
-		return "user/home/friend";
-	}
+//	@RequestMapping(value = Route.friend, method = RequestMethod.GET)
+//	public String friend(Model model) {
+//		model.addAttribute("routes", Route.getRoutes());
+//		return "user/home/friend";
+//	}
 	
 }

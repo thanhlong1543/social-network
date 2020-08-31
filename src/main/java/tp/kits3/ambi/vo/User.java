@@ -17,6 +17,10 @@ public class User {
     private Integer roleId;
 
     private String userUrl;
+    
+    private String useravt;
+    
+    private String userbgr;
 
     public Integer getUserId() {
         return userId;
@@ -81,7 +85,25 @@ public class User {
     public void setUserUrl(String userUrl) {
         this.userUrl = userUrl;
     }
-    public void CopyData(User param)
+    
+    
+    public String getUseravt() {
+		return useravt;
+	}
+
+	public void setUseravt(String useravt) {
+		this.useravt = useravt;
+	}
+
+	public String getUserbgr() {
+		return userbgr;
+	}
+
+	public void setUserbgr(String userbgr) {
+		this.userbgr = userbgr;
+	}
+
+	public void CopyData(User param)
     {
         this.userId = param.getUserId();
         this.name = param.getName();
@@ -91,5 +113,7 @@ public class User {
         this.isactive = param.getIsactive();
         this.roleId = param.getRoleId();
         this.userUrl = param.getUserUrl();
+        this.useravt = param.getUseravt();
+        this.userbgr = param.getUserbgr();
     }
 }

@@ -19,22 +19,28 @@
 	</select>
 	<select id="selectOne" resultMap="friendResult" parameterType="int">
 		<![CDATA[
-			select * from friend 
+			select * from friend
 			where friendid = #{id}
+		]]>
+	</select>
+	<select id="selectByUserId" resultMap="friendResult" parameterType="int">
+		<![CDATA[
+			select * from friend
+			where user1id = #{id}
 		]]>
 	</select>
 	<insert id="insert" parameterType="friendVO">
 		<![CDATA[
 			insert into friend
-			(use1id,user2id,reid)
+			(user1id,user2id,reid)
 			values
-			(#{use1Id},#{user2Id},#{reId})
+			(#{user1Id},#{user2Id},#{reId})
 		]]>
 	</insert>
 	<update id="update" parameterType="friendVO">
 		<![CDATA[
 			update friend set
-			use1id=#{use1Id},
+			user1id=#{user1Id},
 			user2id=#{user2Id},
 			reid=#{reId}
 			where friendid= #{friendId}

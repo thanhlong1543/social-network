@@ -4,7 +4,7 @@ public class Friend {
 
     private Integer friendId;
 
-    private Integer use1Id;
+    private Integer user1Id;
 
     private Integer user2Id;
 
@@ -18,12 +18,12 @@ public class Friend {
         this.friendId = friendId;
     }
 
-    public Integer getUse1Id() {
-        return use1Id;
+    public Integer getUser1Id() {
+        return user1Id;
     }
 
-    public void setUse1Id(Integer use1Id) {
-        this.use1Id = use1Id;
+    public void setUser1Id(Integer use1Id) {
+        this.user1Id = use1Id;
     }
 
     public Integer getUser2Id() {
@@ -45,7 +45,7 @@ public class Friend {
     public void CopyData(Friend param)
     {
         this.friendId = param.getFriendId();
-        this.use1Id = param.getUse1Id();
+        this.user1Id = param.getUser1Id();
         this.user2Id = param.getUser2Id();
         this.reId = param.getReId();
     }

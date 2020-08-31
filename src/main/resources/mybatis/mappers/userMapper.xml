@@ -23,12 +23,20 @@
 			where userid = #{userid}
 		]]>
 	</select>
+	<select id="selectListFriendById" resultMap="userResult" parameterType="int">
+		<![CDATA[
+			SELECT distinct user.name, user.useravt, user.userbgr, user.userid
+			FROM friend, user 
+			WHERE (friend.user1id = user.userid OR friend.user2id = user.userid) 
+			AND (friend.user1id = #{userid} OR friend.user2id = #{userid})
+		]]>
+	</select>
 	<insert id="insert" parameterType="userVO">
 		<![CDATA[
 			insert into user
-			(name,phone,email,password,isactive,roleid,userurl)
+			(name,phone,email,password,isactive,roleid,userurl,useravt,userbgr)
 			values
-			(#{name},#{phone},#{email},#{password},#{isactive},#{roleid},#{userurl})
+			(#{name},#{phone},#{email},#{password},#{isactive},#{roleid},#{userurl},#{useravt},#{userbgr})
 		]]>
 	</insert>
 	<update id="update" parameterType="userVO">
@@ -40,7 +48,9 @@
 			password=#{password},
 			isactive=#{isactive},
 			roleid = #{roleid},
-			userurl = #{userurl}
+			userurl = #{userurl},
+			useravt = #{useravt},
+			userbgr = #{userbgr}
 			where userid = #{userid}
 		]]>
 	</update>
