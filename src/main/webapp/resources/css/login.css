@@ -87,6 +87,7 @@ input:focus{
 }
 .bgr .form .tab-header .tab-action a:hover{
     color: rgba(255, 255, 255, 1);
+    cursor: pointer;
 }
 .bgr .form .tab-header #tab-indicator{
     position: absolute;
