@@ -5,5 +5,5 @@ import java.util.List;
 import tp.kits3.ambi.vo.User;
 
 public interface FriendService {
-	List<User> selectByUserId(int id);
+	List<User> selectByUserId(int id, int rela);
 }
