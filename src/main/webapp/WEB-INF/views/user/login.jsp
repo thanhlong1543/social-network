@@ -13,7 +13,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="shortcut icon" type="image/png" href="<c:url value='resources/img/icon.png'></c:url>"/>
+    <link rel="shortcut icon" type="image/png" href="<c:url value='resources/images/icon.png'></c:url>"/>
     <link rel="stylesheet" href="<c:url value='resources/css/login.css'></c:url>">
 </head>
 <body>
@@ -75,7 +75,7 @@
         </div>
     </div>
     <div class="bgr">
-        <img src="<c:url value='resources/img/logo.png'></c:url>" alt="">
+        <img src="<c:url value='resources/images/logoambi.png'></c:url>" alt="">
         <div class="form">
             <div class="tab-header">
                 <div class="tab-action">
@@ -175,7 +175,6 @@
     $("#form-signup").submit(function(e){
     	e.preventDefault();
     	form = $(this);
-    	console.log(form);
     	/* $.ajax({
     		url: "http://localhost:8080/ambi/api/signup",
     		type: "POST",
@@ -199,7 +198,6 @@
 			e.preventDefault();
  
 		    var data = {}
-		    var Form = this;
  			
 		    //Gather Data also remove undefined keys(buttons)
 		    $.each(this, function(i, v){
@@ -219,6 +217,8 @@
 				/*window.location.replace('http://localhost:8080/livedinner/menu');*/
             },
             error : function(e){
+            	
+            	console.log(e.responseJSON)
 				$("#alert-signup").css("opacity","1");
 				setInterval(function(){
 					$("#alert-signup").css("opacity","0");
@@ -250,7 +250,6 @@
              url: "http://localhost:8080/ambi/api/sendmail",
              success : function(callback){
  				console.log("success");
- 				console.log(callback);
  				/*window.location.replace('http://localhost:8080/livedinner/menu');*/
              },
              error : function(e){
