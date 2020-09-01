@@ -19,4 +19,20 @@ public class CommentServiceImpl implements CommentService {
 		return commentDao.selectByPostid(postId);
 	}
 
+	@Override
+	public void insert(Comment comment) {
+		commentDao.insert(comment);		
+	}
+
+	@Override
+	public void update(Comment comment) {
+		commentDao.update(comment);		
+	}
+
+	@Override
+	public void isdelete(int id, int i) {
+		commentDao.isdelete(id, i);
+		
+	}
+
 }

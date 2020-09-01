@@ -16,6 +16,7 @@ public class PostDto {
     private Integer userId;
 
     private Integer privacyId;
+    private Boolean isdelete;
 	private List<CommentDto> comments;
 	private User user;
 
@@ -66,6 +67,12 @@ public class PostDto {
 	}
 	public void setComments(List<CommentDto> comments) {
 		this.comments = comments;
+	}
+	public Boolean getIsdelete() {
+		return isdelete;
+	}
+	public void setIsdelete(Boolean isdelete) {
+		this.isdelete = isdelete;
 	}	
 	
 }

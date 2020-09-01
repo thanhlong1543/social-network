@@ -4,6 +4,9 @@ import org.springframework.stereotype.Component;
 
 import tp.kits3.ambi.dto.CommentDto;
 import tp.kits3.ambi.vo.Comment;
+/**
+ * @author Pham Thanh Tam
+ */
 @Component
 public class CommentConverter {
 	public CommentDto toDto(Comment vo) {

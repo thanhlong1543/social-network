@@ -13,6 +13,8 @@ public class Post {
     private Integer userId;
 
     private Integer privacyId;
+    
+    private Boolean isdelete;
 
     public Integer getPostId() {
         return postId;
@@ -62,13 +64,11 @@ public class Post {
         this.privacyId = privacyId;
     }
 
-    public void CopyData(Post param)
-    {
-        this.postId = param.getPostId();
-        this.content = param.getContent();
-        this.postDate = param.getPostDate();
-        this.totalLike = param.getTotalLike();
-        this.userId = param.getUserId();
-        this.privacyId = param.getPrivacyId();
-    }
+	public Boolean getIsdelete() {
+		return isdelete;
+	}
+
+	public void setIsdelete(Boolean isdelete) {
+		this.isdelete = isdelete;
+	}
 }

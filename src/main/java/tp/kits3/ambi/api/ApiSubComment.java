@@ -9,49 +9,42 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import tp.kits3.ambi.service.PostService;
-import tp.kits3.ambi.vo.Post;
-
+import tp.kits3.ambi.service.SubcommentService;
+import tp.kits3.ambi.vo.Subcomment;
 /**
  * @author Pham Thanh Tam
  */
 @RestController
-public class ApiPost {
+public class ApiSubComment {
 	@Autowired
-	PostService postService;
-
-	/* insert post */
-	@PostMapping("api/post")
-	public Object add(@RequestBody Post post) {
-		
+	SubcommentService subcommentService;
+	@PostMapping("api/subcomment")
+	public Object add(@RequestBody Subcomment subcomment) {	
 		try {
-			postService.insert(post);
-			return new ResponseEntity<Post>(post,HttpStatus.OK);
+			subcommentService.insert(subcomment);
+			return new ResponseEntity<Subcomment>(subcomment,HttpStatus.OK);
 		} catch (Exception e) {
 			return new ResponseEntity<>(HttpStatus.BAD_GATEWAY);
 		}
 		
 	}
-
-	/* update post */
-	@PutMapping("api/post")
-	public Object update(@RequestBody Post post) {
+	@PutMapping("api/subcomment")
+	public Object update(@RequestBody Subcomment subcomment) {
 		
 		try {
-			postService.update(post);
-			return new ResponseEntity<Post>(post,HttpStatus.OK);
+			subcommentService.update(subcomment);
+			return new ResponseEntity<Subcomment>(subcomment,HttpStatus.OK);
 		} catch (Exception e) {
 			return new ResponseEntity<>(HttpStatus.BAD_GATEWAY);
 		}
 		
 	}
-
-	/* delete post like set isdelete = 1 */
-	@PutMapping("api/post/{id}")
-	public Object delete(@PathVariable int id) {
+	@PutMapping("api/subcomment/{id}")
+	public Object isdelete(@PathVariable int id) {
+		
 		try {
-			postService.isdelete(id , 1);
-			return new ResponseEntity<String>("this is delete ",HttpStatus.OK);
+			subcommentService.isdelete(id, 1);
+			return new ResponseEntity<String>("this is delete",HttpStatus.OK);
 		} catch (Exception e) {
 			return new ResponseEntity<>(HttpStatus.BAD_GATEWAY);
 		}

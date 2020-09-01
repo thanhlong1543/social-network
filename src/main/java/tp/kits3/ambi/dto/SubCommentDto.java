@@ -10,7 +10,11 @@ public class SubCommentDto {
     private String commentDate;
 
     private Integer commentId;
+    
+    private boolean isdelete;
+    
 	private User user;
+	
 	public Integer getSubcommentId() {
 		return subcommentId;
 	}
@@ -40,6 +44,12 @@ public class SubCommentDto {
 	}
 	public void setUser(User user) {
 		this.user = user;
+	}
+	public boolean isIsdelete() {
+		return isdelete;
+	}
+	public void setIsdelete(boolean isdelete) {
+		this.isdelete = isdelete;
 	}
 
 

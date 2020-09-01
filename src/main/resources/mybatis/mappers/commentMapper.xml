@@ -33,9 +33,9 @@
 	<insert id="insert" parameterType="commentVO">
 		<![CDATA[
 			insert into comment
-			(content,commentdate,userid,postid,isdelete)
+			(content,commentdate,userid,postid,isdelete,remotion)
 			values
-			(#{content},#{commentDate},#{userId},#{postId},#{isdelete})
+			(#{content},#{commentDate},#{userId},#{postId},#{isdelete},#{remotion})
 		]]>
 	</insert>
 	<update id="update" parameterType="commentVO">
@@ -45,6 +45,14 @@
 			commentdate=#{commentDate},
 			userid=#{userId},
 			postid=#{postId},
+			isdelete=#{isdelete},
+			remotion=#{remotion}
+			where commentid = #{commentId}
+		]]>
+	</update>
+	<update id="isdelete" parameterType="map">
+		<![CDATA[
+			update comment set
 			isdelete=#{isdelete}
 			where commentid = #{commentId}
 		]]>

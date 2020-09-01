@@ -9,49 +9,42 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import tp.kits3.ambi.service.PostService;
-import tp.kits3.ambi.vo.Post;
-
+import tp.kits3.ambi.service.CommentService;
+import tp.kits3.ambi.vo.Comment;
 /**
  * @author Pham Thanh Tam
  */
 @RestController
-public class ApiPost {
+public class ApiComment {
 	@Autowired
-	PostService postService;
-
-	/* insert post */
-	@PostMapping("api/post")
-	public Object add(@RequestBody Post post) {
-		
+	CommentService commentService;
+	@PostMapping("api/comment")
+	public Object add(@RequestBody Comment comment) {	
 		try {
-			postService.insert(post);
-			return new ResponseEntity<Post>(post,HttpStatus.OK);
+			commentService.insert(comment);
+			return new ResponseEntity<Comment>(comment,HttpStatus.OK);
 		} catch (Exception e) {
 			return new ResponseEntity<>(HttpStatus.BAD_GATEWAY);
 		}
 		
 	}
-
-	/* update post */
-	@PutMapping("api/post")
-	public Object update(@RequestBody Post post) {
+	@PutMapping("api/comment")
+	public Object update(@RequestBody Comment comment) {
 		
 		try {
-			postService.update(post);
-			return new ResponseEntity<Post>(post,HttpStatus.OK);
+			commentService.update(comment);
+			return new ResponseEntity<Comment>(comment,HttpStatus.OK);
 		} catch (Exception e) {
 			return new ResponseEntity<>(HttpStatus.BAD_GATEWAY);
 		}
 		
 	}
-
-	/* delete post like set isdelete = 1 */
-	@PutMapping("api/post/{id}")
-	public Object delete(@PathVariable int id) {
+	@PutMapping("api/comment/{id}")
+	public Object isdelete(@PathVariable int id) {
+		
 		try {
-			postService.isdelete(id , 1);
-			return new ResponseEntity<String>("this is delete ",HttpStatus.OK);
+			commentService.isdelete(id, 1);
+			return new ResponseEntity<String>("this is delete",HttpStatus.OK);
 		} catch (Exception e) {
 			return new ResponseEntity<>(HttpStatus.BAD_GATEWAY);
 		}

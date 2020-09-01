@@ -4,6 +4,9 @@ import org.springframework.stereotype.Component;
 
 import tp.kits3.ambi.dto.SubCommentDto;
 import tp.kits3.ambi.vo.Subcomment;
+/**
+ * @author Pham Thanh Tam
+ */
 @Component
 public class SubCommentConverter {
 	public SubCommentDto toDto(Subcomment vo) {

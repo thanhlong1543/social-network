@@ -8,4 +8,6 @@ public interface CommentDao extends GenericDao<Comment>  {
 
 	List<Comment> selectByPostid(Integer postId);
 
+	void isdelete(int id, int i);
+
 }

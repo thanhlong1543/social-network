@@ -25,7 +25,7 @@
 						<li><a href="#"><i class="ion-ios-videocam"></i></a></li>
 						<li><a href="#"><i class="ion-map"></i></a></li>
 					</ul>
-					<button class="btn btn-primary pull-right">Publish</button>
+					<button class="btn btn-primary pull-right" onclick="insertPost()">Publish</button>
 				</div>
 			</div>
 		</div>
@@ -93,3 +93,18 @@
     </c:forEach>        
 	
 </div>
+<script>
+	function insertPost() {
+		 $.ajax({
+        	 contentType : 'application/json; charset=utf-8',
+             type: "POST",
+             url: "http://localhost:8080/ambi/api/sendmail",
+             success : function(callback){
+ 				console.log("success");
+ 				/*window.location.replace('http://localhost:8080/livedinner/menu');*/
+             },
+             error : function(e){
+             }
+        });
+	}	
+</script>
