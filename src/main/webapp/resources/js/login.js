@@ -57,8 +57,13 @@ var btns = document.getElementsByClassName("tab");
 		stepIndicator[0].style.left = "0";
 
     }
-    
-    
+
+$(document).ready(function() {
+  $.ajaxSetup({
+    headers: { 'Authorization':  localStorage.getItem('token')}
+	});
+});
+
     $("#form-signup").submit(function(e){
     	e.preventDefault();
     	form = $(this);
@@ -113,6 +118,41 @@ var btns = document.getElementsByClassName("tab");
             }
         });
     });
+$("#form-login").submit(function(e){
+    	e.preventDefault();
+    	form = $(this);
+ 
+			e.preventDefault();
+ 
+		    var data = {}
+ 			
+		    //Gather Data also remove undefined keys(buttons)
+		    $.each(this, function(i, v){
+		            var input = $(v);
+		        data[input.attr("name")] = input.val();
+		        delete data["undefined"];
+		    });
+			console.log(data);
+        $.ajax({
+            contentType : 'application/json; charset=utf-8',
+            type: "POST",
+            url: "http://localhost:8080/ambi/api/login",
+            data : JSON.stringify(data),
+            success : function(data){
+				localStorage.setItem('token', data);
+				window.location.replace('http://localhost:8080/ambi/');
+            },
+            error : function(e){
+            	console.log(e.responseJSON)
+				$("#alert-login").css("opacity","1");
+				setInterval(function(){
+					$("#alert-login").css("opacity","0");
+				}, 5000);
+            }
+        });
+    });
+
+
     function getCount(){
         time = 9;
         a = document.getElementById("verify-code");

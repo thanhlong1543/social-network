@@ -12,8 +12,11 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
-import tp.kits3.ambi.api.ApiError;
+import tp.kits3.ambi.util.ApiError;
 
+/** 
+ * @author Vu Thanh Long
+ */
 @ControllerAdvice
 public class CustomRestExceptionHandler extends ResponseEntityExceptionHandler {
 	

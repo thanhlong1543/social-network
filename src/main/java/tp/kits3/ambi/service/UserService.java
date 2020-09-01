@@ -1,7 +1,15 @@
 package tp.kits3.ambi.service;
 
+<<<<<<< src/main/java/tp/kits3/ambi/service/UserService.java
+import java.util.List;
+
+import tp.kits3.ambi.vo.Conversation;
 import tp.kits3.ambi.vo.User;
 
 public interface UserService {
+	List<User> selectAll();
 	User selectOne(int userId);
+	void update(User user);
+	void insert(User user);
+	void delete(int id);
 }

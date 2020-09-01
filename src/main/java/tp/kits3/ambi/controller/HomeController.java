@@ -1,28 +1,42 @@
 package tp.kits3.ambi.controller;
 
 
+<<<<<<< src/main/java/tp/kits3/ambi/controller/HomeController.java
+=======
 import java.util.List;
 
+>>>>>>> src/main/java/tp/kits3/ambi/controller/HomeController.java
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import tp.kits3.ambi.dao.UserDao;
 import tp.kits3.ambi.dto.LoginDto;
+<<<<<<< src/main/java/tp/kits3/ambi/controller/HomeController.java
+import tp.kits3.ambi.dto.SignupDto;
+=======
 import tp.kits3.ambi.dto.PostDto;
+>>>>>>> src/main/java/tp/kits3/ambi/controller/HomeController.java
 import tp.kits3.ambi.route.Route;
 import tp.kits3.ambi.service.PostService;
 
-/**
- * Handles requests for the application home page.
+/** 
+ * @author Vu Thanh Long
  */
 @Controller
 public class HomeController {
+<<<<<<< src/main/java/tp/kits3/ambi/controller/HomeController.java
+	
 	@Autowired
-	PostService postService;
-	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	private UserDao dao;
+	@Autowired
+	private PostService postService;
+	
+	@RequestMapping(value = Route.login, method = RequestMethod.GET)
 	public String login( Model model) {
+		model.addAttribute("signup", new SignupDto());
 		model.addAttribute("login", new LoginDto());
 		return "user/login";
 	}

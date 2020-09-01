@@ -23,6 +23,13 @@
 			where userid = #{userid}
 		]]>
 	</select>
+	<select id="selectByEmail" resultMap="userResult" parameterType="String">
+		<![CDATA[
+			select * from user 
+			where email = #{email}
+		]]>
+	</select>
+
 	<!-- _______________________________friend_________________________ -->
 	<select id="selectListFriendById" resultMap="userResult" parameterType="map">
 		<![CDATA[
@@ -38,7 +45,7 @@
 			insert into user
 			(name,phone,email,password,isactive,roleid,userurl,useravt,userbgr)
 			values
-			(#{name},#{phone},#{email},#{password},#{isactive},#{roleid},#{userurl},#{useravt},#{userbgr})
+			(#{name},#{phone},#{email},#{password},#{isactive},#{roleId},#{userUrl},#{useravt},#{userbgr})
 		]]>
 	</insert>
 	<update id="update" parameterType="userVO">
@@ -49,11 +56,11 @@
 			email=#{email},
 			password=#{password},
 			isactive=#{isactive},
-			roleid = #{roleid},
-			userurl = #{userurl},
+			roleid = #{roleId},
+			userurl = #{userUrl},
 			useravt = #{useravt},
 			userbgr = #{userbgr}
-			where userid = #{userid}
+			where userid = #{userId}
 		]]>
 	</update>
 	<delete id="delete" parameterType="int">

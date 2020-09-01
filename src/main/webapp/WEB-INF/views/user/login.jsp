@@ -13,8 +13,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="shortcut icon" type="image/png" href="<c:url value='resources/images/icon.png'></c:url>"/>
-    <link rel="stylesheet" href="<c:url value='resources/css/login.css'></c:url>">
+    <link rel="shortcut icon" type="image/png" href="<c:url value='images/icon.png'></c:url>"/>
+    <link rel="stylesheet" href="<c:url value='css/login.css'></c:url>">
 </head>
 <body>
     <div class="dialog-bgr">
@@ -22,10 +22,10 @@
             <div class="step-indicator"></div>
             <div class="dialog-body">
                 <div class="form-regist">
-                    <form:form id="form-signup" modelAttribute="login">
+                    <form:form id="form-signup" modelAttribute="signup">
                         <h1>Sign up</h1>
                         <h2>New experiences</h2>
-                        <%-- <img src="<c:url value='resources/img/logoblack.png'></c:url>" alt=""> --%> 
+                        <%-- <img src="<c:url value='img/logoblack.png'></c:url>" alt=""> --%> 
                         <div>
                             <form:label path="email" for="email">Email</form:label>
                             <form:input type="text" path="email" id="email" ></form:input>
@@ -75,7 +75,7 @@
         </div>
     </div>
     <div class="bgr">
-        <img src="<c:url value='resources/images/logoambi.png'></c:url>" alt="">
+        <img src="<c:url value='images/logoambi.png'></c:url>" alt="">
         <div class="form">
             <div class="tab-header">
                 <div class="tab-action">
@@ -87,23 +87,21 @@
             
             <div class="form-container">
                 <div class="signin-container">
-                    <form action="">
+                    <form:form id="form-login" modelAttribute="login">
                         <h1>Login</h1>
                         <h2>New experiences</h2>
                         <!-- <img src="logoblack.png" alt=""> -->
-                        <div>
-                            <label for="">Input your email</label>
-                            <input type="email" placeholder="Enter username">
+                         <div>
+                            <form:label path="email" >Input your email</form:label>
+                            <form:input path="email" type="text" ></form:input>
                         </div>
-                        <div>
-                            <label for="">Input your password</label>
-                            <input type="password" placeholder="Enter password">
+                       <div>
+                            <form:label path="password" placeholder="password">Input your password</form:label>
+                            <form:input path="password" type="password"></form:input>
                         </div>
-                        
-                        
                         <input type="submit" value="Sign in" class="btn-general">
         
-                    </form>
+                    </form:form>
                 </div>
                 
                 
@@ -116,5 +114,5 @@
     </div>
 </body>
 
-<script src="<c:url value='resources/js/login.js'></c:url>"></script>
+<script src="<c:url value='/js/login.js'></c:url>"></script>
 </html>
