@@ -9,10 +9,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import tp.kits3.ambi.dao.UserDao;
 import tp.kits3.ambi.dto.LoginDto;
-import tp.kits3.ambi.dto.SignupDto;
 import tp.kits3.ambi.dto.PostDto;
+import tp.kits3.ambi.dto.SignupDto;
 import tp.kits3.ambi.route.Route;
 import tp.kits3.ambi.service.PostService;
 
@@ -22,11 +21,12 @@ import tp.kits3.ambi.service.PostService;
 @Controller
 public class HomeController {
 	
-	@Autowired
-	private UserDao dao;
+
 	@Autowired
 	private PostService postService;
-	
+	/**
+	 *@author Vu Thanh Long
+	 */
 	@RequestMapping(value = Route.login, method = RequestMethod.GET)
 	public String login( Model model) {
 		model.addAttribute("signup", new SignupDto());

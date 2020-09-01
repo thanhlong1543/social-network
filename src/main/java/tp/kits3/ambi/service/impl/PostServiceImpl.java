@@ -97,11 +97,6 @@ public class PostServiceImpl implements PostService {
 	}
 
 	@Override
-	public void insert(Post post) {
-		postDao.insert(post);
-	}
-
-	@Override
 	public void update(Post post) {
 		postDao.update(post);		
 	}
@@ -109,6 +104,11 @@ public class PostServiceImpl implements PostService {
 	public void isdelete(int id, int i) {
 		postDao.isdelete(id , i);
 		
+	}
+
+	@Override
+	public void insert(Post post) {
+		postDao.insert(post);	
 	}
 
 

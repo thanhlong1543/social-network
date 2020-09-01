@@ -3,7 +3,6 @@ package tp.kits3.ambi.api;
 import java.util.Date;
 import java.util.Random;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.simplejavamail.api.email.Email;
