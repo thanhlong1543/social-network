@@ -35,6 +35,4 @@ public class PostDaoImpl extends GenericDaoImpl<Post> implements PostDao {
 		session.commit();
 		session.close();
 	}
-	
-
 }

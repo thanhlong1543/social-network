@@ -3,6 +3,7 @@ package tp.kits3.ambi.converter;
 import org.springframework.stereotype.Component;
 
 import tp.kits3.ambi.dto.PostDto;
+import tp.kits3.ambi.dto.PostFileDto;
 import tp.kits3.ambi.vo.Post;
 /**
  * @author Pham Thanh Tam
@@ -22,6 +23,17 @@ public class PostConverter {
 	}
 
 	public Post toVo(PostDto dto) {
+		Post vo = new Post();
+		vo.setPostId(vo.getPostId());
+		vo.setPrivacyId(vo.getPrivacyId());
+		vo.setPostDate(vo.getPostDate());
+		vo.setUserId(vo.getUserId());
+		vo.setTotalLike(vo.getTotalLike());
+		vo.setContent(vo.getContent());
+		vo.setIsdelete(vo.getIsdelete());
+		return vo;
+	}
+	public Post toVo(PostFileDto dto) {
 		Post vo = new Post();
 		vo.setPostId(vo.getPostId());
 		vo.setPrivacyId(vo.getPrivacyId());
