@@ -11,7 +11,7 @@
 			<div class="col-md-7 col-sm-7">
 				<div class="form-group">
 					<img
-						src='<c:url value="resources/images/users/user-1.jpg"></c:url>'
+						src='<c:url value="images/users/user-1.jpg"></c:url>'
 						alt="" class="profile-photo-md" />
 					<textarea name="texts" id="exampleTextarea" cols="30" rows="1"
 						class="form-control" placeholder="Write what you wish"></textarea>
@@ -36,10 +36,10 @@
             ================================================= -->
     <c:forEach items="${posts}" var="post">
     	<div class="post-content">
-		<img src='<c:url value="resources/images/post-images/1.jpg"></c:url>'
+		<img src='<c:url value="images/post-images/1.jpg"></c:url>'
 			alt="post-image" class="img-responsive post-image" />
 		<div class="post-container">
-			<img src='<c:url value="resources/albums/user/avt/${post.user.useravt}"></c:url>'
+			<img src='<c:url value="albums/user/avt/${post.user.useravt}"></c:url>'
 				alt="user" class="profile-photo-md pull-left" />
 			<div class="post-detail">
 				<div class="user-info">
@@ -65,7 +65,7 @@
 				<c:forEach items="${post.comments}" var="comment">
 					<div class="post-comment">
 					<img
-						src='<c:url value="resources/albums/user/avt/${comment.user.useravt}"></c:url>'
+						src='<c:url value="albums/user/avt/${comment.user.useravt}"></c:url>'
 						alt="" class="profile-photo-sm" />
 					<p>
 						<a href="timeline.html" class="profile-link">${comment.user.name}</a><i
@@ -75,7 +75,7 @@
 					<c:forEach items="${comment.subComments}" var="subcomment">
 						<div class="post-comment">
 							<img
-								src='<c:url value="resources/albums/user/avt/${subcomment.user.useravt}"></c:url>'
+								src='<c:url value="albums/user/avt/${subcomment.user.useravt}"></c:url>'
 								alt="" class="profile-photo-sm" />
 							<p>
 								<a href="timeline.html" class="profile-link">${subcomment.user.name} </a><i

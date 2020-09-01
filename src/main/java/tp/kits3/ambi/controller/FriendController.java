@@ -32,6 +32,7 @@ public class FriendController {
 		model.addAttribute("listPending", listPending);
 		return "user/home/pending";
 	}
+	
 //	@RequestMapping(value = Route.friend, method = RequestMethod.GET)
 //	public String getBlock(Model model) {
 //		

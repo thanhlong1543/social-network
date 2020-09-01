@@ -17,7 +17,6 @@ public class UserDaoImpl extends GenericDaoImpl<User> implements UserDao {
 		super("userMapper");
 	}
 	
-	public List<User> selectListFriendById(int id){
 	public List<User> selectListFriendById(int id, int rela){
 		SqlSession session = getInstance().openSession();
 		//List<User> list = session.selectList("mappers.userMapper.selectListFriendById", id, rela);
