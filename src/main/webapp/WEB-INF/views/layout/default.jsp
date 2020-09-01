@@ -16,10 +16,10 @@
 <title>News Feed | Check what your friends are doing</title>
 <!-- Stylesheets
     ================================================= -->
-<link rel="stylesheet" href='<c:url value="css/bootstrap.min.css"></c:url>' />
-<link rel="stylesheet" href="<c:url value="css/style.css"></c:url>" />
-<link rel="stylesheet" href="<c:url value="css/ionicons.min.css"></c:url>" />
-<link rel="stylesheet" href="<c:url value="css/font-awesome.min.css"></c:url>" />
+<link rel="stylesheet" href='<c:url value="/css/bootstrap.min.css"></c:url>' />
+<link rel="stylesheet" href="<c:url value="/css/style.css"></c:url>" />
+<link rel="stylesheet" href="<c:url value="/css/ionicons.min.css"></c:url>" />
+<link rel="stylesheet" href="<c:url value="/css/font-awesome.min.css"></c:url>" />
 <link href="<c:url value="css/emoji.css"></c:url>" rel="stylesheet">
 <!--Google Webfont-->
 <link
@@ -50,10 +50,10 @@
     <!-- Scripts
     ================================================= -->
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCTMXfmDn0VlqWIyoOxK8997L-amWbUPiQ&callback=initMap"></script>
-    <script src='<c:url value="js/jquery-3.1.1.min.js"></c:url>'></script>
-    <script src='<c:url value="js/bootstrap.min.js"></c:url>'></script>
-    <script src='<c:url value="js/jquery.sticky-kit.min.js"></c:url>'></script>
-    <script src='<c:url value="js/jquery.scrollbar.min.js"></c:url>'></script>
-    <script src='<c:url value="js/script.js"></c:url>'></script>
+    <script src='<c:url value="/js/jquery-3.1.1.min.js"></c:url>'></script>
+    <script src='<c:url value="/js/bootstrap.min.js"></c:url>'></script>
+    <script src='<c:url value="/js/jquery.sticky-kit.min.js"></c:url>'></script>
+    <script src='<c:url value="/js/jquery.scrollbar.min.js"></c:url>'></script>
+    <script src='<c:url value="/js/script.js"></c:url>'></script>
 </body>
 </html>

@@ -9,7 +9,7 @@
 		<div class="row">
 			<div class="col-md-7 col-sm-7">
 				<div class="form-group">
-					<img src="images/users/user-1.jpg" alt="" class="profile-photo-md" />
+					<img src="/images/users/user-1.jpg" alt="" class="profile-photo-md" />
 					<textarea name="texts" id="exampleTextarea" cols="30" rows="1"
 						class="form-control" placeholder="Write what you wish"></textarea>
 				</div>
@@ -40,7 +40,7 @@
 					class="nav nav-tabs contact-list scrollbar-wrapper scrollbar-outer">
 					<li class="active"><a href="#contact-1" data-toggle="tab">
 							<div class="contact">
-								<img src="images/users/user-2.jpg" alt=""
+								<img src="/images/users/user-2.jpg" alt=""
 									class="profile-photo-sm pull-left" />
 								<div class="msg-preview">
 									<h6>Linda Lohan</h6>
@@ -52,7 +52,7 @@
 					</a></li>
 					<li><a href="#contact-2" data-toggle="tab">
 							<div class="contact">
-								<img src="images/users/user-10.jpg" alt=""
+								<img src="/images/users/user-10.jpg" alt=""
 									class="profile-photo-sm pull-left" />
 								<div class="msg-preview">
 									<h6>Julia Cox</h6>
@@ -66,7 +66,7 @@
 					</a></li>
 					<li><a href="#contact-3" data-toggle="tab">
 							<div class="contact">
-								<img src="images/users/user-3.jpg" alt=""
+								<img src="/images/users/user-3.jpg" alt=""
 									class="profile-photo-sm pull-left" />
 								<div class="msg-preview">
 									<h6>Sophia Lee</h6>
@@ -80,7 +80,7 @@
 					</a></li>
 					<li><a href="#contact-4" data-toggle="tab">
 							<div class="contact">
-								<img src="images/users/user-4.jpg" alt=""
+								<img src="/images/users/user-4.jpg" alt=""
 									class="profile-photo-sm pull-left" />
 								<div class="msg-preview">
 									<h6>John Doe</h6>
@@ -92,7 +92,7 @@
 					</a></li>
 					<li><a href="#contact-5" data-toggle="tab">
 							<div class="contact">
-								<img src="images/users/user-9.jpg" alt=""
+								<img src="/images/users/user-9.jpg" alt=""
 									class="profile-photo-sm pull-left" />
 								<div class="msg-preview">
 									<h6>Anna Young</h6>
@@ -106,7 +106,7 @@
 					</a></li>
 					<li><a href="#contact-6" data-toggle="tab">
 							<div class="contact">
-								<img src="images/users/user-8.jpg" alt=""
+								<img src="/images/users/user-8.jpg" alt=""
 									class="profile-photo-sm pull-left" />
 								<div class="msg-preview">
 									<h6>Richard Bell</h6>
@@ -127,7 +127,7 @@
 					<div class="tab-pane active" id="contact-1">
 						<div class="chat-body">
 							<ul class="chat-message">
-								<li class="left"><img src="images/users/user-2.jpg" alt=""
+								<li class="left"><img src="/images/users/user-2.jpg" alt=""
 									class="profile-photo-sm pull-left" />
 									<div class="chat-item">
 										<div class="chat-item-header">
@@ -137,7 +137,7 @@
 										<p>Hi honey, how are you doing???? Long time no see. Where
 											have you been?</p>
 									</div></li>
-								<li class="right"><img src="images/users/user-1.jpg" alt=""
+								<li class="right"><img src="/images/users/user-1.jpg" alt=""
 									class="profile-photo-sm pull-right" />
 									<div class="chat-item">
 										<div class="chat-item-header">
@@ -146,7 +146,7 @@
 										</div>
 										<p>I have been on vacation</p>
 									</div></li>
-								<li class="right"><img src="images/users/user-1.jpg" alt=""
+								<li class="right"><img src="/images/users/user-1.jpg" alt=""
 									class="profile-photo-sm pull-right" />
 									<div class="chat-item">
 										<div class="chat-item-header">
@@ -158,7 +158,7 @@
 												class="em em-blush"></i>
 										</p>
 									</div></li>
-								<li class="left"><img src="images/users/user-2.jpg" alt=""
+								<li class="left"><img src="/images/users/user-2.jpg" alt=""
 									class="profile-photo-sm pull-left" />
 									<div class="chat-item">
 										<div class="chat-item-header">
@@ -169,7 +169,7 @@
 											that's cool I wish I were you <i class="em em-expressionless"></i>
 										</p>
 									</div></li>
-								<li class="right"><img src="images/users/user-1.jpg" alt=""
+								<li class="right"><img src="/images/users/user-1.jpg" alt=""
 									class="profile-photo-sm pull-right" />
 									<div class="chat-item">
 										<div class="chat-item-header">
@@ -180,7 +180,7 @@
 											<i class="em em-hand"></i>
 										</p>
 									</div></li>
-								<li class="left"><img src="images/users/user-2.jpg" alt=""
+								<li class="left"><img src="/images/users/user-2.jpg" alt=""
 									class="profile-photo-sm pull-left" />
 									<div class="chat-item">
 										<div class="chat-item-header">
@@ -195,7 +195,7 @@
 					<div class="tab-pane" id="contact-2">
 						<div class="chat-body">
 							<ul class="chat-message">
-								<li class="left"><img src="images/users/user-10.jpg" alt=""
+								<li class="left"><img src="/images/users/user-10.jpg" alt=""
 									class="profile-photo-sm pull-left" />
 									<div class="chat-item">
 										<div class="chat-item-header">
@@ -204,7 +204,7 @@
 										</div>
 										<p>Hi</p>
 									</div></li>
-								<li class="right"><img src="images/users/user-1.jpg" alt=""
+								<li class="right"><img src="/images/users/user-1.jpg" alt=""
 									class="profile-photo-sm pull-right" />
 									<div class="chat-item">
 										<div class="chat-item-header">
@@ -213,7 +213,7 @@
 										</div>
 										<p>hellow</p>
 									</div></li>
-								<li class="left"><img src="images/users/user-10.jpg" alt=""
+								<li class="left"><img src="/images/users/user-10.jpg" alt=""
 									class="profile-photo-sm pull-left" />
 									<div class="chat-item">
 										<div class="chat-item-header">
@@ -222,7 +222,7 @@
 										</div>
 										<p>good</p>
 									</div></li>
-								<li class="right"><img src="images/users/user-1.jpg" alt=""
+								<li class="right"><img src="/images/users/user-1.jpg" alt=""
 									class="profile-photo-sm pull-right" />
 									<div class="chat-item">
 										<div class="chat-item-header">
@@ -237,7 +237,7 @@
 					<div class="tab-pane" id="contact-3">
 						<div class="chat-body">
 							<ul class="chat-message">
-								<li class="right"><img src="images/users/user-1.jpg" alt=""
+								<li class="right"><img src="/images/users/user-1.jpg" alt=""
 									class="profile-photo-sm pull-right" />
 									<div class="chat-item">
 										<div class="chat-item-header">
@@ -250,7 +250,7 @@
 											exercitation ullamco laboris nisi ut aliquip ex ea commodo
 											consequat.</p>
 									</div></li>
-								<li class="left"><img src="images/users/user-3.jpg" alt=""
+								<li class="left"><img src="/images/users/user-3.jpg" alt=""
 									class="profile-photo-sm pull-left" />
 									<div class="chat-item">
 										<div class="chat-item-header">
@@ -260,7 +260,7 @@
 										<p>Lorem ipsum dolor sit amet, consectetur adipiscing
 											elit, sed do eiusmod tempor incididunt</p>
 									</div></li>
-								<li class="right"><img src="images/users/user-1.jpg" alt=""
+								<li class="right"><img src="/images/users/user-1.jpg" alt=""
 									class="profile-photo-sm pull-right" />
 									<div class="chat-item">
 										<div class="chat-item-header">
@@ -275,7 +275,7 @@
 					<div class="tab-pane" id="contact-4">
 						<div class="chat-body">
 							<ul class="chat-message">
-								<li class="left"><img src="images/users/user-4.jpg" alt=""
+								<li class="left"><img src="/images/users/user-4.jpg" alt=""
 									class="profile-photo-sm pull-left" />
 									<div class="chat-item">
 										<div class="chat-item-header">
@@ -295,7 +295,7 @@
 											debitis aut rerum necessitatibus saepe eveniet ut et
 											voluptates repudiandae sint et molestiae non recusandae.</p>
 									</div></li>
-								<li class="left"><img src="images/users/user-4.jpg" alt=""
+								<li class="left"><img src="/images/users/user-4.jpg" alt=""
 									class="profile-photo-sm pull-left" />
 									<div class="chat-item">
 										<div class="chat-item-header">
@@ -310,7 +310,7 @@
 					<div class="tab-pane" id="contact-5">
 						<div class="chat-body">
 							<ul class="chat-message">
-								<li class="left"><img src="images/users/user-9.jpg" alt=""
+								<li class="left"><img src="/images/users/user-9.jpg" alt=""
 									class="profile-photo-sm pull-left" />
 									<div class="chat-item">
 										<div class="chat-item-header">
@@ -324,7 +324,7 @@
 											voluptatem quia voluptas sit aspernatur aut odit aut fugit,
 											sed quia consequuntur magni dolores</p>
 									</div></li>
-								<li class="left"><img src="images/users/user-9.jpg" alt=""
+								<li class="left"><img src="/images/users/user-9.jpg" alt=""
 									class="profile-photo-sm pull-left" />
 									<div class="chat-item">
 										<div class="chat-item-header">
@@ -336,7 +336,7 @@
 											aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
 											architecto beatae vitae dicta sunt explicabo.</p>
 									</div></li>
-								<li class="right"><img src="images/users/user-1.jpg" alt=""
+								<li class="right"><img src="/images/users/user-1.jpg" alt=""
 									class="profile-photo-sm pull-right" />
 									<div class="chat-item">
 										<div class="chat-item-header">
@@ -351,7 +351,7 @@
 					<div class="tab-pane" id="contact-6">
 						<div class="chat-body">
 							<ul class="chat-message">
-								<li class="left"><img src="images/users/user-8.jpg" alt=""
+								<li class="left"><img src="/images/users/user-8.jpg" alt=""
 									class="profile-photo-sm pull-left" />
 									<div class="chat-item">
 										<div class="chat-item-header">
@@ -360,7 +360,7 @@
 										</div>
 										<p>Hello</p>
 									</div></li>
-								<li class="left"><img src="images/users/user-8.jpg" alt=""
+								<li class="left"><img src="/images/users/user-8.jpg" alt=""
 									class="profile-photo-sm pull-left" />
 									<div class="chat-item">
 										<div class="chat-item-header">
@@ -369,7 +369,7 @@
 										</div>
 										<p>Hi</p>
 									</div></li>
-								<li class="left"><img src="images/users/user-8.jpg" alt=""
+								<li class="left"><img src="/images/users/user-8.jpg" alt=""
 									class="profile-photo-sm pull-left" />
 									<div class="chat-item">
 										<div class="chat-item-header">
@@ -378,7 +378,7 @@
 										</div>
 										<p>Hey</p>
 									</div></li>
-								<li class="left"><img src="images/users/user-8.jpg" alt=""
+								<li class="left"><img src="/images/users/user-8.jpg" alt=""
 									class="profile-photo-sm pull-left" />
 									<div class="chat-item">
 										<div class="chat-item-header">

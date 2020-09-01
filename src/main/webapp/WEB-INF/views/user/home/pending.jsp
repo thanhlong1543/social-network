@@ -17,7 +17,7 @@
 										<a class="btn btn-del del-friend">Del</a>
 								</div>
 							</div>
-							<img src='<c:url value="resources//albums/user/avt/${item.useravt }"></c:url>' alt="user" class="pending-img" />
+							<img src='<c:url value="/albums/user/avt/${item.useravt }"></c:url>' alt="user" class="pending-img" />
 							<a href="#" class="pending-name">${item.name }</a>
 							<input type="hidden" class="id-user" value="${item.userId }">
 						</div>

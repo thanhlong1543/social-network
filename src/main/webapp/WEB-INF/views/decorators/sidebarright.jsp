@@ -7,7 +7,7 @@
 	<div class="suggestions" id="sticky-sidebar">
 		<h4 class="grey">Who to Follow</h4>
 		<div class="follow-user">
-			<img src='<c:url value="images/users/user-11.jpg"></c:url>' alt=""
+			<img src='<c:url value="/images/users/user-11.jpg"></c:url>' alt=""
 				class="profile-photo-sm pull-left" />
 			<div>
 				<h5>
@@ -17,7 +17,7 @@
 			</div>
 		</div>
 		<div class="follow-user">
-			<img src="images/users/user-12.jpg" alt=""
+			<img src="/images/users/user-12.jpg" alt=""
 				class="profile-photo-sm pull-left" />
 			<div>
 				<h5>
@@ -27,7 +27,7 @@
 			</div>
 		</div>
 		<div class="follow-user">
-			<img src="images/users/user-13.jpg" alt=""
+			<img src="/images/users/user-13.jpg" alt=""
 				class="profile-photo-sm pull-left" />
 			<div>
 				<h5>
@@ -37,7 +37,7 @@
 			</div>
 		</div>
 		<div class="follow-user">
-			<img src="images/users/user-14.jpg" alt=""
+			<img src="/images/users/user-14.jpg" alt=""
 				class="profile-photo-sm pull-left" />
 			<div>
 				<h5>
@@ -47,7 +47,7 @@
 			</div>
 		</div>
 		<div class="follow-user">
-			<img src="images/users/user-15.jpg" alt=""
+			<img src="/images/users/user-15.jpg" alt=""
 				class="profile-photo-sm pull-left" />
 			<div>
 				<h5>

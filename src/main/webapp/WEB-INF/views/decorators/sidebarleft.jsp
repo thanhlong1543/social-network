@@ -3,7 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <div class="col-md-3 static">
 	<div class="profile-card">
-		<img src='<c:url value="images/users/user-1.jpg"></c:url>'
+		<img src='<c:url value="/images/users/user-1.jpg"></c:url>'
 			alt="user" class="profile-photo" />
 		<h5>
 			<a href="timeline.html" class="text-white">Sarah Cruiz</a>
@@ -43,31 +43,31 @@
 		<div class="title">Chat online</div>
 		<ul class="online-users list-inline">
 			<li><a href="newsfeed-messages.html" title="Linda Lohan"><img
-					src='<c:url value="images/users/user-2.jpg"></c:url>' alt="user"
+					src='<c:url value="/images/users/user-2.jpg"></c:url>' alt="user"
 					class="img-responsive profile-photo" /><span class="online-dot"></span></a></li>
 			<li><a href="newsfeed-messages.html" title="Sophia Lee"><img
-					src="images/users/user-3.jpg" alt="user"
+					src="/images/users/user-3.jpg" alt="user"
 					class="img-responsive profile-photo" /><span class="online-dot"></span></a></li>
 			<li><a href="newsfeed-messages.html" title="John Doe"><img
-					src="images/users/user-4.jpg" alt="user"
+					src="/images/users/user-4.jpg" alt="user"
 					class="img-responsive profile-photo" /><span class="online-dot"></span></a></li>
 			<li><a href="newsfeed-messages.html" title="Alexis Clark"><img
-					src="images/users/user-5.jpg" alt="user"
+					src="/images/users/user-5.jpg" alt="user"
 					class="img-responsive profile-photo" /><span class="online-dot"></span></a></li>
 			<li><a href="newsfeed-messages.html" title="James Carter"><img
-					src="images/users/user-6.jpg" alt="user"
+					src="/images/users/user-6.jpg" alt="user"
 					class="img-responsive profile-photo" /><span class="online-dot"></span></a></li>
 			<li><a href="newsfeed-messages.html" title="Robert Cook"><img
-					src="images/users/user-7.jpg" alt="user"
+					src="/images/users/user-7.jpg" alt="user"
 					class="img-responsive profile-photo" /><span class="online-dot"></span></a></li>
 			<li><a href="newsfeed-messages.html" title="Richard Bell"><img
-					src="images/users/user-8.jpg" alt="user"
+					src="/images/users/user-8.jpg" alt="user"
 					class="img-responsive profile-photo" /><span class="online-dot"></span></a></li>
 			<li><a href="newsfeed-messages.html" title="Anna Young"><img
-					src="images/users/user-9.jpg" alt="user"
+					src="/images/users/user-9.jpg" alt="user"
 					class="img-responsive profile-photo" /><span class="online-dot"></span></a></li>
 			<li><a href="newsfeed-messages.html" title="Julia Cox"><img
-					src="images/users/user-10.jpg" alt="user"
+					src="/images/users/user-10.jpg" alt="user"
 					class="img-responsive profile-photo" /><span class="online-dot"></span></a></li>
 		</ul>
 	</div>
