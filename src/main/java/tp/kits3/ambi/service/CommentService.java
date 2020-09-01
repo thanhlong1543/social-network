@@ -8,4 +8,10 @@ public interface CommentService {
 
 	List<Comment> selectByPostid(Integer postId);
 
+	void insert(Comment comment);
+
+	void update(Comment comment);
+
+	void isdelete(int id, int i);
+
 }

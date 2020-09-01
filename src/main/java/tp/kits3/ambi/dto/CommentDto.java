@@ -16,7 +16,11 @@ public class CommentDto {
 	private Integer postId;
 
 	private Boolean isdelete;
+	
+	private String remotion;
+	
 	private List<SubCommentDto> subComments;
+	
 	private User user;
 	
 	public User getUser() {
@@ -67,7 +71,10 @@ public class CommentDto {
 	public void setSubComments(List<SubCommentDto> subCommentDtos) {
 		this.subComments = subCommentDtos;
 	}
-	
-	
-
+	public String getRemotion() {
+		return remotion;
+	}
+	public void setRemotion(String remotion) {
+		this.remotion = remotion;
+	}
 }

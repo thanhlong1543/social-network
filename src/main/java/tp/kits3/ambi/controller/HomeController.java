@@ -26,7 +26,9 @@ public class HomeController {
 		model.addAttribute("login", new LoginDto());
 		return "user/login";
 	}
-	
+	/**
+	 *@author Pham Thanh Tam
+	 */
 	@RequestMapping(value = Route.home, method = RequestMethod.GET)
 	public String home(Model model) {
 		int userId = 1;

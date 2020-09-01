@@ -12,5 +12,11 @@ public interface PostService {
 	List<Post> selectByUserid(int userId);
 
 	List<PostDto> selectPostInfoByUserid(int userId);
+
+	void insert(Post post);
+
+	void update(Post post);
+
+	void isdelete(int id, int i);
 	
 }

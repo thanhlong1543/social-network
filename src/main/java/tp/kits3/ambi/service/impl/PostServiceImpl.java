@@ -63,21 +63,53 @@ public class PostServiceImpl implements PostService {
 				List<SubCommentDto> subCommentDtos = new ArrayList<SubCommentDto>();
 				List<Subcomment> subcomments = subcommentDao.selectByCommentid(comment.getCommentId());
 				for (Subcomment subcomment : subcomments) {
+					/* transfer from subCommentVO to subCommentDto */
 					SubCommentDto subCommentDto = subCommentConverter.toDto(subcomment);
+					
+					/* add user write subCmt to subCommentDto */
 					subCommentDto.setUser(user);
+					
+					/* add subCommnetDto to subcommentDtos List */
 					subCommentDtos.add(subCommentDto);
 				}
 				CommentDto commentDto = commentConverter.toDto(comment);
 				User commentUser = userDao.selectOne(commentDto.getUserId());
+				
+				/* add  SubCommentDto list to commentDto */
 				commentDto.setSubComments(subCommentDtos);
+				
+				/* add User write Comment to commentDto */
 				commentDto.setUser(commentUser);
+				
+				/* add commentDto to commentDto list */
 				commentDtos.add(commentDto);
 			}
+			/* add commentDtos list to postDto */
 			postDto.setComments(commentDtos);
+			
+			/* add user write post to postDto */
 			postDto.setUser(user);
+			
+			/* add postDto to postDtos list */
 			postDtos.add(postDto);
 		}
 		return postDtos;
 	}
+
+	@Override
+	public void insert(Post post) {
+		postDao.insert(post);
+	}
+
+	@Override
+	public void update(Post post) {
+		postDao.update(post);		
+	}
+	@Override
+	public void isdelete(int id, int i) {
+		postDao.isdelete(id , i);
+		
+	}
+
 
 }

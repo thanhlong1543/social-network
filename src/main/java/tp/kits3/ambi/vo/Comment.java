@@ -13,6 +13,8 @@ public class Comment {
     private Integer postId;
 
     private Boolean isdelete;
+    
+    private String remotion;
 
     public Integer getCommentId() {
         return commentId;
@@ -61,13 +63,13 @@ public class Comment {
     public void setIsdelete(Boolean isdelete) {
         this.isdelete = isdelete;
     }
-    public void CopyData(Comment param)
-    {
-        this.commentId = param.getCommentId();
-        this.content = param.getContent();
-        this.commentDate = param.getCommentDate();
-        this.userId = param.getUserId();
-        this.postId = param.getPostId();
-        this.isdelete = param.getIsdelete();
-    }
+
+	public String getRemotion() {
+		return remotion;
+	}
+
+	public void setRemotion(String emotion) {
+		this.remotion = emotion;
+	}
+   
 }

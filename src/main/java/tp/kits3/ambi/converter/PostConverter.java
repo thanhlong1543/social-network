@@ -4,6 +4,9 @@ import org.springframework.stereotype.Component;
 
 import tp.kits3.ambi.dto.PostDto;
 import tp.kits3.ambi.vo.Post;
+/**
+ * @author Pham Thanh Tam
+ */
 @Component
 public class PostConverter {
 	public PostDto toDto(Post vo) {
@@ -14,6 +17,7 @@ public class PostConverter {
 		dto.setUserId(vo.getUserId());
 		dto.setTotalLike(vo.getTotalLike());
 		dto.setContent(vo.getContent());
+		dto.setIsdelete(vo.getIsdelete());
 		return dto;
 	}
 
@@ -25,6 +29,7 @@ public class PostConverter {
 		vo.setUserId(vo.getUserId());
 		vo.setTotalLike(vo.getTotalLike());
 		vo.setContent(vo.getContent());
+		vo.setIsdelete(vo.getIsdelete());
 		return vo;
 	}
 }

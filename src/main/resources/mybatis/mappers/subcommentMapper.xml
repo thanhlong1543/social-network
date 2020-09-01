@@ -20,7 +20,7 @@
 	<select id="selectOne" resultMap="subcommentResult" parameterType="int">
 		<![CDATA[
 			select * from subcomment 
-			where subcommentId = #{subcommentid}
+			where subcommentid = #{subcommentId}
 		]]>
 	</select>
 	<select id="selectByCommentid" resultMap="subcommentResult" parameterType="int">
@@ -32,18 +32,27 @@
 	<insert id="insert" parameterType="subcommentVO">
 		<![CDATA[
 			insert into subcomment
-			(content,commentdate,commentid)
+			(content,commentdate,commentid,remotion,isdelete)
 			values
-			(#{content},#{commentdate},#{commentid})
+			(#{content},#{commentDate},#{commentId},#{remotion},#{isdelete})
 		]]>
 	</insert>
 	<update id="update" parameterType="subcommentVO">
 		<![CDATA[
 			update subcomment set
 			content=#{content},
-			commentdate=#{commentdate},
-			commentid=#{commentid},
-			where subcommentid = #{subcommentid}
+			commentdate=#{commentDate},
+			commentid=#{commentId},
+			remotion=#{remotion},
+			isdelete=#{isdelete}
+			where subcommentid = #{subcommentId}
+		]]>
+	</update>
+	<update id="isdelete" parameterType="map">
+		<![CDATA[
+			update subcomment set
+			isdelete=#{isdelete}
+			where subcommentid = #{subcommentId}
 		]]>
 	</update>
 	<delete id="delete" parameterType="int">
