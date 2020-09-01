@@ -40,4 +40,10 @@ public class FriendServiceImpl implements FriendService {
 	public void updateFriend(Friend friend) {
 		friendDaoImpl.update(friend);
 		
-	}}
+	}
+
+	@Override
+	public void deleteFriend(int id) {
+		friendDaoImpl.delete(id);
+	}
+}

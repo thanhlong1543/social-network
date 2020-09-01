@@ -175,15 +175,21 @@ $.each($(".accept-friend"), function(idx){
 		acceptFriend($(".id-user")[idx].value, idx);
 	});
 });
+function itemFriendAnimation(idx){
+	$(".pending-card")[idx].style.margin =  '-50px';
+	$(".pending-card")[idx].style.opacity = '0';
+	$(".pending-card")[idx].style.transition = 'all .4s';
+	$(".pending-card")[idx].style.display = 'none';
+}
 function acceptFriend(id, idx) {
 			$.ajax({
 				url : "http://localhost:8080/ambi/api/pending/accept/"+id,
     			type : "GET",
     			success : function(noti) {
 					$(".pending-card")[idx].style.margin =  '-50px';
-					$(".pending-card")[idx].style.opacity = '0';
-					$(".pending-card")[idx].style.transition = 'all .4s';
-					$(".pending-card")[idx].style.display = 'none';
+	$(".pending-card")[idx].style.opacity = '0';
+	$(".pending-card")[idx].style.transition = 'all .4s';
+	$(".pending-card")[idx].style.display = 'none';
 					idx--;
 				//window.location.href = "http://localhost:8080/ambi/pending"; 
     			}
@@ -192,24 +198,24 @@ function acceptFriend(id, idx) {
 //end func accept friend
 
 //function del friend
-$.each($(".del-friend"), function(idx){
-	$(".del-friend")[idx].addEventListener('click', function(){
-		acceptFriend($(".id-user")[idx].value, idx);
+$.each($(".deny-friend"), function(idx){
+	$(".deny-friend")[idx].addEventListener('click', function(){
+		denyFriend($(".id-user")[idx].value, idx);
 	});
 });
-function acceptFriend(id, idx) {
+function denyFriend(id, idx) {
 			$.ajax({
-				url : "http://localhost:8080/ambi/api/pending/accept/"+id,
+				url : "http://localhost:8080/ambi/api/pending/delete/"+id,
     			type : "GET",
     			success : function(noti) {
-					$(".pending-card")[idx].style.margin =  '-50px';
-					$(".pending-card")[idx].style.opacity = '0';
-					$(".pending-card")[idx].style.transition = 'all .4s';
-					$(".pending-card")[idx].style.display = 'none';
+					itemFriendAnimation(idx);
 					idx--;
 				//window.location.href = "http://localhost:8080/ambi/pending"; 
     			}
 			});
 		}
 //function del friend
-		
+
+//searching friend
+
+//searching friend

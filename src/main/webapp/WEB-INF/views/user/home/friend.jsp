@@ -8,7 +8,7 @@
 	<div class="create-post">
 		<div class="row">
 			<div class="col-md-7 col-sm-7">
-				<div class="form-group">
+				<div class="form-group search-friend">
 					<img src='<c:url value="images/users/user-1.jpg" ></c:url>' alt="" class="profile-photo-md" />
 					<textarea name="texts" id="exampleTextarea" cols="30" rows="1"
 						class="form-control" placeholder="Write what you wish"></textarea>
@@ -22,19 +22,27 @@
 						<li><a href="#"><i class="ion-ios-videocam"></i></a></li>
 						<li><a href="#"><i class="ion-map"></i></a></li>
 					</ul>
-					<button class="btn btn-primary pull-right">Publish</button>
+					<button class="btn btn-primary">Publish</button>
 				</div>
 			</div>
 		</div>
 	</div>
+	<form class="row">
+  		<div class="form-group col-md-6 col-sm-12">
+    		<input type="text" class="form-control " id="search-friend" placeholder="Search friend...">
+    		
+  		</div>
+  		
+	</form>  
 	<!-- Post Create Box End -->
 
 	<!-- Friend List
             ================================================= -->
 	<div class="friend-list">
-		<div class="row">
+		<div class="row" id="item-friend">
 			<c:forEach items="${listFriends }" var="item">
 			<div class="col-md-6 col-sm-6">
+				<input type="text" value="${item.name}">
 				<div class="friend-card">
 					<img src='<c:url value="images/covers/1.jpg"></c:url>' alt="profile-cover"
 						class="img-responsive cover" />
@@ -44,7 +52,7 @@
 						<div class="friend-info">
 							<a href="#" class="pull-right text-green">My Friend</a>
 							<h5>
-								<a href="timeline.html" class="profile-link">${item.name} </a>
+								<a href="timeline.html" class="profile-link" id="friend-name">${item.name} </a>
 							</h5>
 							<p>Student at Harvard</p>
 						</div>
@@ -52,8 +60,7 @@
 				</div>
 			</div>
 			</c:forEach>
-			
-			
+
 		</div>
 	</div>
 </div>

@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import tp.kits3.ambi.route.Route;
 import tp.kits3.ambi.service.impl.FriendServiceImpl;
-import tp.kits3.ambi.vo.Friend;
 import tp.kits3.ambi.vo.User;
 
 @Controller
