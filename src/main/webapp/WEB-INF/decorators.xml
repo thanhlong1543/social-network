@@ -4,8 +4,11 @@
         <pattern>/login</pattern>
         <pattern>/api/**</pattern>
     </excludes>
-    <decorator name="default" page="default.jsp">
-        <pattern>/*</pattern>
+    <decorator name="user" page="default.jsp">
+        <pattern>/**</pattern>
+    </decorator>
+    <decorator name="admin" page="admin.jsp">
+        <pattern>/admin/**</pattern>
     </decorator>
     
 </decorators>
