@@ -1,4 +1,4 @@
-package tp.kits3.ambi.api;
+package tp.kits3.ambi.util;
 
 import java.util.Arrays;
 import java.util.List;

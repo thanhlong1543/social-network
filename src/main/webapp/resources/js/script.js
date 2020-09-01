@@ -1,6 +1,9 @@
 'use strict'
 
 //Preloader
+$.ajaxSetup({
+    headers: { 'Authorization':  localStorage.getItem('token')}
+});
 var preloader = $('#spinner-wrapper');
 $(window).on('load', function() {
     var preloaderFadeOutTime = 500;

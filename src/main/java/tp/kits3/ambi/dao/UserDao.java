@@ -7,4 +7,5 @@ import tp.kits3.ambi.vo.User;
 
 public interface UserDao extends GenericDao<User> {
 	public List<User> selectListFriendById(int id);
+	User selectByEmail(String email);
 }

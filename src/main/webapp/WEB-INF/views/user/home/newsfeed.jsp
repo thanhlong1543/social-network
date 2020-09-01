@@ -35,10 +35,10 @@
 	<!-- Post Content
             ================================================= -->
 	<div class="post-content">
-		<img src='<c:url value="resources/images/post-images/1.jpg"></c:url>'
+		<img src='<c:url value="images/post-images/1.jpg"></c:url>'
 			alt="post-image" class="img-responsive post-image" />
 		<div class="post-container">
-			<img src='<c:url value="resources/images/users/user-5.jpg"></c:url>'
+			<img src='<c:url value="images/users/user-5.jpg"></c:url>'
 				alt="user" class="profile-photo-md pull-left" />
 			<div class="post-detail">
 				<div class="user-info">
@@ -69,7 +69,7 @@
 				<div class="line-divider"></div>
 				<div class="post-comment">
 					<img
-						src='<c:url value="resources/images/users/user-11.jpg"></c:url>'
+						src='<c:url value="images/users/user-11.jpg"></c:url>'
 						alt="" class="profile-photo-sm" />
 					<p>
 						<a href="timeline.html" class="profile-link">Diana </a><i
@@ -81,7 +81,7 @@
 				</div>
 				<div class="post-comment">
 					<img
-						src='<c:url value="resources/images/users/user-4.jpg"></c:url>'
+						src='<c:url value="images/users/user-4.jpg"></c:url>'
 						alt="" class="profile-photo-sm" />
 					<p>
 						<a href="timeline.html" class="profile-link">John</a> Lorem ipsum
@@ -92,7 +92,7 @@
 				</div>
 				<div class="post-comment">
 					<img
-						src='<c:url value="resources/images/users/user-1.jpg"></c:url>'
+						src='<c:url value="images/users/user-1.jpg"></c:url>'
 						alt="" class="profile-photo-sm" /> <input type="text"
 						class="form-control" placeholder="Post a comment">
 				</div>

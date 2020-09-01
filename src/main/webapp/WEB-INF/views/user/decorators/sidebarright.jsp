@@ -7,7 +7,7 @@
 	<div class="suggestions" id="sticky-sidebar">
 		<h4 class="grey">Who to Follow</h4>
 		<div class="follow-user">
-			<img src='<c:url value="resources/images/users/user-11.jpg"></c:url>' alt=""
+			<img src='<c:url value="images/users/user-11.jpg"></c:url>' alt=""
 				class="profile-photo-sm pull-left" />
 			<div>
 				<h5>

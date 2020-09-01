@@ -14,11 +14,19 @@ public class UserDaoImpl extends GenericDaoImpl<User> implements UserDao {
 	public UserDaoImpl() {
 		super("userMapper");
 	}
+	
 	public List<User> selectListFriendById(int id){
 		SqlSession session = getInstance().openSession();
 		List<User> list = session.selectList("mappers.userMapper.selectListFriendById", id);
 		session.close();
 		return list;
+	}
+	
+	public User selectByEmail(String email) {
+		SqlSession session = getInstance().openSession();
+		User user = session.selectOne("mappers.userMapper.selectByEmail", email);
+		session.close();
+		return user;
 	}
 	
 	
