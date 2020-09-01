@@ -87,7 +87,6 @@ $(document).ready(function() {
     		},
     		
     	}); */
-			e.preventDefault();
  
 		    var data = {}
  			

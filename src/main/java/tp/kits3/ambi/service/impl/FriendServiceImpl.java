@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import tp.kits3.ambi.dao.FriendDao;
 import tp.kits3.ambi.dao.UserDao;
 import tp.kits3.ambi.service.FriendService;
+import tp.kits3.ambi.vo.Friend;
 import tp.kits3.ambi.vo.User;
 
 @Service
@@ -28,4 +29,15 @@ public class FriendServiceImpl implements FriendService {
 		}
 		System.err.println(listFriend.size());
 		return listFriend;
+	}
+
+	@Override
+	public Friend getIdFriendByTwoUsersId(int id1, int id2) {
+		return friendDaoImpl.getIdFriendByTwoUsersId(id1, id2);
+	}
+
+	@Override
+	public void updateFriend(Friend friend) {
+		friendDaoImpl.update(friend);
+		
 	}}
