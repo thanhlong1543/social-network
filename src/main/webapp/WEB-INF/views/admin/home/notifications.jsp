@@ -1,7 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-
-<div class="content">
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+      <div class="content">
         <div class="container-fluid">
           <div class="card">
             <div class="card-header card-header-primary">
@@ -124,3 +124,7 @@
           </div>
         </div>
       </div>
+      <content tag="scripts">
+ 		<script scr='<c:url value="/resources/admin/js/notifications.js"/>'> </script>
+ 	</content>
+  

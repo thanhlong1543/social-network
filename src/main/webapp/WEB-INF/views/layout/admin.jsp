@@ -44,7 +44,6 @@
   </div>
   
   <jsp:include page="/WEB-INF/views/decorators/pluginadmin.jsp"/>
-  <jsp:include page="/resources/admin/js/admin.js"></jsp:include>
   <!--   Core JS Files   -->
   <script src="../admin/js/core/jquery.min.js"></script>
   <script src="../admin/js/core/popper.min.js"></script>
@@ -63,7 +62,7 @@
   <script src="../admin/js/material-dashboard.js?v=2.1.0"></script>
   <!-- Material Dashboard DEMO methods, don't include it in your project! -->
   <script src="../admin/demo/demo.js"></script>
-
+  <dec:getProperty property="page.scripts"></dec:getProperty>
 </body>
 
 </html>
