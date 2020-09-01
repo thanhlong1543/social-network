@@ -1929,17 +1929,40 @@ ul.contact li i{
 
 
 /*pending*/
+.pending-list{
+	overflow: hidden;
+}
 .pending-card{
-	border-bottom: 1px solid rgb(192, 192, 192);
+	border-bottom: 1px solid #333;
+    box-sizing: border-box;
+    background-color: #b7b4b4;
+    border: 1px solid #b7b4b4;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 20px;
 }
-.pending-img{
-	width: 50px;
-	height: 50px;
-	border-radius: 50%;
+.pending-img {
+    width: 80px;
+    border-radius: 50%;
+    margin: -50px 0 0 15px;
+    border: 10px solid #b7b4b4;
+    background-color: ivory;
 }
-.pending-info{
-	display: inline-block;
+    
+.pending-bottom {
+    display: block;
 }
-.pending-action{
-	float: left;
+    
+.pending-name {
+    display: inline-block;
+    padding: 10px 0 10px 0;
+    color: #333;
+    font-size: 18px;
+}
+    
+.pending-action {
+    background-color: ivory;
+    padding: 15px;
+    text-align: right;
+    box-sizing: border-box;
 }

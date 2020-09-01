@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import tp.kits3.ambi.route.Route;
 import tp.kits3.ambi.service.impl.FriendServiceImpl;
+import tp.kits3.ambi.vo.Friend;
 import tp.kits3.ambi.vo.User;
 
 @Controller
@@ -20,7 +21,7 @@ public class FriendController {
 	@RequestMapping(value = Route.friend, method = RequestMethod.GET)
 	public String getFriend(Model model) {
 		
-		List<User> listFriends = friendService.selectByUserId(2,1);//2.friend
+		List<User> listFriends = friendService.selectByUserId(2,2);//2.friend
 		model.addAttribute("listFriends", listFriends);
 		model.addAttribute("test", "1");
 		return "user/home/friend";

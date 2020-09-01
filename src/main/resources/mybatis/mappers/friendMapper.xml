@@ -29,6 +29,11 @@
 			where user1id = #{id}
 		]]>
 	</select>
+	<select id="getIdFriendByTwoUsersId" resultMap="friendResult" parameterType="map">
+		<![CDATA[
+			SELECT * FROM friend WHERE friend.user1id = ${id1} AND user2id = ${id2} GROUP BY user1id, user2id
+		]]>
+	</select>
 	<insert id="insert" parameterType="friendVO">
 		<![CDATA[
 			insert into friend

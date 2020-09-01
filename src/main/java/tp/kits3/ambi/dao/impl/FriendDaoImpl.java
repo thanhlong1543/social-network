@@ -1,6 +1,8 @@
 package tp.kits3.ambi.dao.impl;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
@@ -23,6 +25,14 @@ public class FriendDaoImpl extends GenericDaoImpl<Friend> implements FriendDao {
 		return list;
 	}
 
-	
-	
+	@Override
+	public Friend getIdFriendByTwoUsersId(int id1, int id2) {
+		SqlSession session = getInstance().openSession(); // your choice get return factory
+		Map<String, Integer> idUsers = new HashMap<String, Integer>();
+		idUsers.put("id1", id1);
+		idUsers.put("id2", id2);
+		Friend fr = session.selectOne("mappers.friendMapper.getIdFriendByTwoUsersId", idUsers);
+		session.close();
+		return fr;
+	}
 }

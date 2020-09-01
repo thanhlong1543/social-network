@@ -82,7 +82,6 @@ var btns = document.getElementsByClassName("tab");
     		},
     		
     	}); */
-			e.preventDefault();
  
 		    var data = {}
  			
