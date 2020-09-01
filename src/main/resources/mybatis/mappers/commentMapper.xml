@@ -4,7 +4,7 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 
-<mapper namespace="mappers.commnetMapper"> <!-- like package -->
+<mapper namespace="mappers.commentMapper"> <!-- like package -->
 	<!-- no need loop resultSet -->
 	<resultMap type="commentVO" id="commentResult">
 		<!-- <result property="bkid" column="bkid"/>-->
@@ -21,14 +21,21 @@
 		<![CDATA[
 			select * from comment 
 			where commentid = #{id}
+			order by comment_date DESC
+		]]>
+	</select>
+	<select id="selectByPostid" resultMap="commentResult" parameterType="int">
+		<![CDATA[
+			select * from comment 
+			where postId = #{postId}
 		]]>
 	</select>
 	<insert id="insert" parameterType="commentVO">
 		<![CDATA[
 			insert into comment
-			(content,commentdate,userid,postid,isdelete)
+			(content,commentdate,userid,postid,isdelete,remotion)
 			values
-			(#{content},#{commentDate},#{userId},#{postId},#{isdelete})
+			(#{content},#{commentDate},#{userId},#{postId},#{isdelete},#{remotion})
 		]]>
 	</insert>
 	<update id="update" parameterType="commentVO">
@@ -38,6 +45,14 @@
 			commentdate=#{commentDate},
 			userid=#{userId},
 			postid=#{postId},
+			isdelete=#{isdelete},
+			remotion=#{remotion}
+			where commentid = #{commentId}
+		]]>
+	</update>
+	<update id="isdelete" parameterType="map">
+		<![CDATA[
+			update comment set
 			isdelete=#{isdelete}
 			where commentid = #{commentId}
 		]]>

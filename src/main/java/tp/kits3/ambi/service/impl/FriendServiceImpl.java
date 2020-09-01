@@ -16,10 +16,10 @@ public class FriendServiceImpl implements FriendService {
 	FriendDao friendDaoImpl;
 	@Autowired
 	UserDao userDaoImpl;
+
 	@Override
-	public List<User> selectByUserId(int id) {
-		
-		List<User> listFriend = userDaoImpl.selectListFriendById(id);
+	public List<User> selectByUserId(int id, int rela) {
+		List<User> listFriend = userDaoImpl.selectListFriendById(id, rela);
 		for (int i = 0; i < listFriend.size(); i++) {
 			if (listFriend.get(i).getUserId() == id) {
 				listFriend.remove(i);
@@ -28,6 +28,4 @@ public class FriendServiceImpl implements FriendService {
 		}
 		System.err.println(listFriend.size());
 		return listFriend;
-	}
-	
-}
+	}}

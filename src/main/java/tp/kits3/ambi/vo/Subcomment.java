@@ -9,7 +9,11 @@ public class Subcomment {
     private String commentDate;
 
     private Integer commentId;
-
+    
+    private String remotion;
+    
+    private boolean isdelete;
+    
     public Integer getSubcommentId() {
         return subcommentId;
     }
@@ -41,11 +45,21 @@ public class Subcomment {
     public void setCommentId(Integer commentId) {
         this.commentId = commentId;
     }
-    public void CopyData(Subcomment param)
-    {
-        this.subcommentId = param.getSubcommentId();
-        this.content = param.getContent();
-        this.commentDate = param.getCommentDate();
-        this.commentId = param.getCommentId();
-    }
+
+	public String getRemotion() {
+		return remotion;
+	}
+
+	public void setRemotion(String emotion) {
+		this.remotion = emotion;
+	}
+
+	public boolean isIsdelete() {
+		return isdelete;
+	}
+
+	public void setIsdelete(boolean isdelete) {
+		this.isdelete = isdelete;
+	}
+   
 }

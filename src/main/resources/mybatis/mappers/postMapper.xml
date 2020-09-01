@@ -14,27 +14,40 @@
 	<select id="selectOne" resultMap="postResult" parameterType="int">
 		<![CDATA[
 		select * from post
-		where postid = #{postid}
+		where postid = #{postId}
 		]]>
 	</select>
-	
+	<select id="selectByUserid" resultMap="postResult" parameterType="int">
+		<![CDATA[
+		select * from post
+		where userId = #{userid}
+		]]>
+	</select>
 	<insert id="insert" parameterType="postVO">
 		<![CDATA[
 			insert into post 
-			(content,postdate,totallike,userid,privacyid)
+			(content,postdate,totallike,userid,privacyid,isdelete)
 			values
-			(#{content}, #{postdate}, #{totallike},#{userid},#{privacyid})
+			(#{content}, #{postDate}, #{totalLike},#{userId},#{privacyId},#{isdelete})
 		]]>
 	</insert>
 	<update id="update" parameterType="postVO">
 		<![CDATA[
 			update post set
 			content = #{content},
-			postdate = #{postdate},
-			toallike = #{totallike},
-			userid = #{userid},
-			privacyid = #{privacyid]
-			where postid = #{postid}
+			postdate = #{postDate},
+			totallike = #{totalLike},
+			userid = #{userId},
+			privacyid = #{privacyId},
+			isdelete = #{isdelete}
+			where postid = #{postId}
+		]]>
+	</update>
+	<update id="isdelete" parameterType="map">
+		<![CDATA[
+			update post set
+			isdelete = ${isdelete}
+			where postid = ${postId}
 		]]>
 	</update>
 	<delete id="delete" parameterType="int">

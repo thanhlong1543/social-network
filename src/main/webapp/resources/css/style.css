@@ -1926,3 +1926,20 @@ ul.contact li i{
   background-color: #fff;
   z-index: 9999999;
 }
+
+
+/*pending*/
+.pending-card{
+	border-bottom: 1px solid rgb(192, 192, 192);
+}
+.pending-img{
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+}
+.pending-info{
+	display: inline-block;
+}
+.pending-action{
+	float: left;
+}
