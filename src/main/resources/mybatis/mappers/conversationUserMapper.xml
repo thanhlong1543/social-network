@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- create SQL Mapper-->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="mappers.conversationUserMapper"> <!-- like package -->
+	<!-- no need loop resultSet -->
+	<resultMap type="conversationUserVO" id="conversationUserResult">
+		<!-- <result property="bkid" column="bkid"/>-->
+	</resultMap>
+	<!-- make sql statement -->
+	
+	<!-- List<Book> books = selectAll -->
+	<select id="selectAll" resultMap="conversationUserResult"> <!-- mapper.bookMapper.selectAll -->
+		<![CDATA[
+			select * from conversation_user
+		]]>
+	</select>
+	<select id="selectByConId" resultMap="conversationUserResult" parameterType="int">
+		<![CDATA[
+			select * from conversation_user 
+			where conid = #{id}
+		]]>
+	</select>
+	<select id="selectByUserId" resultMap="conversationUserResult" parameterType="int">
+		<![CDATA[
+			select * from conversation_user 
+			where userid = #{id}
+		]]>
+	</select>
+	<insert id="insert" parameterType="conversationUserVO">
+		<![CDATA[
+			insert into conversation_user
+			(conid,userid)
+			values
+			(#{conId},#{userId})
+		]]>
+	</insert>
+	<update id="update" parameterType="conversationUserVO">
+		<![CDATA[
+			update conversation_user set
+			conid=#{conId},
+			userid=#{userId}
+			where conid = #{conId}
+			and userid=#{userId}
+		]]>
+	</update>
+	<delete id="deleteByConId" parameterType="int">
+		<![CDATA[
+			delete from conversation_user WHERE conid=#{id}
+		]]>
+	</delete>
+	<delete id="deleteByUserId" parameterType="int">
+		<![CDATA[
+			delete from conversation_user WHERE userid=#{id}
+		]]>
+	</delete>
+</mapper>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<!-- 1. class name's alias -->
+	<typeAliases>
+		<typeAlias type="tp.kits3.ambi.vo.About" alias ="aboutVO"/>
+		<typeAlias type="tp.kits3.ambi.vo.Category" alias ="categoryVO"/>
+		<typeAlias type="tp.kits3.ambi.vo.Chat" alias ="chatVO"/>
+		<typeAlias type="tp.kits3.ambi.vo.ChatUser" alias ="chatUserVO"/>
+		<typeAlias type="tp.kits3.ambi.vo.Comment" alias ="commentVO"/>
+		
+		<typeAlias type="tp.kits3.ambi.vo.ConversationUser" alias ="conversationUserVO"/>
+		<typeAlias type="tp.kits3.ambi.vo.Conversation" alias ="conversationVO"/>
+		<typeAlias type="tp.kits3.ambi.vo.Friend" alias ="friendVO"/>
+		<typeAlias type="tp.kits3.ambi.vo.Icon" alias ="iconVO"/>
+		<typeAlias type="tp.kits3.ambi.vo.Image" alias ="imageVO"/>
+		
+		<typeAlias type="tp.kits3.ambi.vo.Like" alias ="likeVO"/>
+		<typeAlias type="tp.kits3.ambi.vo.Menu" alias ="menuVO"/>
+		<typeAlias type="tp.kits3.ambi.vo.NotificationAction" alias ="notificationActionVO"/>
+		<typeAlias type="tp.kits3.ambi.vo.NotificationObject" alias ="notificationObjectVO"/>
+		<typeAlias type="tp.kits3.ambi.vo.Notifications" alias ="notificationsVO"/>
+		
+		<typeAlias type="tp.kits3.ambi.vo.Post" alias ="postVO"/>
+		<typeAlias type="tp.kits3.ambi.vo.Privacy" alias ="privacyVO"/>
+		<typeAlias type="tp.kits3.ambi.vo.Relationship" alias ="relationshipVO"/>
+		<typeAlias type="tp.kits3.ambi.vo.Role" alias ="roleVO"/>
+		<typeAlias type="tp.kits3.ambi.vo.RoleUser" alias ="roleUserVO"/>
+		
+		<typeAlias type="tp.kits3.ambi.vo.Subcomment" alias ="subcommentVO"/>
+		<typeAlias type="tp.kits3.ambi.vo.Tag" alias ="tagVO"/>
+		<typeAlias type="tp.kits3.ambi.vo.User" alias ="userVO"/>
+
+	</typeAliases>
+	<!-- 2. config DB connection info like tomcat context.xml DataSource -->
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC"></transactionManager>
+			<dataSource type="POOLED">
+				<property name="driver" value="org.mariadb.jdbc.Driver"/>
+				<property name="url" value="jdbc:mariadb://192.168.123.66:3306/ambi"/>
+				<property name="username" value="root"/>
+				<property name="password" value="lemlan"/>
+			</dataSource>
+		</environment>
+	</environments>
+	<!-- mapper for each table -->
+	<mappers>
+		<!-- from /src/main/java/ -->
+		<mapper resource="mybatis/mappers/aboutMapper.xml"/>
+		<mapper resource="mybatis/mappers/categoryMapper.xml"/>
+		<mapper resource="mybatis/mappers/chatMapper.xml"/>
+		<mapper resource="mybatis/mappers/chatUserMapper.xml"/>
+		<mapper resource="mybatis/mappers/commentMapper.xml"/>
+		
+		<mapper resource="mybatis/mappers/conversationMapper.xml"/>
+		<mapper resource="mybatis/mappers/conversationUserMapper.xml"/>
+		<mapper resource="mybatis/mappers/friendMapper.xml"/>
+		<mapper resource="mybatis/mappers/iconMapper.xml"/>
+		<mapper resource="mybatis/mappers/imageMapper.xml"/>
+		
+		<mapper resource="mybatis/mappers/likeMapper.xml"/>
+		<mapper resource="mybatis/mappers/menuMapper.xml"/>
+		<mapper resource="mybatis/mappers/notificationActionMapper.xml"/>
+		<mapper resource="mybatis/mappers/notificationObjectMapper.xml"/>
+		<mapper resource="mybatis/mappers/notificationsMapper.xml"/>
+		
+		<mapper resource="mybatis/mappers/postMapper.xml"/>
+		<mapper resource="mybatis/mappers/privacyMapper.xml"/>
+		<mapper resource="mybatis/mappers/relationshipMapper.xml"/>
+		<mapper resource="mybatis/mappers/roleMapper.xml"/>
+		<mapper resource="mybatis/mappers/roleUserMapper.xml"/>
+		
+		<mapper resource="mybatis/mappers/subcommentMapper.xml"/>
+		<mapper resource="mybatis/mappers/tagMapper.xml"/>
+		<mapper resource="mybatis/mappers/userMapper.xml"/>
+	</mappers>
+</configuration>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mappers.notificationActionMapper">
+	<resultMap type="notificationActionVO" id="notificationActionResult">
+	</resultMap>
+	
+	<select id="selectAll" resultMap="notificationActionResult">
+		<![CDATA[
+			select * from notification_action
+		]]>
+	</select>
+	<select id="selectOne" resultMap="notificationActionResult" parameterType="int">
+		<![CDATA[
+			select * from notification_action
+			where noti_id = #{noti_id}
+		]]>
+	</select>
+	<insert id="insert" parameterType="notificationActionVO">
+		<![CDATA[
+			insert into notification_action
+			(action,actor,object_id)
+			values
+			(#{action},#{actor},#{object_id})
+		]]>
+	</insert>
+	<update id="update" parameterType="notificationActionVO">
+		<![CDATA[
+			update notification_action set
+			action = #{action},
+			actor = #{actor},
+			object_id = #{object_id}
+			where noti_id = #{noti_id}
+		]]>
+	</update>
+	<delete id="delete" parameterType="int">
+		delete from notification_action WHERE noti_id = #{noti_id}
+	</delete>
+</mapper>
