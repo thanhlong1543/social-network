@@ -23,7 +23,6 @@ public class FriendController {
 		
 		List<User> listFriends = friendService.selectByUserId(2,2);//2.friend
 		model.addAttribute("listFriends", listFriends);
-		model.addAttribute("test", "1");
 		return "user/home/friend";
 	}
 	@RequestMapping(value = "/pending", method = RequestMethod.GET)
