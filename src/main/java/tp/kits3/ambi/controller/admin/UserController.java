@@ -21,4 +21,5 @@ public class UserController {
 		System.out.println(userService.selectOne(id).getName());
 		return userService.selectOne(id);
 	}
+
 }
