@@ -59,20 +59,11 @@
    						 <div class="setting-account" id="setting-acc" aria-labelledby="dropdownMenuLink" style="display: none;">
       						<a class="dropdown-item" href="setting">Setting</a>
       						<a class="dropdown-item" href="/ambi/login">Logout</a>
-
-                  <li class="account" id="account" onclick="showAccount()" onclose="comeback()">
-    				<a class= href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    					<i class="material-icons">account_circle</i>
-    				</a>
-   						 <div class="setting-account" id="setting-acc" aria-labelledby="dropdownMenuLink" style="display: none;">
-      						<a class="dropdown-item" href="setting" style="padding-right: 70px">Setting</a>
-      						<a class="dropdown-item" href="#"style="padding-right:90px">Change PassWord</a><input type="hidden" class="chg-pass"/>
-      						<a class="dropdown-item" href="/ambi/login"style="padding-right: 70px">Logout</a>
-
-   						 </div>
- 					 </li>
-                </ul>
-              </div>
+              			</div>
+              		</li>
+              		</ul>
+              		</div>
+					
             </div>
           </nav>
           <script type="text/javascript">
