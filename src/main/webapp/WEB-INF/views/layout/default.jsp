@@ -22,7 +22,7 @@
 <link rel="stylesheet" href="<c:url value="css/ionicons.min.css"></c:url>" />
 <link rel="stylesheet" href="<c:url value="css/font-awesome.min.css"></c:url>" />
 <link rel="stylesheet" href="<c:url value='css/loading.css'></c:url>">
-
+<link rel="stylesheet" href="<c:url value='css/mystyle.css'></c:url>">
 <link href="<c:url value="css/emoji.css"></c:url>" rel="stylesheet">
 <!--Google Webfont-->
 <link
