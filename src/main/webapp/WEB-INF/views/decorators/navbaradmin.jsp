@@ -1,10 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
     <!-- Navbar -->
           <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top " id="navigation-example">
             <div class="container-fluid">
               <div class="navbar-wrapper">
-                <a class="navbar-brand" href="javascript:void(0)">User Profile</a>
+                <a class="navbar-brand" href="javascript:void(0)"></a>
               </div>
               <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation" data-target="#navigation-example">
                 <span class="sr-only">Toggle navigation</span>
@@ -47,17 +48,34 @@
                       <a class="dropdown-item" href="javascript:void(0)">Another One</a>
                     </div>
                   </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="javascript:void(0)">
-                      <i class="material-icons">person</i>
-                      <p class="d-lg-none d-md-block">
-                        Account
-                      </p>
-                    </a>
-                  </li>
+                  <li class="account" id="account" onclick="showAccount()" onclose="comeback()">
+    				<a class= href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    					<i class="material-icons">account_circle</i>
+    				</a>
+   						 <div class="setting-account" id="setting-acc" aria-labelledby="dropdownMenuLink" style="display: none;">
+      						<a class="dropdown-item" href="setting" style="padding-right: 70px">Setting</a>
+      						<a class="dropdown-item" href="#"style="padding-right:90px">Change PassWord</a><input type="hidden" class="chg-pass"/>
+      						<a class="dropdown-item" href="/ambi/login"style="padding-right: 70px">Logout</a>
+   						 </div>
+ 					 </li>
                 </ul>
               </div>
             </div>
           </nav>
+          <script type="text/javascript">
+				showAccount = function() {
+					element = document.querySelector("#setting-acc");
+					element.style.display = "block";
+					element.style.position = "absolute";
+					element.style.right = " 5%";
+					element.style.width =  "40"+"px";
+
+					
+				}
+				comeback = function() {
+					element = document.querySelector("#setting-acc");
+					element.style.display = "none";
+				}
+</script>
           <!-- End Navbar -->
           
