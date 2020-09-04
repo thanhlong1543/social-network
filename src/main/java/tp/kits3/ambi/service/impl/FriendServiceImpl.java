@@ -47,5 +47,7 @@ public class FriendServiceImpl implements FriendService {
 	@Override
 	public void deleteFriend(int id) {
 		friendDaoImpl.delete(id);
-		
-	}}
+
+	}
+}
+

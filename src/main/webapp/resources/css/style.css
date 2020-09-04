@@ -1968,3 +1968,14 @@ ul.contact li i{
     box-sizing: border-box;
 }
 
+/*end pending*/
+.form-search-friend{
+	width: 50%;
+}
+.form-control{
+	float:left;
+}
+.btn-search-friend{
+	width: 5%;
+}
+

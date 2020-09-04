@@ -41,10 +41,24 @@ public class ApiFriend {
 			return new ResponseEntity<>(HttpStatus.BAD_GATEWAY);
 		}
 	}
-	@GetMapping("/api/pending/deny")
-	public String denyFriend(Model model) {
-
-		return "";
+	@GetMapping("/api/pending/delete/{id}")
+	public Object denyFriend(@PathVariable("id") int user2Id) {
+		Friend fr;
+		try {
+			try {
+				 fr = friendService.getIdFriendByTwoUsersId(2, user2Id);
+				 fr.setReId(2);
+					friendService.deleteFriend(fr.getFriendId());
+			} catch (Exception e) {
+				fr = friendService.getIdFriendByTwoUsersId(user2Id, 2);
+				fr.setReId(2);
+				friendService.deleteFriend(fr.getFriendId());
+			}
+			
+			return new ResponseEntity<>(HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
 	}
 	@GetMapping("api/friend/{id}")
 	public Object getFriend(@PathVariable("id") int idUser) {
