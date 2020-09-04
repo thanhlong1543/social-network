@@ -31,7 +31,7 @@
 							<td>${item.userId }</td>
 							<td>${item.privacyId }</td>
 							<td>${item.isdelete }</td>
-							<td><a href="javascript:void()" class="btn-delete"><button>Delete</button></a><input type="hidden" class="id-delete" value="${item.postId }"></td>
+							<td><a href="javascript:void()" class="btn-delete"><button><b>Delete</b></button></a><input type="hidden" class="id-delete" value="${item.postId }"></td>
 						</tr>
 					</c:forEach>
 				</tbody>
@@ -67,4 +67,9 @@
     
  		<script scr='<c:url value="/resources/admin/js/post.js"/>'> </script>
  	</content>  
-  
+  <style>
+  		.btn-delete button:hover{
+  			color:#fff;
+  			background-color: #40A798;
+  		}
+  </style>
