@@ -22,6 +22,12 @@
           }
         });
 
+
+
+
+
+			
+
         $('.fixed-plugin .active-color span').click(function() {
           $full_page_background = $('.full-page-background');
 
