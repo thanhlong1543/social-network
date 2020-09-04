@@ -1,117 +1,113 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
+<!-- Chuc Kim Thien -->
+
       <div class="content">
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-md-8">
-              <div class="card">
-                <div class="card-header card-header-primary">
-                  <h4 class="card-title">Edit Profile</h4>
-                  <p class="card-category">Complete your profile</p>
-                </div>
-                <div class="card-body">
-                  <form>
-                    <div class="row">
-                      <div class="col-md-5">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">Company (disabled)</label>
-                          <input type="text" class="form-control" disabled>
-                        </div>
-                      </div>
-                      <div class="col-md-3">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">Username</label>
-                          <input type="text" class="form-control">
-                        </div>
-                      </div>
-                      <div class="col-md-4">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">Email address</label>
-                          <input type="email" class="form-control">
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-6">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">Fist Name</label>
-                          <input type="text" class="form-control">
-                        </div>
-                      </div>
-                      <div class="col-md-6">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">Last Name</label>
-                          <input type="text" class="form-control">
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-12">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">Adress</label>
-                          <input type="text" class="form-control">
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-4">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">City</label>
-                          <input type="text" class="form-control">
-                        </div>
-                      </div>
-                      <div class="col-md-4">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">Country</label>
-                          <input type="text" class="form-control">
-                        </div>
-                      </div>
-                      <div class="col-md-4">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">Postal Code</label>
-                          <input type="text" class="form-control">
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-12">
-                        <div class="form-group">
-                          <label>About Me</label>
-                          <div class="form-group">
-                            <label class="bmd-label-floating"> Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo.</label>
-                            <textarea class="form-control" rows="5"></textarea>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <button type="submit" class="btn btn-primary pull-right">Update Profile</button>
-                    <div class="clearfix"></div>
-                  </form>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="card card-profile">
-                <div class="card-avatar">
-                  <a href="#pablo">
-                    <img class="img" src="../assets/img/faces/marc.jpg" />
-                  </a>
-                </div>
-                <div class="card-body">
-                  <h6 class="card-category">CEO / Co-Founder</h6>
-                  <h4 class="card-title">Alec Thompson</h4>
-                  <p class="card-description">
-                    Don't be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owensâ bed design but the back is...
-                  </p>
-                  <a href="#pablo" class="btn btn-primary btn-round">Follow</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+       	   <div class = "manager-content" style="padding-top: 100px">
+       	<jsp:include page="../home/editUser.jsp"></jsp:include>
+       	<div class="input-group no-border" style="width: 100%">
+                    <input type="text" value=""id="myInput" class="form-control" placeholder="Search..." >
+                  </div>
+			<table class="table table-dark" border="1" style="border: 1px;width: 100%;color: #fff;" >
+				<thead class="indigo white-text">
+					<tr>
+						<td scope="col"><b>STT</b></td>
+							<td scope="col"><b>name</b></td>
+							<td scope="col"><b>phone</b></td>
+							<td scope="col"><b>email</b></td>
+							<td scope="col"><b>isactive</b></td>
+							<td scope="col"><b>roleid</b></td>
+							<td scope="col"><b>userurl</b></td>
+							<td scope="col"><b>useravt</b></td>
+							<td scope="col"><b>userbgr</b></td>
+							<td scope="col"><b>Edit</b></td>
+					</tr>
+					
+				</thead>
+				<tbody id="myTable">
+					<c:forEach items="${userlist}" var="item" varStatus="status">
+						<tr>
+							<td scope="row">${status.index+1 }</td>
+							<td>${item.name }</td>
+							<td>${item.phone }</td>
+							<td>${item.email }</td>
+							<td>${item.isactive}</td>
+							<td>${item.roleId }</td>
+							<td>${item.userUrl}</td>
+							<td>${item.useravt}</td>
+							<td>${item.userbgr }</td>
+							<td><a href="javascript:void()" class="btn-edit"><button><b>Edit</b></button></a><input type="hidden" class="id-edit" name="name-edit" value="${item.userId }"></td>
+						</tr>
+					</c:forEach>
+				</tbody>
+			</table>
+			</div>
+		</div>
       
      <content tag="scripts">
+      	
+     <script>
+		$(document).ready(function(){
+		  $("#myInput").on("keyup", function() {
+		    var value = $(this).val().toLowerCase();
+		    $("#myTable tr").filter(function() {
+		      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+		    });
+		  });
+		});
+		
+		 $(document).ready(function(){
+				let allbtnedit = document.querySelectorAll('.btn-edit');
+				console.log(allbtnedit);
+				allbtnedit.forEach(function(el,index){
+			        el.addEventListener('click', function() {
+			           let input = el.parentNode.querySelector('.id-edit');
+			           showDialogUpdateUser(input.value);
+			        });
+			        
+			        
+			    });
+				
+			});
+			showDialogUpdateUser = function(id) {
+			    		element = document.querySelector(".bg-modal");
+			    		element.style.display = "flex";
+			    		$.ajax({
+			    			type:"GET",
+			    			url : "http://localhost:8080/ambi/update_user/"+id,
+			    			success : function(result) {
+			    				$('#userId').val(result.userId);
+			    				$('#name').val(result.name);
+			    				$('#phone').val(result.phone);
+								$('#email').val(result.email);
+								$('#password').val(result.password);
+								$('#isactive').val(result.isactive);
+								$('#roleId').val(result.roleId);
+								$('#userUrl').val(result.userUrl);
+								$('#useravt').val(result.useravt);
+								$('#userbgr').val(result.userbgr);
+			    				console.log(result.name);
+			    			}
+			    		});
+			    	
+			    }
+		  closeDialog = function() {
+			    element = document.querySelector(".bg-modal");
+			    element.style.display = "none";
+			}
+
+
+</script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
  		<script scr='<c:url value="/resources/admin/js/user.js"/>'> </script>
  	</content>
+
+<style>
+	
+	.btn-edit button:hover{
+		background-color: #40A798;
+		color:#fff;
+	}
+</style>

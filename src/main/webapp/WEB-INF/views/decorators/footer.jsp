@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
     <!-- Footer
     ================================================= -->
     <footer id="footer">
@@ -53,16 +52,16 @@
             <div class="col-md-3 col-sm-3">
               <h6>Contact Us</h6>
                 <ul class="contact">
-                	<li><i class="icon ion-ios-telephone-outline"></i>+1 (234) 222 0754</li>
-                	<li><i class="icon ion-ios-email-outline"></i>info@thunder-team.com</li>
-                  <li><i class="icon ion-ios-location-outline"></i>228 Park Ave S NY, USA</li>
+                	<li><i class="icon ion-ios-telephone-outline"></i> +84 28 3620 0120~1</li>
+                	<li><i class="icon ion-ios-email-outline"></i>asd.pham2@gmail.com</li>
+                  <li><i class="icon ion-ios-location-outline"></i>89 Tran Van Du, Tan Binh District,HCM city</li>
                 </ul>
             </div>
           </div>
       	</div>
       </div>
       <div class="copyright">
-        <p>Thunder Team © 2016. All rights reserved</p>
+        <p>Ambition © 2020. All rights reserved</p>
       </div>
 		</footer>
  
