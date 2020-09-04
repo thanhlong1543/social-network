@@ -9,4 +9,5 @@ public interface FriendService {
 	List<User> selectByUserId(int id, int rela);
 	Friend getIdFriendByTwoUsersId(int id1, int id2);
 	void updateFriend(Friend friend);
+	void deleteFriend(int id);
 }

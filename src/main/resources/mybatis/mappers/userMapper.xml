@@ -33,7 +33,7 @@
 	<!-- _______________________________friend_________________________ -->
 	<select id="selectListFriendById" resultMap="userResult" parameterType="map">
 		<![CDATA[
-			SELECT distinct user.name, user.useravt, user.userbgr, user.userid
+			SELECT distinct user.name, user.useravt, user.userbgr, user.userid, user.userurl
 			FROM friend, user 
 			WHERE friend.reid = ${reid} AND (friend.user1id = user.userid OR friend.user2id = user.userid) 
 			AND (friend.user1id = ${userid} OR friend.user2id = #{userid})

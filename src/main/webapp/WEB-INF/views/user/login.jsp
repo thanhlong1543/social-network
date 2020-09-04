@@ -15,6 +15,7 @@
     <title>Document</title>
     <link rel="shortcut icon" type="image/png" href="<c:url value='images/icon.png'></c:url>"/>
     <link rel="stylesheet" href="<c:url value='css/login.css'></c:url>">
+    <link rel="stylesheet" href="<c:url value='css/loading.css'></c:url>">
 </head>
 <body>
     <div class="dialog-bgr">

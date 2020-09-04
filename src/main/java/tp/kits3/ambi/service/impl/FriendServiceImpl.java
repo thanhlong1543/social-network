@@ -10,7 +10,9 @@ import tp.kits3.ambi.dao.UserDao;
 import tp.kits3.ambi.service.FriendService;
 import tp.kits3.ambi.vo.Friend;
 import tp.kits3.ambi.vo.User;
-
+/*
+ * @author: Duc
+ * */
 @Service
 public class FriendServiceImpl implements FriendService {
 	@Autowired
@@ -40,4 +42,12 @@ public class FriendServiceImpl implements FriendService {
 	public void updateFriend(Friend friend) {
 		friendDaoImpl.update(friend);
 		
-	}}
+	}
+
+	@Override
+	public void deleteFriend(int id) {
+		friendDaoImpl.delete(id);
+
+	}
+}
+

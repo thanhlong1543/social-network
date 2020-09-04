@@ -107,6 +107,7 @@ jQuery(document).ready(function($) {
     //Fire Scroll and Resize Event
     $(window).trigger('scroll');
     $(window).trigger('resize');
+
 });
 
 /**
@@ -168,6 +169,7 @@ function initMap() {
     map: map
   });
 }
+
 //function for accept friend
 
 $.each($(".accept-friend"), function(idx){
@@ -175,41 +177,154 @@ $.each($(".accept-friend"), function(idx){
 		acceptFriend($(".id-user")[idx].value, idx);
 	});
 });
+function itemFriendAnimation(idx){
+	$(".pending-card")[idx].style.margin =  '-50px';
+	$(".pending-card")[idx].style.opacity = '0';
+	$(".pending-card")[idx].style.transition = 'all .4s';
+	$(".pending-card")[idx].style.display = 'none';
+}
 function acceptFriend(id, idx) {
-			$.ajax({
-				url : "http://localhost:8080/ambi/api/pending/accept/"+id,
-    			type : "GET",
-    			success : function(noti) {
-					$(".pending-card")[idx].style.margin =  '-50px';
-					$(".pending-card")[idx].style.opacity = '0';
-					$(".pending-card")[idx].style.transition = 'all .4s';
-					$(".pending-card")[idx].style.display = 'none';
-					idx--;
-				//window.location.href = "http://localhost:8080/ambi/pending"; 
-    			}
-			});
+	$.ajax({
+		url : "http://localhost:8080/ambi/api/pending/accept/"+id,
+		type : "GET",
+		success : function(noti) {
+			itemFriendAnimation(idx);
+			idx--;
+		//window.location.href = "http://localhost:8080/ambi/pending"; 
 		}
+	});
+}
 //end func accept friend
 
 //function del friend
-$.each($(".del-friend"), function(idx){
-	$(".del-friend")[idx].addEventListener('click', function(){
-		acceptFriend($(".id-user")[idx].value, idx);
+$.each($(".deny-friend"), function(idx){
+	$(".deny-friend")[idx].addEventListener('click', function(){
+		denyFriend($(".id-user")[idx].value, idx);
 	});
 });
-function acceptFriend(id, idx) {
-			$.ajax({
-				url : "http://localhost:8080/ambi/api/pending/accept/"+id,
-    			type : "GET",
-    			success : function(noti) {
-					$(".pending-card")[idx].style.margin =  '-50px';
-					$(".pending-card")[idx].style.opacity = '0';
-					$(".pending-card")[idx].style.transition = 'all .4s';
-					$(".pending-card")[idx].style.display = 'none';
-					idx--;
-				//window.location.href = "http://localhost:8080/ambi/pending"; 
-    			}
-			});
+function denyFriend(id, idx) {
+	$.ajax({
+		url : "http://localhost:8080/ambi/api/pending/delete/"+id,
+		type : "GET",
+		success : function(noti) {
+			itemFriendAnimation(idx);
+			idx--;
+		//window.location.href = "http://localhost:8080/ambi/pending"; 
 		}
+	});
+}
 //function del friend
 		
+//get list friend
+let dataResource = {};
+
+getFriend();
+function getFriend(){
+	$.ajax({
+		contentType : 'application/json; charset=utf-8',
+		url : "http://localhost:8080/ambi/api/friend/2",
+		type: "GET",
+		success: function(data){
+				dataResource = data;
+				appendToList(dataResource);
+		}
+	});
+}
+
+function appendToList(data){
+	$(".friend-list .row").empty();
+	for(let i = 0; i< data.length;i++){
+		var idUser = $(`<input type='hidden' class='id-user' value='${data[i].userId}' >`);//id user
+		
+		var subMenu = $("<div class='sub-menu'></div>");
+		var option = $("<div class='dot-more'></div>");
+		var op1 = $("<span class='dot'></span>");
+		var op2 = $("<span class='dot'></span>");
+		var op3 = $("<span class='dot'></span>");
+		
+		var subContainer = $("<div class='sub-container'></div>");
+		var sub1 = $(`<a onclick="confirmUnfriend(this)" class='sub btn-unfriend'>Unfriend</a>`); sub1.append(idUser);
+		var sub2 = $("<a class='sub'>Chat</a>");
+		var sub3 = $("<a class='sub'>Profile</a>");
+		subContainer.append(sub1, sub2, sub3);
+		option.append(op1, op2, op3);
+		subMenu.append(option, subContainer);
+		
+		var curl = "'<c:url value='/albums/user/avt/"+data[i].useravt+"'></c:url>'";
+		
+		var name = $("<a href='timeline.html' class='profile-link'></a>").text(data[i].name);
+		//var myFriend = $("<a href='#' class='pull-right text-green'></a>").text("My friend");
+		
+		var friendInfo = $("<div class='friend-info'></div");
+		friendInfo.append(name);
+		var imgAvt = $(`<img src='albums/user/avt/${data[i].useravt}' alt='user' class='profile-photo-lg' />`);
+		var cardInfo = $("<div class='card-info'></div>").append(imgAvt, friendInfo);
+		
+		var imgBgr = $(`<img src='images/covers/1.jpg' alt="profile-cover"
+				class="img-responsive cover" />`);
+		var friendCard = $("<div class='friend-card'></div>").append(imgBgr, cardInfo, subMenu);
+		
+		var item = $("<div class='col-md-6 col-sm-6'></div>").append(friendCard);
+		
+		
+		
+		
+		$(".friend-list .row").append(item);
+	}
+}
+function compareInputToData(value, data){
+	var filteredData = [];
+	for(let i = 0; i <data.length;i++){
+		value = value.toLowerCase();
+		var name = data[i].name.toLowerCase();
+		if(name.includes(value)){
+			filteredData.push(data[i]);
+		}
+	}
+	return filteredData;
+}
+$(".search-friend").on('keyup', function(){
+	var value = $("#search-friend-value").val();
+	console.log(value);
+	var data = compareInputToData(value, dataResource);
+	appendToList(data);
+})
+
+//unfriend
+
+
+function confirmUnfriend(event){
+	let ok = confirm("A du sua?");
+	if(ok){
+		let id = event.children[0].value;
+		$.ajax({
+			url: "http://localhost:8080/ambi/api/friend/delete/"+id,
+			method: "PUT",
+			success: function(){
+				alert("Successful");
+				window.location.reload();
+			}
+		})
+		
+	}
+}
+//get list friend
+
+
+
+//auto load page when press back button
+window.addEventListener( "pageshow", function ( event ) {
+  var historyTraversal = event.persisted || 
+                         ( typeof window.performance != "undefined" && 
+                              window.performance.navigation.type === 2 );
+  if ( historyTraversal ) {
+    // Handle page restore.
+    window.location.reload();
+  }
+//auto load page when press back button
+});
+
+//searching friend
+
+//searching friend
+

@@ -136,7 +136,7 @@ $("#form-login").submit(function(e){
             contentType : 'application/json; charset=utf-8',
             type: "POST",
             url: "http://localhost:8080/ambi/api/login",
-            data : JSON.stringify(data),
+            data : JSON.stringify(data),//send data
             success : function(data){
 				localStorage.setItem('token', data);
 				window.location.replace('http://localhost:8080/ambi/');

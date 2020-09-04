@@ -5,6 +5,7 @@
 
 	<!-- Post Create Box
             ================================================= -->
+
 	<div class="create-post">
 		<div class="row">
 			<div class="col-md-7 col-sm-7">
@@ -28,12 +29,24 @@
 		</div>
 	</div>
 	<!-- Post Create Box End -->
-
+	<div class="search-friend">
+		<div class="row">
+			<div class="col-md-6">
+				<form>
+				  <div class="form-group">
+				    <input type="text" class="form-control" id="search-friend-value" placeholder="Search here">
+				  </div>
+				</form>
+			</div>
+		</div>
+	</div>
 	<!-- Friend List
             ================================================= -->
 	<div class="friend-list">
 		<div class="row">
-			<c:forEach items="${listFriends }" var="item">
+			
+			<%-- <c:forEach items="${listFriends }" var="item">
+			
 			<div class="col-md-6 col-sm-6">
 				<div class="friend-card">
 					<img src='<c:url value="/images/covers/1.jpg"></c:url>' alt="profile-cover"
@@ -51,7 +64,7 @@
 					</div>
 				</div>
 			</div>
-			</c:forEach>
+			</c:forEach> --%>
 			
 			
 		</div>
