@@ -983,9 +983,10 @@ ul.online-users li span.online-dot{
 
 .friend-list .friend-card{
   border-radius: 4px;
-  border-bottom: 1px solid #f1f2f2;
+  border: 1px solid #BCBDBF;
   overflow: hidden;
   margin-bottom: 20px;
+  position: relative;
 }
 
 .friend-list .friend-card .card-info{
@@ -1943,8 +1944,9 @@ ul.contact li i{
 }
 .pending-img {
     width: 80px;
+    height: 80px;
     border-radius: 50%;
-    margin: -50px 0 0 15px;
+    margin: -70px 0 0 15px;
     border: 10px solid #b7b4b4;
     background-color: ivory;
 }
@@ -1959,10 +1961,10 @@ ul.contact li i{
     color: #333;
     font-size: 18px;
 }
-    
 .pending-action {
     background-color: ivory;
     padding: 15px;
     text-align: right;
     box-sizing: border-box;
 }
+

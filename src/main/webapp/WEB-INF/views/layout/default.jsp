@@ -16,16 +16,20 @@
 <title>News Feed | Check what your friends are doing</title>
 <!-- Stylesheets
     ================================================= -->
-<link rel="stylesheet" href='<c:url value="/css/bootstrap.min.css"></c:url>' />
-<link rel="stylesheet" href="<c:url value="/css/style.css"></c:url>" />
-<link rel="stylesheet" href="<c:url value="/css/ionicons.min.css"></c:url>" />
-<link rel="stylesheet" href="<c:url value="/css/font-awesome.min.css"></c:url>" />
+
+<link rel="stylesheet" href='<c:url value="css/bootstrap.min.css"></c:url>' />
+<link rel="stylesheet" href="<c:url value="css/style.css"></c:url>" />
+<link rel="stylesheet" href="<c:url value="css/ionicons.min.css"></c:url>" />
+<link rel="stylesheet" href="<c:url value="css/font-awesome.min.css"></c:url>" />
+<link rel="stylesheet" href="<c:url value='css/loading.css'></c:url>">
+<link rel="stylesheet" href="<c:url value='css/mystyle.css'></c:url>">
 <link href="<c:url value="css/emoji.css"></c:url>" rel="stylesheet">
 <!--Google Webfont-->
 <link
 	href='https://fonts.googleapis.com/css?family=Raleway:400,100,100italic,200,200italic,300,300italic,400italic,500,500italic,600,600italic,700'
 	rel='stylesheet' type='text/css'>
 <!--Favicon-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="shortcut icon" type="image/png" href='<c:url value="images/fav.png"></c:url>' />
 </head>
 <body>

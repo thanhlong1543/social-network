@@ -1,0 +1,58 @@
+.sub-menu{
+	display: inline-block;
+	position: absolute;
+	top: 10px;
+	right: 10px;
+}
+.dot-more{
+	position: relative;
+	border-radius: 50%;
+	padding: 2px;
+	transition: background-color .3s;
+}
+.dot {
+  margin-left: 1px;
+  display: inline-block;
+  height: 5px;
+  width: 5px;
+  border-radius: 50%;
+  background-color: #fff;
+  transition: background-color .3s;
+}
+.dot-more:hover{
+	background-color: rgba(255, 255, 255, 0.2);
+	cursor: pointer;
+}
+.dot-more:hover .dot{
+	background-color: #149AC9;
+}
+.sub-container{
+	position: absolute;
+	top: 20px;
+	right: 0;
+	width: 90px;
+	background-color: #fff;
+	display: none;
+	transition: all .3s;
+}
+.sub{
+	display:block;
+	text-decoration: none;
+	color: black;
+	padding: 10px;
+	font-weight: 500;
+	
+}
+.sub:last-child{
+	border-bottom: none;
+}
+.sub:hover{
+	text-decoration: none;
+	cursor: pointer;
+	border-left:3px solid #149AC9;
+	background-color: #149AC9;
+	color: #fff;
+}
+.sub-menu:hover .sub-container{
+	display: inline-block;
+}

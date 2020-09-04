@@ -15,7 +15,7 @@
 <select id="selectOne" resultMap="menuResult" parameterType="int">
 	<![CDATA[
 		select * from menu
-		where menuid = #{menuid}
+		where menuid = #{menuId}
 	]]>
 </select>
 <insert id="insert" parameterType="menuVO">
@@ -23,7 +23,7 @@
 		insert into menu
 		(name,description,categoryid)
 		values 
-		(#{name},#{description},#{categoryid})
+		(#{name},#{description},#{categoryId})
 	]]>
 </insert>
 <update id="update" parameterType="menuVO">
@@ -31,10 +31,15 @@
 		update menu set
 		name=#{name},
 		description=#{description},
-		categoryid=#{categoryid}
-		where menuid = #{menuid}
+		categoryid=#{categoryId}
+		where menuid = #{menuId}
 	]]>
 </update>
+<select id="selectByCategoryId" resultMap="menuResult" parameterType="int">
+	<![CDATA[
+	select * from menu WHERE categoryid = #{id}
+	]]>
+</select>
 <delete id="delete" parameterType="int">
 	<![CDATA[
 	delete from menu WHERE menuid = #{menuid}

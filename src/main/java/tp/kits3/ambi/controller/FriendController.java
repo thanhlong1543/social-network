@@ -1,5 +1,7 @@
 package tp.kits3.ambi.controller;
-
+/*
+ * @author Duc
+ * */
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import tp.kits3.ambi.route.Route;
 import tp.kits3.ambi.service.impl.FriendServiceImpl;
-import tp.kits3.ambi.vo.Friend;
 import tp.kits3.ambi.vo.User;
 
 @Controller
@@ -23,7 +24,6 @@ public class FriendController {
 		
 		List<User> listFriends = friendService.selectByUserId(2,2);//2.friend
 		model.addAttribute("listFriends", listFriends);
-		model.addAttribute("test", "1");
 		return "user/home/friend";
 	}
 	@RequestMapping(value = "/pending", method = RequestMethod.GET)

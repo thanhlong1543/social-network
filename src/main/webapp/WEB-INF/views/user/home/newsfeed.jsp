@@ -34,65 +34,123 @@
 
 	<!-- Post Content
             ================================================= -->
-    <c:forEach items="${posts}" var="post">
-    	<div class="post-content">
-		<img src='<c:url value="/images/post-images/1.jpg"></c:url>'
-			alt="post-image" class="img-responsive post-image" />
-		<div class="post-container">
-			<img src='<c:url value="/albums/user/avt/${post.user.useravt}"></c:url>'
-				alt="user" class="profile-photo-md pull-left" />
-			<div class="post-detail">
-				<div class="user-info">
-					<h5>
-						<a href="timeline.html" class="profile-link">${post.user.name}</a> <span
-							class="following">following</span>
-					</h5>
-					<p class="text-muted">Published a photo about 3 mins ago</p>
-				</div>
-				<div class="reaction">
-					<a class="btn text-green"><i class="icon ion-thumbsup"></i> ${post.totalLike}</a>
-					<a class="btn text-red"><i class="fa fa-thumbs-down"></i> 0</a>
-				</div>
-				<div class="line-divider"></div>
-				<div class="post-text">
-					<p>
-						${post.content}
-						 <i class="em em-anguished"></i> <i class="em em-anguished"></i> <i
-							class="em em-anguished"></i>
-					</p>
-				</div>
-				<div class="line-divider"></div>
-				<c:forEach items="${post.comments}" var="comment">
-					<div class="post-comment">
-					<img
-						src='<c:url value="/albums/user/avt/${comment.user.useravt}"></c:url>'
-						alt="" class="profile-photo-sm" />
-					<p>
-						<a href="timeline.html" class="profile-link">${comment.user.name}</a><i
-							class="em em-laughing"></i> 
-						${comment.content}
-					</p>
-					<c:forEach items="${comment.subComments}" var="subcomment">
-						<div class="post-comment">
-							<img
-								src='<c:url value="/albums/user/avt/${subcomment.user.useravt}"></c:url>'
-								alt="" class="profile-photo-sm" />
-							<p>
-								<a href="timeline.html" class="profile-link">${subcomment.user.name} </a><i
-									class="em em-laughing"></i>
-							${subcomment.content}					
-						</div>
+    <div class="post-container">
+	    <c:forEach items="${posts}" var="post">
+	    	<div class="post-content">
+			<img src='<c:url value="/images/post-images/1.jpg"></c:url>'
+				alt="post-image" class="img-responsive post-image" />
+			<div class="post-container">
+				<img src='<c:url value="/albums/user/avt/${post.user.useravt}"></c:url>'
+					alt="user" class="profile-photo-md pull-left" />
+				<div class="post-detail">
+					<div class="user-info">
+						<h5>
+							<a href="timeline.html" class="profile-link">${post.user.name}</a> <span
+								class="following">following</span>
+						</h5>
+						<p class="text-muted">Published a photo about 3 mins ago</p>
+					</div>
+					<div class="reaction">
+						<a class="btn text-green"><i class="icon ion-thumbsup"></i> ${post.totalLike}</a>
+						<a class="btn text-red"><i class="fa fa-thumbs-down"></i> 0</a>
+					</div>
+					<div class="line-divider"></div>
+					<div class="post-text">
+						<p>
+							${post.content}
+							 <i class="em em-anguished"></i> <i class="em em-anguished"></i> <i
+								class="em em-anguished"></i>
+						</p>
+					</div>
+					<div class="line-divider"></div>
+					<c:forEach items="${post.comments}" var="comment">
+						<div class="row">
+	                    	<div class="col-sm-2 col-md-2">
+	                        	<img class="avt-comment" src='<c:url value="/albums/user/avt/${comment.user.useravt}"></c:url>' alt="">
+	                    	</div>
+		                    <div class="col-sm-10 col-md-10">
+		                        <div class="comment-content">
+		                            <span><a href="#">${comment.user.name}</a></span>
+		                            <p>${comment.content} </p>
+		                            <div class="row">
+		                                <a href="#">Reply</a>
+		                                <a href="" class="show-replies">Show more replies <i>---------</i></a>
+		                            </div>
+		                        </div>
+		                        <c:forEach items="${comment.subComments}" var="subcomment">
+			                        <div class="row sub-comment">
+			                            <div class="col-sm-2 col-md-2">
+			                                <img  class="avt-comment" src='<c:url value="/albums/user/avt/${subcomment.user.useravt}"></c:url>' alt="">
+			                            </div>
+			                            <div class="col-sm-10 col-md-10">
+			                                <span><a href="#">${subcomment.user.name}</a></span>
+			                                <p>${subcomment.content}</p>
+			                            </div>
+			                        </div>
+								</c:forEach>
+		
+		                    </div>
+	
+	                	</div>
+						<div class="row reply-comment">
+                            <form action="">
+                                <div class="col-sm-10 col-md-10">
+                                    <textarea class="form-control reply-content" aria-label="With textarea"></textarea>
+                                </div>
+                                <div class="col-sm-2 col-md-2">
+                                    <input type="submit" class="btn btn-danger">
+                                </div>
+                            </form>
+                        </div>
 					</c:forEach>
+					
 				</div>
-				
-				</c:forEach>
-				
 			</div>
 		</div>
-	</div>
-    </c:forEach>        
+		<div class="col-sm-12 col-md-12 reply-comment">
+                        <form action="">
+                            <div class="col-sm-10 col-md-10">
+                                <textarea class="form-control reply-content" aria-label="With textarea"></textarea>
+                            </div>
+                            <div class="col-sm-2 col-md-2">
+                                <input type="submit" class="btn btn-danger">
+                            </div>
+                        </form>
+        </div>
+	    </c:forEach>        
+    </div>
+    
 	
 </div>
+<style>
+    .avt-comment {
+        max-width: 80%;
+        border-radius: 50%;
+    }
+    
+    span {
+        padding-right: 5px;
+    }
+    
+    p {
+        display: inline;
+    }
+    
+    i {
+        letter-spacing: -3px;
+    }
+    
+    .sub-comment {}
+    
+    .show-replies {
+        float: right;
+    }
+    
+    .reply-content {
+        width: 100%;
+        height: 10vh;
+    }
+</style>
 <script>
 	function insertPost() {
 		 $.ajax({

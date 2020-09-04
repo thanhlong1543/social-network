@@ -22067,5 +22067,9 @@ fieldset[disabled][disabled] .dark-edition .has-error .form-control,
     transform: scale(0.75);
   }
 }
+.active, .nav-item:hover {
+  background-color: #green;
+  color: white;
+}
 
 /*# sourceMappingURL=dashboard-free.css.map */
