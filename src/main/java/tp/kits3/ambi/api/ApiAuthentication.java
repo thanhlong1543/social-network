@@ -17,6 +17,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCrypt;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -50,13 +51,9 @@ public class ApiAuthentication {
 		user.setPassword(BCrypt.hashpw(dto.getPassword1(), BCrypt.gensalt(8)));
 		user.setRoleId(1);
 		userService.insert(user);
-		
 		return new ResponseEntity<>(HttpStatus.OK);
-		
 	}
 
-	
-	
 	@PostMapping("/api/login")
 	public Object login(@RequestBody LoginDto dto) {
 		Authentication authentication = null;
@@ -71,12 +68,18 @@ public class ApiAuthentication {
 					.setExpiration(new Date(dateNow.getTime()+ 864000000L))
 					.signWith(SignatureAlgorithm.HS512, "abcd")
 					.compact();
-			token = "Bearer "+token;
 			return new ResponseEntity<String>(token,HttpStatus.OK);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
+	}
+	
+	@GetMapping("/api/test")
+	public Object test() {
+		String username = SecurityContextHolder.getContext().getAuthentication().getName();
+		System.out.println(username);
+		return new ResponseEntity<>(HttpStatus.OK);
 	}
 	
 	

@@ -1,7 +1,9 @@
 package tp.kits3.ambi.route;
 
 import java.util.HashMap;
-
+/**
+ * @author Vu Thanh Long
+ */
 public class Route {
 	
 	private static HashMap<String, String> routes;
