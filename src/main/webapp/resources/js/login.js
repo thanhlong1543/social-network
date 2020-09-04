@@ -138,7 +138,7 @@ $("#form-login").submit(function(e){
             url: "http://localhost:8080/ambi/api/login",
             data : JSON.stringify(data),//send data
             success : function(data){
-				localStorage.setItem('token', data);
+				localStorage.setItem('token', "Bearer " + data);
 				window.location.replace('http://localhost:8080/ambi/');
             },
             error : function(e){

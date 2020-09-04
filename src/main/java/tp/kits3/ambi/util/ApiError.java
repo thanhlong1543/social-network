@@ -4,7 +4,9 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.http.HttpStatus;
-
+/**
+ * @author Vu Thanh Long
+ */
 public class ApiError {
 	 
     private HttpStatus status;
