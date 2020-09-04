@@ -285,7 +285,6 @@ function compareInputToData(value, data){
 }
 $(".search-friend").on('keyup', function(){
 	var value = $("#search-friend-value").val();
-	console.log(value);
 	var data = compareInputToData(value, dataResource);
 	appendToList(data);
 })
