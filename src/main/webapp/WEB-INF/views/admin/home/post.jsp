@@ -30,7 +30,8 @@
 							<td>${item.totalLike }</td>
 							<td>${item.userId }</td>
 							<td>${item.privacyId }</td>
-							
+							<td>${item.isdelete }</td>
+							<td><a href="javascript:void()" class="btn-delete"><button>Delete</button></a><input type="hidden" class="id-delete" value="${item.postId }"></td>
 						</tr>
 					</c:forEach>
 				</tbody>
