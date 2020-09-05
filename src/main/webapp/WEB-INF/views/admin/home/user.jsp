@@ -45,38 +45,6 @@
 			</table>
 			</div>
 		</div>
-       	<div class="input-group no-border" style="width: 10%">
-                    <input type="text" value=""id="myInput" class="form-control" placeholder="Search..." >
-                  </div>
-			<table border="1" style="border: 1px;width: 100%;color: #fff;" >
-				<thead>
-					<tr>
-						<td>STT</td>
-							<td>userid</td>
-							<td>name</td>
-							<td>phone</td>
-							<td>email</td>
-							<td>roleid</td>
-						
-					</tr>
-					
-				</thead>
-				<tbody id="myTable">
-					<c:forEach items="${userlist }" var="item" varStatus="status">
-						<tr>
-							<td>${status.index+1 }</td>
-							<td>${item.userId }</td>
-							<td>${item.name }</td>
-							<td>${item.phone }</td>
-							<td>${item.email }</td>
-							<td>${item.roleId }</td>
-							
-						</tr>
-					</c:forEach>
-				</tbody>
-			</table>
-		</div>
-      </div>
       
      <content tag="scripts">
      <script>
