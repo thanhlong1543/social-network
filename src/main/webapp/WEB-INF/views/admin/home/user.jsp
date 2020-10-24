@@ -18,7 +18,6 @@
 							<td scope="col"><b>phone</b></td>
 							<td scope="col"><b>email</b></td>
 							<td scope="col"><b>isactive</b></td>
-							<td scope="col"><b>roleid</b></td>
 							<td scope="col"><b>userurl</b></td>
 							<td scope="col"><b>useravt</b></td>
 							<td scope="col"><b>userbgr</b></td>
@@ -34,7 +33,6 @@
 							<td>${item.phone }</td>
 							<td>${item.email }</td>
 							<td>${item.isactive}</td>
-							<td>${item.roleId }</td>
 							<td>${item.userUrl}</td>
 							<td>${item.useravt}</td>
 							<td>${item.userbgr }</td>
@@ -47,6 +45,7 @@
 		</div>
       
      <content tag="scripts">
+
      <script>
 		$(document).ready(function(){
 		  $("#myInput").on("keyup", function() {
@@ -74,6 +73,7 @@
 			    		element = document.querySelector(".bg-modal");
 			    		element.style.display = "flex";
 			    		$.ajax({
+			    			headers: { 'Authorization': localStorage.getItem('token') },
 			    			type:"GET",
 			    			url : "http://localhost:8080/ambi/update_user/"+id,
 			    			success : function(result) {

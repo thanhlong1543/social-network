@@ -8,7 +8,6 @@
        		 <div id="list-menu">
 		<jsp:include page="../home/editMenu.jsp"/>
 		<div class = "manager-content">
-		<!-- Chuc Kim Thien -->
 			<table class="table table-dark" border="1" style="width: 100%; border: 1px; color:#fff;">
 				<thead>
 					<tr>
@@ -38,6 +37,9 @@
 		</div>
       </div>
      <content tag="scripts">
+     <!-- 
+     @author: Truong
+      -->
       	<script type="text/javascript">
 		 $(document).ready(function(){
 				let allbtnedit = document.querySelectorAll('.btn-edit');
@@ -56,8 +58,9 @@
 			    		element = document.querySelector(".bg-modal");
 			    		element.style.display = "flex";
 			    		$.ajax({
+			    			headers: { 'Authorization': localStorage.getItem('token') },
 			    			type:"GET",
-			    			url : "http://localhost:8080/ambi/update/"+id,
+			    			url : "http://localhost:8080/ambi/api/update/"+id,
 			    			success : function(result) {
 			    				$('#menuId').val(result.menuId);
 			    				$('#name').val(result.name);

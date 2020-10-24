@@ -40,10 +40,6 @@
 					<form:input class="col-md-9" path="isactive" type="text" id="isactive"/>
 				</div>
 				<div>
-					<form:label class="col-md-2" path="roleId"><b>RoleId</b></form:label>
-					<form:input class="col-md-9" path="roleId" type="text" id="roleId"/>
-				</div>
-				<div>
 					<form:label class="col-md-2" path="userUrl"><b>UserUrl</b></form:label>
 					<form:input class="col-md-9" path="userUrl" type="text" id="userUrl"/>
 				</div>

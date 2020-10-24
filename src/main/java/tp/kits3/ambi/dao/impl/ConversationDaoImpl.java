@@ -11,7 +11,5 @@ public class ConversationDaoImpl extends GenericDaoImpl<Conversation> implements
 	public ConversationDaoImpl() {
 		super("conversationMapper");
 	}
-	
-	
-	
+
 }

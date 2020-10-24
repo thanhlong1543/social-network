@@ -11,13 +11,13 @@
 
         Tip 2: you can also add an image using data-image tag
     -->
-      <div class="logo"><a href="/ambi/admin/dashboard" class="simple-text logo-normal">
+      <div class="logo"><a href="/ambi/" class="simple-text logo-normal">
           AMBI
         </a></div>
       <div class="sidebar-wrapper">
         <ul class="nav" id="myDIV">
         <c:forEach items="${menu}" var="lsMenu">
-          <li class="nav-item"id="changLi" onclick="changColor()">
+          <li class="nav-item" id="changLi" onclick="changColor()">
             <a class="nav-link" href="${lsMenu.description}">
               <i class="material-icons">dashboard</i>
               <p>${lsMenu.name}</p>
@@ -33,3 +33,11 @@
 			element.style.backgroundColor = "red"
  		}
 	</script>
+<style>
+	.sidebar .sidebar-wrapper .nav-link{
+		font-weight:bold;
+	}
+	.sidebar .sidebar-wrapper .nav-link:hover{
+		color: #fff;
+	}
+</style>

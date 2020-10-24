@@ -23,7 +23,13 @@
 			where chatid = #{id}
 		]]>
 	</select>
-	<insert id="insert" parameterType="chatVO">
+	<select id="selectByConid" resultMap="chatResult" parameterType="int">
+		<![CDATA[
+			select * from chat
+			where conid = #{conid}
+		]]>
+	</select>
+	<insert id="insert" useGeneratedKeys="true" keyProperty="chatId"  keyColumn = "chatid" parameterType="chatVO">
 		<![CDATA[
 			insert into chat
 			(conid,content,chattime)

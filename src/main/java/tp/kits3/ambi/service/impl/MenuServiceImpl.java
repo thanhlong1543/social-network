@@ -15,19 +15,18 @@ public class MenuServiceImpl implements MenuService{
 
 	@Override
 	public List<Menu> selectAll() {
-		// TODO Auto-generated method stub
+		
 		return menuDao.selectAll();
 	}
 
 	@Override
 	public Menu selectOne(int id) {
-		// TODO Auto-generated method stub
+
 		return menuDao.selectOne(id);
 	}
 
 	@Override
 	public void update(Menu menu) {
-		// TODO Auto-generated method stub
 		menuDao.update(menu);
 	}
 

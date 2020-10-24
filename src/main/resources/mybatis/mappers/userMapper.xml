@@ -9,8 +9,10 @@
 	<resultMap type="userVO" id="userResult">
 		<!-- <result property="bkid" column="bkid"/>-->
 	</resultMap>
-	<!-- make sql statement -->
 	
+	<resultMap type="userDto" id="userDtoResult">
+
+	</resultMap>
 	<!-- List<Book> books = selectAll -->
 	<select id="selectAll" resultMap="userResult"> <!-- mapper.bookMapper.selectAll -->
 		<![CDATA[
@@ -29,7 +31,12 @@
 			where email = #{email}
 		]]>
 	</select>
-
+	<select id="selectByUri" resultMap="userResult" parameterType="String">
+		<![CDATA[
+			select * from user 
+			where userurl = #{userurl}
+		]]>
+	</select>
 	<!-- _______________________________friend_________________________ -->
 	<select id="selectListFriendById" resultMap="userResult" parameterType="map">
 		<![CDATA[
@@ -39,13 +46,45 @@
 			AND (friend.user1id = ${userid} OR friend.user2id = #{userid})
 		]]>
 	</select>
+	
+	<select id = "selectMutualFriend" resultMap = "userDtoResult" parameterType = "int" statementType = "CALLABLE">
+      {call mutual_friend(#{id, jdbcType = INTEGER, mode = IN})}
+    </select> 
+    
+    <select id = "selectListMutual" resultMap = "userResult" parameterType = "map" statementType = "CALLABLE">
+      {call list_mutual(
+       #{myid, jdbcType = INTEGER, mode = IN}
+      ,#{fid, jdbcType = INTEGER, mode = IN}
+      )}
+    </select>
 	<!-- _______________________________friend_________________________ -->
-	<insert id="insert" parameterType="userVO">
+	<!-- _______________________________pending_________________________ -->
+	<select id="selectListPending" resultMap="userResult" parameterType="map">
+		<![CDATA[
+			SELECT distinct user.name, user.useravt, user.userbgr, user.userid, user.userurl
+			FROM friend, user 
+			WHERE friend.reid = ${reid} AND user2id = ${userid} AND (friend.user1id = user.userid OR friend.user2id = user.userid)
+		]]>
+	</select>
+	
+	
+	
+	
+	<!-- _______________________________pending_________________________ -->
+	<!-- _______________________________like_________________________ -->
+	<select id="selectNameByPostId" resultMap="userResult" parameterType="int">
+		<![CDATA[
+			SELECT a.name FROM user a, ambi.like b WHERE a.userid=b.userid AND b.postid=#{postId}
+		]]>
+	</select>	
+	<!-- _______________________________like_________________________ -->
+	
+	<insert id="insert" useGeneratedKeys="true" keyColumn="userid" keyProperty="userId" parameterType="userVO">
 		<![CDATA[
 			insert into user
-			(name,phone,email,password,isactive,roleid,userurl,useravt,userbgr)
+			(name,phone,email,password,isactive,userurl,useravt,userbgr)
 			values
-			(#{name},#{phone},#{email},#{password},#{isactive},#{roleId},#{userUrl},#{useravt},#{userbgr})
+			(#{name},#{phone},#{email},#{password},#{isactive},#{userUrl},#{useravt},#{userbgr})
 		]]>
 	</insert>
 	<update id="update" parameterType="userVO">
@@ -56,7 +95,6 @@
 			email=#{email},
 			password=#{password},
 			isactive=#{isactive},
-			roleid = #{roleId},
 			userurl = #{userUrl},
 			useravt = #{useravt},
 			userbgr = #{userbgr}

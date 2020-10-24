@@ -14,26 +14,48 @@
 	<select id="selectOne" resultMap="likeResult" parameterType="int">
 		<![CDATA[
 			select * from like
-			where likeid = #{likeid}
+			where likeid = #{id}
+		]]>
+	</select>
+	<select id="selectByPostid" resultMap="likeResult" parameterType="int">
+		<![CDATA[
+			select * from ambi.like 
+			where postid = #{postId}
+		]]>
+	</select>
+	<select id="selectByUserid" resultMap="likeResult" parameterType="int">
+		<![CDATA[
+			select * from ambi.like 
+			where userid = #{userId}
+		]]>
+	</select>
+	<select id="selectByUseridAndPostid" resultMap="likeResult" parameterType="likeVO">
+		<![CDATA[
+			select * from ambi.like 
+			where userid = #{userId} and postid = #{postId}
 		]]>
 	</select>
 	<insert id="insert" parameterType="likeVO">
 		<![CDATA[
-			insert into like
+			insert into ambi.like
 			(postid,userid)
 			values
-			(#{postid},#{userid})
+			(#{postId},#{userId})
 		]]>
 	</insert>
 	<update id="update" parameterType="likeVO">
 		<![CDATA[
 			update like set
-			postid = #{postid},
-			userid = #{userid}
-			where likeid = #{likeid}
+			postid = #{postId},
+			userid = #{userId}
+			where likeid = #{likeId}
 		]]>
 	</update>
 	<delete id="delete" parameterType="int">
-		delete from like WHERE likeid=#{likeid}
+		delete from like WHERE likeid=#{id}
+	</delete>
+	
+	<delete id="deleteByPostIdAndUserId" parameterType="likeVO">
+		delete from ambi.like WHERE postid=#{postId} and userid=#{userId}
 	</delete>
 </mapper>

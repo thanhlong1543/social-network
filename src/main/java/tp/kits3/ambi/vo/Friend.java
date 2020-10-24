@@ -49,4 +49,11 @@ public class Friend {
         this.user2Id = param.getUser2Id();
         this.reId = param.getReId();
     }
+
+	public Friend(Integer user1Id, Integer user2Id, Integer reId) {
+		this.user1Id = user1Id;
+		this.user2Id = user2Id;
+		this.reId = reId;
+	}
+	public Friend() {}
 }

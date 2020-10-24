@@ -1,152 +1,123 @@
 *{font-family:'Nunito',sans-serif; margin: 0; padding: 0;}
-a{
-    text-decoration: none;
-    color: #fff;
-    font-size: 18px;
-    font-weight: 700;
-}
 
-.btn-general{
-    background-color: #40A798;
-    border-radius: 5px;
-    border: none;
-    padding: 10px 20px;
-}
-.btn-general:hover{
-    cursor: pointer;
-    color:#fff;
-    background-color: #333;
-    transition: all .3s;
-    
-}
 .text-alert{
 	color: red;
 	display: inline-block;
 	opacity: 0;
 	transition: opacity .3s;
 }
-.active-tab{
-    /* border-bottom: 2px solid #fff; */
-    color: rgba(255, 255, 255, 1)!important;
-}
-input{
-    font-weight: 400;
-    width: 100%;
-    display: inline-block;
-    padding: 7px;
-    font-size: 18px;
-    border: 1px solid #ddd;
-    box-sizing: border-box;
-    margin-bottom: 15px;
-}
-input:focus{
-    transition: all .3s;
-    outline:1px solid #40A798;
-}
-.bgr{
-    height: 100vh;
-    background-color: rgba(64,167,152,0.3);
-    /* background-image:linear-gradient(#40A798,#fff, #40A798); */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.bgr img{
-    width: 300px;
-    animation: fadein .6s;
-    margin-right: 100px;
-}
-.bgr .form{
-    color: #fff;
-    z-index: 5;
-    height: 550px;
-    width: 400px;
-    background-color: #fff;
-    border: 1px solid rgb(165, 162, 162);
-    border-radius: 10px;
-    padding: 50px 20px;
-    box-sizing: border-box;
-    box-shadow: 2px 2px 10px 0px rgb(165, 162, 162);
-    background: url('../images/bgr-login.jpg') no-repeat;
-    background-position: -5px -470px;
-    overflow: hidden;
-}
-.bgr .form .tab-header{
-    position: relative;
-    width: 50%;
-}
-.bgr .form .tab-header .tab-action{
-    width: 100%;
-    display: flex;
-}
-.bgr .form .tab-header .tab-action a{
-    color: rgba(255, 255, 255, 0.3);
-    width: 50%;
-    display: inline-block;
-    text-align: center;
-}
-.bgr .form .tab-header .tab-action a:hover{
-    color: rgba(255, 255, 255, 1);
-    cursor: pointer;
-}
-.bgr .form .tab-header #tab-indicator{
-    position: absolute;
-    left: 0;
-    height: 3px;
-    margin-top: 5px;
-    width: 50%;
-    background-color: #fff;
-    border-radius: 5px;
-    transition: .4s;
-    display: inline-block;
-}
-.bgr .form .form-container{
-    position: relative;
-    display: block;
-}
-.bgr .form .form-container form{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    /* margin: 20px 0; */
-    /* opacity: 0; */
-    
-}
-.bgr .form .form-container form h1{
-    font-family: 'Rock Salt', sans-serif;
-    padding-bottom: 20px;
-}
-.bgr .form .form-container form h2{
-    font-weight: 100;
-    padding-bottom: 20px;
-}
-.bgr .form .form-container form > div{}
-.bgr .form .form-container form > div label{
-    display: block;
-}
-.bgr .form .form-container form > div input{
-    
-}
-.bgr .form .form-container form > input{
+input {
+	font-weight: 400;
+	width: 100%;
+	display: inline-block;
+	padding: 7px;
+	font-size: 18px;
+	border: 1px solid #ddd;
+	margin-bottom: 18px;
+	box-sizing: border-box;
 }
 
-.bgr .form .form-container>.signin-container{
-}
-.bgr .form .form-container .signin-container h1{}
-.bgr .form .form-container .signin-container h2{}
-.bgr .form .form-container .signup-container{
-}
-.bgr .form .form-container .signup-container form{
-    position: absolute;
+input:focus {
+	transition: all .3s;
+	outline: 1px solid #40A798;
+	box-shadow: 0px 0px 6px 3px #40a798;
 }
 
-.bgr .form .form-container .signup-container>div{
-    position: absolute;
-    top: 100px;
-    left: 450px;
+.register-link {
+	color: rgba(64, 167, 152, 1);
 }
-.bgr .form .form-container .signup-container{}
+
+.register-link:hover {
+	color: royalblue;
+	cursor: pointer;
+}
+
+.form-container {
+	display: flex;
+	width: 100%;
+	height: 100vh;
+	align-items: center;
+	justify-content: center;
+	background-color: rgba(64, 167, 152, .2);
+}
+
+.login-form {
+	width: 900px;
+	height: 600px;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	border: 1px solid rgb(190, 190, 190);
+	box-shadow: -1px 1px 20px 1px rgb(190, 190, 190);
+}
+
+.form-left {
+	background: url('http://localhost:8080/ambi/images/login-img.jpg')
+		no-repeat;
+	object-fit: contain;
+	background-size: cover;
+	background-position: center;
+}
+
+.form-left>div {
+	background-color: rgba(64, 167, 152, .5);
+	width: 100%;
+	height: 100%;
+	color: #fff;
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	align-items: center;
+	justify-content: space-evenly;
+}
+
+.form-left>div h1 {
+	padding: 0;
+	margin: 0;
+}
+
+.form-left>div h3 {
+	width: 50% !important;
+}
+
+.form-right {
+	padding: 100px 50px;
+	box-sizing: border-box;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	flex-direction: column;
+	background-color: #fff;
+}
+
+.form-right img {
+	width: 50%;
+}
+
+.form-right form div input {
+	margin-top: 10px;
+}
+
+.btn-cuaduc {
+	border-radius: 20px;
+	border: none;
+	background-color: #40A798;
+	padding: 5px 15px 5px 15px;
+	transition: all .3s;
+	color: #fff;
+}
+.btn-cuaduc:focus{
+	outline: none;
+	border: none;
+}
+.btn {
+	width: 100%;
+	padding: 10px 0 !important;
+}
+
+.btn-cuaduc:hover {
+	background-color: black;
+	cursor: pointer;
+}
 
 
 .dialog-bgr{
@@ -266,7 +237,14 @@ input:focus{
 }
 
 
-
+#verify-message {
+	position: absolute;
+	top:50px;
+	left:40%;
+	display:block;
+	color: #40A798;
+	font-size: 20px;
+}
 
 
 

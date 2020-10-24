@@ -23,7 +23,7 @@
 			where conversationid = #{id}
 		]]>
 	</select>
-	<insert id="insert" parameterType="conversationVO">
+	<insert id="insert" useGeneratedKeys="true" keyProperty="conId"  keyColumn = "conid" parameterType="conversationVO">
 		<![CDATA[
 			insert into conversation
 			(ownerid,title)

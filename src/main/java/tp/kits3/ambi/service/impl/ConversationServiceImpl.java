@@ -40,5 +40,4 @@ public class ConversationServiceImpl implements ConversationService {
 	public void delete(int id) {
 		converDao.delete(id);
 	}
-
 }

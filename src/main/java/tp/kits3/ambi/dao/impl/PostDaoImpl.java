@@ -35,4 +35,13 @@ public class PostDaoImpl extends GenericDaoImpl<Post> implements PostDao {
 		session.commit();
 		session.close();
 	}
+
+	@Override
+	public Post selectByIdPost(int id) {
+		SqlSession session = getInstance().openSession();
+		Post post = session.selectOne("mappers.postMapper.selectOne", id); 
+		session.close();
+		return post;
+		
+	}
 }

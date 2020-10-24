@@ -1,14 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+      <div id="map"></div>
 	<div class="content">
 
       	<div id="map" style="height: 500px; width: 100%;">
       	 </div>
       </div>	   
+
   <content tag="scripts">
    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
   <script>
+  <!--
+	@author: Truong
+	  -->
     function initMap(){
       // Map options
       var options = {

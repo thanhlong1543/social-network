@@ -4,6 +4,6 @@ import org.springframework.security.web.context.AbstractSecurityWebApplicationIn
 import org.springframework.stereotype.Component;
 
 @Component
-public class SecurityIntializer extends AbstractSecurityWebApplicationInitializer{
+public class SecurityInitializer extends AbstractSecurityWebApplicationInitializer {
 	
 }

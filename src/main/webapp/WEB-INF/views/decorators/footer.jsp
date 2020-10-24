@@ -8,7 +8,7 @@
       	<div class="row">
           <div class="footer-wrapper">
             <div class="col-md-3 col-sm-3">
-              <a href=""><img src='<c:url value="/images/logo-black.png"></c:url>' alt="" class="footer-logo" /></a>
+              <a href=""><img src='<c:url value="/images/logoambi.png"></c:url>' alt="" class="footer-logo" /></a>
               <ul class="list-inline social-icons">
               	<li><a href="#"><i class="icon ion-social-facebook"></i></a></li>
               	<li><a href="#"><i class="icon ion-social-twitter"></i></a></li>

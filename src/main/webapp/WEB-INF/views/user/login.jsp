@@ -12,7 +12,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Ambition</title>
     <link rel="shortcut icon" type="image/png" href="<c:url value='images/icon.png'></c:url>"/>
     <link rel="stylesheet" href="<c:url value='css/login.css'></c:url>">
     <link rel="stylesheet" href="<c:url value='css/loading.css'></c:url>">
@@ -28,8 +28,8 @@
                         <h2>New experiences</h2>
                         <%-- <img src="<c:url value='img/logoblack.png'></c:url>" alt=""> --%> 
                         <div>
-                            <form:label path="email" for="email">Email</form:label>
-                            <form:input type="text" path="email" id="email" ></form:input>
+                            <form:label path="registEmail" >Email</form:label>
+                            <form:input type="text" path="registEmail" ></form:input>
                         </div>
                         <div>
                             <form:label path="password1">Password</form:label>
@@ -39,7 +39,7 @@
                             <form:label path="password2" >Password again</form:label>
                             <form:input type="password" path="password2" id="password2" ></form:input>
                         </div>
-                        <input type="submit" value="Sign up" class="btn-general"  readonly>
+                        <button type="submit" value="Sign up" class="btn-cuaduc" >Sign up</button>
                         
                         <p id="alert-signup" class="text-alert">Please fill out the form</p>
                             
@@ -54,28 +54,25 @@
                     <i class='fas fa-angle-right' style='font-size:50px;color:#40A798' onclick="toStep3()"></i>
                 </div>
                 <div class="step-3">
-                    <h1>We sent you a code</h1>
-                    <p>Enter it below to your email</p>
-                    <form action="" class="verification">
-                        <div>
-                           
-                            <label for="">Verify code</label>
-                            <input type="text" pattern="[0-9]" placeholder="Verify code">
-                        </div>
-                        <a id="verify-code" onclick="getCount()">Get code</a><input type="submit" value="Verify" class="btn-general">
-                    </form>
-                    <div id="spin-container">
-                        <div id="loader">
-                        </div>
-
-                        <h1 id="count-display"></h1>
-                    </div>
+                	<h1>Activate account</h1>
+                    <p>Please check your email and click the link below to activate your account</p>
+                    <!-- <a href="https://mail.google.com/">Go to email</a> -->
+                    
+					<a id="verify-code" class="register-link" onclick="sendEmail()">Get email</a>
+                    
                 </div>
+                <div id="spin-container">
+	                   <div id="loader">
+	                   </div>
+	
+	                   <h1 id="count-display"></h1>
+               	</div>
             </div>
             <i class="fas fa-times"onclick="closeSignUpForm()"></i>
         </div>
     </div>
-    <div class="bgr">
+    <%-- <div class="bgr">
+    	<h4 id="verify-message">${message}</h4>
         <img src="<c:url value='images/logoambi.png'></c:url>" alt="">
         <div class="form">
             <div class="tab-header">
@@ -101,7 +98,7 @@
                             <form:input path="password" type="password"></form:input>
                         </div>
                         <input type="submit" value="Sign in" class="btn-general">
-        
+        				<p id="alert-login" class="text-alert">Email or password is incorrect!</p>
                     </form:form>
                 </div>
                 
@@ -109,10 +106,38 @@
             </div>
             
         </div>
+    </div> --%>
+    <div class="form-container">
+          <div class="login-form">
+              <div class="form-left">
+                  <div>
+                      <h1>Ambition Social Network</h1>
+                      <h3>Coming together to create meaningful change</h3>
+                  </div>
+              </div>
+              <div class="form-right">
+                  <img src="<c:url value='images/logoambi.png'></c:url>" alt="">
+                  <form:form id="form-login" modelAttribute="login">
+                        <!-- <img src="logoblack.png" alt=""> -->
+                         <div>
+                            <form:label path="email" >Input your email</form:label>
+                            <form:input path="email" type="text" ></form:input>
+                        </div>
+                       <div>
+                            <form:label path="password" placeholder="password">Input your password</form:label>
+                            <form:input path="password" type="password"></form:input>
+                        </div>
+                        <button type="submit" value="Sign in" class="btn btn-cuaduc">Sign in</button>
+        				<p id="alert-login" class="text-alert">Email or password is incorrect!</p>
+                  </form:form>
+                  
+                  <p>Dont have an account yet? <span><a onclick="register()" class="register-link">Register now</a></span></p>
+              </div>
+          </div>
     </div>
-    <div class="medal-signup">
+    <!-- <div class="medal-signup">
         
-    </div>
+    </div> -->
 </body>
 
 <script src="<c:url value='/js/login.js'></c:url>"></script>

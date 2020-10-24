@@ -14,7 +14,16 @@ public class Route {
     public static final String friend = "/friend";
     public static final String login = "/login";
     public static final String logout = "/logout";
+    public static final String profile = "/profile";
+    public static final String profileFriend = "/profile/friend";
+    public static final String profileTimeLine = "/profile/timeline";
+    public static final String profilePhoto = "/profile/photos";
+    public static final String profileEdit = "/profile/edit";
+    public static final String timeLine = "/timeline";
+    public static final String message = "/message";
     
+    public static final String verify = "/registrationVerify";
+
     private static void setRoutes()
     {       
         if(routes == null)
@@ -23,9 +32,18 @@ public class Route {
 
             routes.put("host", host);
             routes.put("home", host + home);
-            routes.put("friend", host + friend);
+            routes.put("friend",host + friend);
             routes.put("login", host + login);
             routes.put("logout", host + logout);
+            routes.put("profile", host + profile);
+            routes.put("profileFriend", host + profileFriend);
+            
+            routes.put("profileTimeLine", host + profileTimeLine);
+            
+            routes.put("profilePhoto", host + profilePhoto);
+            
+            routes.put("profileEdit", host + profileEdit);
+            routes.put("message", host + message);
         }
     }   
 

@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -46,7 +47,7 @@ public class AdminController {
 	@Autowired 
 	RoleService roleService;
 	
-	@RequestMapping(value="/admin/notifications", method = RequestMethod.GET)
+	@GetMapping("/admin/notifications")
 	public String notifications( Model model) {
 		List<Menu> lsMenu = menuService.selectByCategoryId(1);
 		model.addAttribute("menu",lsMenu);
@@ -72,6 +73,9 @@ public class AdminController {
 		
 	}
 	
+	/**
+	 * @author Truong
+	 */
 	@RequestMapping(value="/admin/dashboard", method = RequestMethod.GET)
 	public String dashboard( Model model) {
 		List<Menu> lsMenu = menuService.selectByCategoryId(1);
@@ -115,7 +119,21 @@ public class AdminController {
 		model.addAttribute("menulist", menuService.selectAll());
 		return "/admin/home/setting";
 	}
-		
-
+	/**
+	 * @author Thien
+	 */
+	@RequestMapping(value="/admin/aboutus", method = RequestMethod.GET)
+	public String aboutus( Model model) {
+		List<Menu> lsMenu = menuService.selectByCategoryId(1);                                                            
+		model.addAttribute("menu",lsMenu);
+		return "/admin/home/aboutus";
+	}
+	
+	@RequestMapping(value="/admin/ambition", method = RequestMethod.GET)
+	public String ambition( Model model) {
+		List<Menu> lsMenu = menuService.selectByCategoryId(1);                                                            
+		model.addAttribute("menu",lsMenu);
+		return "/admin/home/ambition";
+	}
 }
 

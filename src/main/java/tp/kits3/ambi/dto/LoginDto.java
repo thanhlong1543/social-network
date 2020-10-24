@@ -10,8 +10,7 @@ public class LoginDto {
 	@Length(min = 8,max = 20,message = "Password is 8-20 characters")
 	private String password;
 	public LoginDto() {
-		super();
-		// TODO Auto-generated constructor stub
+
 	}
 	public LoginDto(String email, String password) {
 		super();

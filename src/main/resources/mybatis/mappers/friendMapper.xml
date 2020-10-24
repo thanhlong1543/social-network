@@ -29,11 +29,18 @@
 			where user1id = #{id}
 		]]>
 	</select>
-	<select id="getIdFriendByTwoUsersId" resultMap="friendResult" parameterType="map">
+	
+	<select id="getIdFriendByTwoUsersId"  resultMap="friendResult" parameterType="map">
 		<![CDATA[
-			SELECT * FROM friend WHERE friend.user1id = ${id1} AND user2id = ${id2} GROUP BY user1id, user2id
+			SELECT * FROM friend WHERE ((user1id = ${id1} AND user2id = ${id2}) OR (user2id = ${id1} AND user1id = ${id2}))
 		]]>
 	</select>
+	<select id="getPendingList"  resultMap="friendResult" parameterType="map">
+		<![CDATA[
+			SELECT * FROM friend WHERE user2id = ${id} AND reid = ${reid}
+		]]>
+	</select>
+	
 	<insert id="insert" parameterType="friendVO">
 		<![CDATA[
 			insert into friend

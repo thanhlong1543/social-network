@@ -12,7 +12,7 @@ import tp.kits3.ambi.vo.Comment;
 @Service
 public class CommentServiceImpl implements CommentService {
 	@Autowired
-	CommentDao commentDao;
+	private CommentDao commentDao;
 
 	@Override
 	public List<Comment> selectByPostid(Integer postId) {
@@ -33,6 +33,12 @@ public class CommentServiceImpl implements CommentService {
 	public void isdelete(int id, int i) {
 		commentDao.isdelete(id, i);
 		
+	}
+
+	@Override
+	public Comment selectByIdComment(int id) {
+		
+		return commentDao.selectOne(id);
 	}
 
 }

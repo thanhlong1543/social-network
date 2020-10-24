@@ -23,6 +23,12 @@
 			where imageid = #{id}
 		]]>
 	</select>
+	<select id="selectByPostid" resultMap="imageResult" parameterType="int">
+		<![CDATA[
+			select * from image 
+			where postid = #{id}
+		]]>
+	</select>
 	<insert id="insert" parameterType="imageVO">
 		<![CDATA[
 			insert into image

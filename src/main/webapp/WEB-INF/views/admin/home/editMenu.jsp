@@ -7,7 +7,6 @@
     <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
     
       <link href="resources/css/material-dashboard.css?v=2.1.0" rel="stylesheet" />
-<!-- Chuc Kim Thien -->
 <div class="bg-modal" style="display: none;">
 	<div class="modal-content">
 		<div class="close" onclick="closeDialog()">X</div>

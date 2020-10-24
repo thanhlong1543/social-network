@@ -14,28 +14,49 @@
 	<select id="selectOne" resultMap="notificationsResult" parameterType="int">
 		<![CDATA[
 			select * from notifications
-			where noti_id = #{noti_id}
+			where notiid = #{notiId}
 		]]>
 	</select>
-	<insert id="insert" parameterType="notificationsVO">
+	<select id="selectNotiByUserId" resultMap="notificationsResult" parameterType="int">
+		<![CDATA[
+			SELECT * FROM notifications WHERE userid = #{userId} ORDER BY notidate asc
+		]]>
+	</select>
+	<select id="selectWithoutNotiId" resultMap="notificationsResult" parameterType="map">
+		<![CDATA[
+			SELECT * FROM notifications WHERE userid = ${userId} and memo = ${memo} and notitypeid = ${notiTypeId}
+		]]>
+	</select>
+	<select id="getNumberOfNotiByUserId" resultType="int" parameterType="map">
+		<![CDATA[
+			SELECT COUNT(*) FROM notifications WHERE userid = 2 AND isread = 0
+		]]>
+	</select>
+	<insert id="insert" useGeneratedKeys="true" keyProperty="notiId"  keyColumn = "notiid" parameterType="notificationsVO">
 		<![CDATA[
 			insert into notifications
-			(user_id,isread)
+			(userid,isread, notidate, content, memo, notitypeid, quant, iduseractor)
 			values
-			(#{user_id},#{isread})
+			(#{userId},#{isread},#{notiDate},#{content}, #{memo}, #{notiTypeId}, #{quant}, #{idUserActor})
 		]]>
 	</insert>
 	<update id="update" parameterType="notificationsVO">
 		<![CDATA[
 			update notifications set
-			user_id = #{user_id},
-			isread = #{isread}
-			where noti_id = #{noti_id}
+			userid = #{userId},
+			isread = #{isread},
+			notidate = #{notiDate},
+			content = #{content},
+			memo = #{memo},
+			notitypeid = #{notiTypeId},
+			quant = #{quant},
+			iduseractor = #{idUserActor}
+			where notiid = #{notiId}
 		]]>
 	</update>
 	<delete id="delete" parameterType="int">
 		<![CDATA[
-		delete from notifications where noti_id = #{noti_id}
+		delete from notifications where notiid = #{notiId}
 		]]>
 	</delete>
 </mapper>

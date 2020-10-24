@@ -1,9 +1,7 @@
 'use strict'
 
 //Preloader
-$.ajaxSetup({
-    headers: { 'Authorization':  localStorage.getItem('token')}
-});
+
 var preloader = $('#spinner-wrapper');
 $(window).on('load', function() {
     var preloaderFadeOutTime = 500;
@@ -172,24 +170,25 @@ function initMap() {
 
 //function for accept friend
 
-$.each($(".accept-friend"), function(idx){
+/*$.each($(".accept-friend"), function(idx){
 	$(".accept-friend")[idx].addEventListener('click', function(){
 		acceptFriend($(".id-user")[idx].value, idx);
 	});
-});
+});*/
 function itemFriendAnimation(idx){
 	$(".pending-card")[idx].style.margin =  '-50px';
 	$(".pending-card")[idx].style.opacity = '0';
 	$(".pending-card")[idx].style.transition = 'all .4s';
 	$(".pending-card")[idx].style.display = 'none';
 }
-function acceptFriend(id, idx) {
+function confirmRequest(id) {
 	$.ajax({
 		url : "http://localhost:8080/ambi/api/pending/accept/"+id,
 		type : "GET",
+		headers: { 'Authorization': localStorage.getItem('token') },
 		success : function(noti) {
-			itemFriendAnimation(idx);
-			idx--;
+			
+			window.location.reload();
 		//window.location.href = "http://localhost:8080/ambi/pending"; 
 		}
 	});
@@ -197,117 +196,27 @@ function acceptFriend(id, idx) {
 //end func accept friend
 
 //function del friend
-$.each($(".deny-friend"), function(idx){
+/*$.each($(".deny-friend"), function(idx){
 	$(".deny-friend")[idx].addEventListener('click', function(){
 		denyFriend($(".id-user")[idx].value, idx);
 	});
-});
-function denyFriend(id, idx) {
+});*/
+function cancelRequest(id) {
 	$.ajax({
 		url : "http://localhost:8080/ambi/api/pending/delete/"+id,
-		type : "GET",
+		type : "PUT",
+		headers: { 'Authorization': localStorage.getItem('token') },
 		success : function(noti) {
-			itemFriendAnimation(idx);
-			idx--;
-		//window.location.href = "http://localhost:8080/ambi/pending"; 
+			//itemFriendAnimation(idx);
+			//idx--;
+		//window.location.href = "http://localhost:8080/ambi/pending";
+			window.location.reload();
 		}
 	});
 }
 //function del friend
 		
-//get list friend
-let dataResource = {};
 
-getFriend();
-function getFriend(){
-	$.ajax({
-		contentType : 'application/json; charset=utf-8',
-		url : "http://localhost:8080/ambi/api/friend/2",
-		type: "GET",
-		success: function(data){
-				dataResource = data;
-				appendToList(dataResource);
-		}
-	});
-}
-
-function appendToList(data){
-	$(".friend-list .row").empty();
-	for(let i = 0; i< data.length;i++){
-		var idUser = $(`<input type='hidden' class='id-user' value='${data[i].userId}' >`);//id user
-		
-		var subMenu = $("<div class='sub-menu'></div>");
-		var option = $("<div class='dot-more'></div>");
-		var op1 = $("<span class='dot'></span>");
-		var op2 = $("<span class='dot'></span>");
-		var op3 = $("<span class='dot'></span>");
-		
-		var subContainer = $("<div class='sub-container'></div>");
-		var sub1 = $(`<a onclick="confirmUnfriend(this)" class='sub btn-unfriend'>Unfriend</a>`); sub1.append(idUser);
-		var sub2 = $("<a class='sub'>Chat</a>");
-		var sub3 = $("<a class='sub'>Profile</a>");
-		subContainer.append(sub1, sub2, sub3);
-		option.append(op1, op2, op3);
-		subMenu.append(option, subContainer);
-		
-		var curl = "'<c:url value='/albums/user/avt/"+data[i].useravt+"'></c:url>'";
-		
-		var name = $("<a href='timeline.html' class='profile-link'></a>").text(data[i].name);
-		//var myFriend = $("<a href='#' class='pull-right text-green'></a>").text("My friend");
-		
-		var friendInfo = $("<div class='friend-info'></div");
-		friendInfo.append(name);
-		var imgAvt = $(`<img src='albums/user/avt/${data[i].useravt}' alt='user' class='profile-photo-lg' />`);
-		var cardInfo = $("<div class='card-info'></div>").append(imgAvt, friendInfo);
-		
-		var imgBgr = $(`<img src='images/covers/1.jpg' alt="profile-cover"
-				class="img-responsive cover" />`);
-		var friendCard = $("<div class='friend-card'></div>").append(imgBgr, cardInfo, subMenu);
-		
-		var item = $("<div class='col-md-6 col-sm-6'></div>").append(friendCard);
-		
-		
-		
-		
-		$(".friend-list .row").append(item);
-	}
-}
-function compareInputToData(value, data){
-	var filteredData = [];
-	for(let i = 0; i <data.length;i++){
-		value = value.toLowerCase();
-		var name = data[i].name.toLowerCase();
-		if(name.includes(value)){
-			filteredData.push(data[i]);
-		}
-	}
-	return filteredData;
-}
-$(".search-friend").on('keyup', function(){
-	var value = $("#search-friend-value").val();
-	var data = compareInputToData(value, dataResource);
-	appendToList(data);
-})
-
-//unfriend
-
-
-function confirmUnfriend(event){
-	let ok = confirm("A du sua?");
-	if(ok){
-		let id = event.children[0].value;
-		$.ajax({
-			url: "http://localhost:8080/ambi/api/friend/delete/"+id,
-			method: "PUT",
-			success: function(){
-				alert("Successful");
-				window.location.reload();
-			}
-		})
-		
-	}
-}
-//get list friend
 
 
 
@@ -323,7 +232,348 @@ window.addEventListener( "pageshow", function ( event ) {
 //auto load page when press back button
 });
 
-//searching friend
+/*$('#post-form').submit(function(e) {
+		form = $(this);
+		    var data = {}
+		    $.each(this, function(i, v){
+		            var input = $(v);
+		        data[input.attr("name")] = input.val();
+		        delete data["undefined"];
+		    });
+		e.preventDefault();
+   		var fd = new FormData();
+   		console.log(data.content+":"+data.privacy);
+   		var file = document.getElementById('imgInp').files[0];
+   		var dataString = {
+			   "privacyId": data.privacy,
+			   "content": data.content,
+			   "isdelete":false,
+				"totalLike":0,
+				"userId": user.userId,
+				"postDate": ""
+		   };
+   		fd.append("postString",JSON.stringify(dataString));
+   		fd.append("inputFile",file,file.name);
+		for(var value of fd.values()){
+			console.log(value);
+		}
+		$.ajax({
+			 enctype:'multipart/form-data',
+			 data:fd,
+			 cache: false,
+		     processData: false,
+		     contentType: false,
+			 headers: { 'Authorization': localStorage.getItem('token') },
+             type: "POST",
+             url: "http://localhost:8080/ambi/api/post",
+             success : function(callback){
+			window.location.replace('http://localhost:8080/ambi/');
+             },
+             error : function(e){
+            	 
+             }
+        });
+	});*/
 
-//searching friend
 
+
+//tab profile
+/*var btns = document.getElementsByClassName("tab-profile");
+    var current = document.getElementsByClassName("active-tab");
+    for (var i = 0; i < btns.length; i++) {
+        btns[i].addEventListener("click", function() {
+       
+        current[0].className = current[0].className.replace(" active-tab", "");
+ 		
+        this.className += " active-tab";
+    });
+}*/
+//getProfile();
+//profile information
+/*function getProfile(parent){
+	let id = parent.children[0].value;
+	
+			alert(id);
+	$.ajax({
+		url: `http://localhost:8080/ambi/api/profile/${id}`,
+		method: "GET",
+		headers: { 'Authorization': localStorage.getItem('token') },
+		success: function(data){
+			//$(".avt img").attr("src", `/ambi/albums/user/avt/${data.useravt}`);
+			//$(".bgr img").attr("src", `/ambi/images/covers/1.jpg`);
+			//$("#profile-name").text(data.name);
+		}
+	})
+}*/
+//profile information
+
+/*Post*/
+
+
+/*	$('#post-form').submit(function(e) {
+		form = $(this);
+		    var data = {}
+		    $.each(this, function(i, v){
+		            var input = $(v);
+		        data[input.attr("name")] = input.val();
+		        delete data["undefined"];
+		    });
+		e.preventDefault();
+   		var fd = new FormData();
+   		console.log(data);
+   		var file = document.getElementById('imgInp').files[0];
+   		var dataString = `{
+			   "privacyId": ${data.privacy},
+			   "content": ${data.content},
+			   "isdelete":${false},
+				"totalLike":0,
+				"userId": ${user.userId},
+				"postDate": ""
+		   }`;
+   		fd.append("post",dataString);
+   		fd.append("inputFile",file,file.name);
+		for(var value of fd.values()){
+			console.log(value);
+		}
+		$.ajax({
+			 enctype:'multipart/form-data',
+			 data:fd,
+			 cache: false,
+		     processData: false,
+		     contentType: false,
+			 headers: { 'Authorization': localStorage.getItem('token') },
+             type: "POST",
+             url: "http://localhost:8080/ambi/api/post",
+             success : function(callback){
+ 				console.log("success");
+             },
+             error : function(e){
+            	 
+             }
+        });
+	});
+	
+	function displayPostForm(){
+		z = $('#postDiv');
+		z.style.opacity = "1";
+		z.style.display = 'flex';
+	}
+	
+	function closePostForm(){
+		z = $('#postDiv');
+		z.style.display = 'none';
+	}
+
+	function readURL(input) {
+			if (input.files && input.files[0]) {
+				var reader = new FileReader();
+				
+				reader.onload = function(e) {
+				$('#blah').attr('src', e.target.result);
+				console.log(e.target.result);
+				}
+				
+				reader.readAsDataURL(input.files[0]); // convert to base64 string
+			}
+		}
+
+		$("#imgInp").change(function() {
+		readURL(this);
+	});	
+*/
+
+function editPost(postId,postContent,postImg,totalLike,userId){
+		$('#postContent').append(
+				`
+							<textarea name="content" id="editText" class="postTextarea" cols="30" rows="1"
+								class="form-control" placeholder="What's on your mind?">${postContent}</textarea>
+								  <label class="upImg" for="editImg" class="btn"><i class="fas fa-images"></i> Upload Image</label>
+							<input type='text' name="postId" hidden value="${postId}" /> 
+							<input type='text' name="totalLike" hidden value="${totalLike}" />  
+							<input type='text' hidden name="userId" value="${userId}"/> 
+							<input type='file' id="editImg" class="imgInp" accept='image/*'/> 
+							<div id="blockEditImg" class="blockImg">
+								<img id="editblah" class="blah" src='/ambi/albums/imagesOfPost/${postImg}' /> 
+								<div class="positionClose imageClose" id="imgEditClose">
+								<i class="fa">&#xf00d</i>
+								</div>
+							</div>
+							<input class="submit-post" type="submit" value="EDIT" >
+				`
+				);
+		$('#blockEditImg').css('display','block');
+	}
+$('#closeEdit').click(function(){
+	$('#postContent').html("");
+});
+
+function deletePost(postId){
+	$.ajax({
+				headers: { 'Authorization': localStorage.getItem('token') },
+    			type:"DELETE",
+    			url : `http://localhost:8080/ambi/api/post/${postId}`,
+    			success : function(result) {
+    				 window.location.replace('http://localhost:8080/ambi/');
+    			}
+    		});
+}
+	
+	
+	
+	function readURL(input) {
+			if (input.files && input.files[0]) {
+				var reader = new FileReader();
+				if($(input).attr('id')=='imgInp'){
+					reader.onload = function(e) {
+						$('#blah').attr('src', e.target.result);
+						
+						}
+				} else {
+					reader.onload = function(e) {
+					$('#editblah').attr('src', e.target.result);
+					}
+				}
+				reader.readAsDataURL(input.files[0]); // convert to base64 string
+			}
+	}
+
+	$("#imgInp").change(function() {
+		readURL(this);
+		$('#blockImg').css('display','block');
+	});	
+	
+	$('#imgClose').click(function(){
+		$('#blockImg').css('display','none');
+	});
+	
+	$(document.body).on('change','#editImg',function(){
+		readURL(this);
+		$('#blockEditImg').css('display','block');
+	})
+	
+	$(document.body).on('click','#imgEditClose',function(){
+		$('#blockEditImg').css('display','none');
+	});
+
+	function like(postId){
+		var a = document.getElementById("like"+postId);
+		var b = document.getElementById("unlike"+postId);
+		b.style.display='none';
+		a.style.display='block';
+			var data = {
+    				"postId":postId
+			};
+			$.ajax({
+				headers: { 'Authorization': localStorage.getItem('token') },
+    			type:"POST",
+    			data: JSON.stringify(data),
+    			contentType : 'application/json',
+    			url : "http://localhost:8080/ambi/api/like",
+    			success : function(result) {
+    				$('#totalLike'+postId).html(result.totalLike);
+    			}
+    		});
+	}
+	
+	function unlike(postId){
+		var a = document.getElementById("unlike"+postId);
+		var b = document.getElementById("like"+postId);
+		b.style.display='none';
+		a.style.display='block';
+		var data = {
+				"postId":postId
+		};
+		$.ajax({
+			headers: { 'Authorization': localStorage.getItem('token') },
+			type:"DELETE",
+			data: JSON.stringify(data),
+			contentType : 'application/json',
+			url : "http://localhost:8080/ambi/api/like",
+			success : function(result) {
+				$('#totalLike'+postId).html(result.totalLike);
+			}
+		});
+	}
+	
+	$('#post-form').submit(function(e) {
+		    var data = {}
+		    $.each(this, function(i, v){
+		            var input = $(v);
+		        data[input.attr("name")] = input.val();
+		        delete data["undefined"];
+		    });
+		e.preventDefault();
+   		var fd = new FormData();
+   		if($('#blockImg').css('display')=='block') {
+   			var file = document.getElementById('imgInp').files[0];
+   			fd.append("inputFile",file,file.name);
+   		}
+   		var dataString = {
+			   "privacyId": data.privacy,
+			   "content": data.content,
+			   "isdelete":false,
+				"totalLike":0,
+				"userId": data.userId,
+				"postDate": ""
+		   };
+   		
+   		fd.append("postString",JSON.stringify(dataString));
+		$.ajax({
+			 enctype:'multipart/form-data',
+			 data:fd,
+			 cache: false,
+		     processData: false,
+		     contentType: false,
+			 headers: { 'Authorization': localStorage.getItem('token') },
+             type: "POST",
+             url: "http://localhost:8080/ambi/api/post",
+             success : function(callback){
+			 window.location.replace('http://localhost:8080/ambi/');
+             },
+             error : function(e){
+            	 
+             }
+        });
+	});
+	
+	$('#edit-form').submit(function(e) {
+	    var data = {}
+	    $.each(this, function(i, v){
+	            var input = $(v);
+	        data[input.attr("name")] = input.val();
+	        delete data["undefined"];
+	    });
+	e.preventDefault();
+		var fd = new FormData();
+	var file = document.getElementById('editImg');
+		if(file.files.length!=0) {
+			fd.append("inputFile",file.files[0],file.files[0].name);
+		}
+		var dataString = {
+				"postId":data.postId,
+		   "privacyId": data.privacy,
+		   "content": data.content,
+		   "isdelete":false,
+			"totalLike":data.totalLike,
+			"userId": data.userId,
+			"postDate": ""
+	   };
+		
+		fd.append("postString",JSON.stringify(dataString));
+	$.ajax({
+		 enctype:'multipart/form-data',
+		 data:fd,
+		 cache: false,
+	     processData: false,
+	     contentType: false,
+		 headers: { 'Authorization': localStorage.getItem('token') },
+         type: "POST",
+         url: "http://localhost:8080/ambi/api/post/update",
+         success : function(callback){
+		 	window.location.replace('http://localhost:8080/ambi/');
+         },
+         error : function(e){
+        	 
+         }
+    });
+});

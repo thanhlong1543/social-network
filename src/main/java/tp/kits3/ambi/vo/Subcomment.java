@@ -10,6 +10,8 @@ public class Subcomment {
 
     private Integer commentId;
     
+    private Integer userId;
+    
     private String remotion;
     
     private boolean isdelete;
@@ -60,6 +62,14 @@ public class Subcomment {
 
 	public void setIsdelete(boolean isdelete) {
 		this.isdelete = isdelete;
+	}
+
+	public Integer getUserId() {
+		return userId;
+	}
+
+	public void setUserId(Integer userId) {
+		this.userId = userId;
 	}
    
 }

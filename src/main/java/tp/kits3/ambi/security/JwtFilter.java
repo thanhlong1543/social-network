@@ -19,7 +19,7 @@ import io.jsonwebtoken.Jwts;
 /**
  * @author Vu Thanh Long
  */
-public class JwtFilter extends BasicAuthenticationFilter{
+public class JwtFilter extends BasicAuthenticationFilter {
 	
 	
 	private UserDetailsService userDetailService;
@@ -33,7 +33,7 @@ public class JwtFilter extends BasicAuthenticationFilter{
 	@Override
 	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
-		
+
 		String tokenbearer = request.getHeader("Authorization");
 		
 		if(tokenbearer !=null && tokenbearer.startsWith("Bearer ")) {

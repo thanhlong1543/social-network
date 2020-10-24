@@ -14,21 +14,27 @@
 	<!-- List<Book> books = selectAll -->
 	<select id="selectAll" resultMap="aboutResult"> <!-- mapper.bookMapper.selectAll -->
 		<![CDATA[
-			select * from about 
+			select * from about
 		]]>
 	</select>
 	<select id="selectOne" resultMap="aboutResult" parameterType="int">
 		<![CDATA[
 			select * from about 
-			where aboutid = #{id}
+			where aboutid = #{aboutId}
+		]]>
+	</select>
+	<select id="selectOneByUser" resultMap="aboutResult" parameterType="int">
+		<![CDATA[
+			select * from about 
+			where userid = #{id}
 		]]>
 	</select>
 	<insert id="insert" parameterType="aboutVO">
 		<![CDATA[
 			insert into about
-			(education,country,lives,birthday,userid)
+			(education,country,lives,birthday,userid, bio, comefrom, company)
 			values
-			(#{education},#{country},#{lives},#{birthday},#{userId})
+			(#{education},#{country},#{lives},#{birthday},#{userId}, #{bio}, #{comeFrom}, #{company})
 		]]>
 	</insert>
 	<update id="update" parameterType="aboutVO">
@@ -38,8 +44,10 @@
 			country=#{country},
 			lives=#{lives},
 			birthday=#{birthday},
-			userid=#{userId}
-			where aboutid = #{aboutId}
+			bio = #{bio},
+			comefrom = #{comeFrom},
+			company = #{company}
+			where userid=#{userId}
 		]]>
 	</update>
 	<delete id="delete" parameterType="int">

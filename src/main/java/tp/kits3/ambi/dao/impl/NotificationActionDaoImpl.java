@@ -11,4 +11,5 @@ public class NotificationActionDaoImpl extends GenericDaoImpl<NotificationAction
 	public NotificationActionDaoImpl() {
 		super("notificationActionMapper");
 	}
+	
 }

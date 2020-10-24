@@ -12,7 +12,7 @@ public class RelationshipDaoImpl extends GenericDaoImpl<Relationship> implements
 
 	public RelationshipDaoImpl() {
 		super("relationshipMapper");
-		// TODO Auto-generated constructor stub
+
 	}
 
 }

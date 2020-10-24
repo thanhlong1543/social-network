@@ -12,7 +12,7 @@ public class RoleDaoImpl extends GenericDaoImpl<Role> implements RoleDao{
 
 	public RoleDaoImpl() {
 		super("roleMapper");
-		// TODO Auto-generated constructor stub
 	}
+
 
 }

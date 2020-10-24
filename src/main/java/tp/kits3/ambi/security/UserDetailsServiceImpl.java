@@ -1,7 +1,7 @@
-package tp.kits3.ambi.service.impl;
+package tp.kits3.ambi.security;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
@@ -12,6 +12,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import tp.kits3.ambi.dao.UserDao;
+import tp.kits3.ambi.service.UserService;
 import tp.kits3.ambi.util.CustomUserDetails;
 import tp.kits3.ambi.vo.User;
 
@@ -23,7 +24,8 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
 	@Autowired
 	private UserDao dao;
-	
+	@Autowired
+	private UserService userService;
 	@Override
 	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
 
@@ -34,10 +36,13 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 			throw new UsernameNotFoundException("Email not found");
 		}
 
-		Set<GrantedAuthority> authorities = new HashSet<GrantedAuthority>();
+		List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
 		
-		authorities.add(new SimpleGrantedAuthority("ROLE_USER"));
-
+		List<String> listRole =userService.selectAllRole(user.getUserId());
+		for (String string : listRole) {
+			authorities.add(new SimpleGrantedAuthority(string));
+		}
+		
 		CustomUserDetails userDetail = new CustomUserDetails(user.getEmail(), user.getPassword(), authorities);
 
 		return userDetail;

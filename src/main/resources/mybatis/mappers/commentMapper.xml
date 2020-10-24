@@ -21,7 +21,7 @@
 		<![CDATA[
 			select * from comment 
 			where commentid = #{id}
-			order by comment_date DESC
+			order by commentdate DESC
 		]]>
 	</select>
 	<select id="selectByPostid" resultMap="commentResult" parameterType="int">
@@ -30,7 +30,7 @@
 			where postId = #{postId}
 		]]>
 	</select>
-	<insert id="insert" parameterType="commentVO">
+	<insert id="insert" useGeneratedKeys="true" keyProperty="commentId"  keyColumn = "commentid" parameterType="commentVO">
 		<![CDATA[
 			insert into comment
 			(content,commentdate,userid,postid,isdelete,remotion)

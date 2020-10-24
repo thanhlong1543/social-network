@@ -6,7 +6,6 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import tp.kits3.ambi.dao.MenuDao;
-import tp.kits3.ambi.vo.Friend;
 import tp.kits3.ambi.vo.Menu;
 
 

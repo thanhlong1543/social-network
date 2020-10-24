@@ -10,5 +10,7 @@
     <decorator name="admin" page="admin.jsp">
         <pattern>/admin/**</pattern>
     </decorator>
-    
+    <decorator name="profile" page="profile.jsp">
+        <pattern>/profile/**</pattern>
+    </decorator>
 </decorators>

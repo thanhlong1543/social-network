@@ -11,6 +11,8 @@ public class SubCommentDto {
 
     private Integer commentId;
     
+    private Integer userId;
+    
     private boolean isdelete;
     
 	private User user;
@@ -50,6 +52,12 @@ public class SubCommentDto {
 	}
 	public void setIsdelete(boolean isdelete) {
 		this.isdelete = isdelete;
+	}
+	public Integer getUserId() {
+		return userId;
+	}
+	public void setUserId(Integer userId) {
+		this.userId = userId;
 	}
 
 

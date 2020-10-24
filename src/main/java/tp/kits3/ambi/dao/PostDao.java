@@ -11,4 +11,6 @@ public interface PostDao extends GenericDao<Post>{
 
 	void isdelete(int id, int i);
 	
+	Post selectByIdPost(int id);
+	
 }

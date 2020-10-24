@@ -21,6 +21,7 @@
 		<typeAlias type="tp.kits3.ambi.vo.NotificationAction" alias ="notificationActionVO"/>
 		<typeAlias type="tp.kits3.ambi.vo.NotificationObject" alias ="notificationObjectVO"/>
 		<typeAlias type="tp.kits3.ambi.vo.Notifications" alias ="notificationsVO"/>
+		<typeAlias type="tp.kits3.ambi.vo.NotiType" alias ="notiTypeVO"/>
 		
 		<typeAlias type="tp.kits3.ambi.vo.Post" alias ="postVO"/>
 		<typeAlias type="tp.kits3.ambi.vo.Privacy" alias ="privacyVO"/>
@@ -31,7 +32,9 @@
 		<typeAlias type="tp.kits3.ambi.vo.Subcomment" alias ="subcommentVO"/>
 		<typeAlias type="tp.kits3.ambi.vo.Tag" alias ="tagVO"/>
 		<typeAlias type="tp.kits3.ambi.vo.User" alias ="userVO"/>
-
+		<typeAlias type="tp.kits3.ambi.dto.UserDto" alias ="userDto"/>
+		
+		<typeAlias type="tp.kits3.ambi.vo.VerificationToken" alias ="verificationTokenVO"/>
 	</typeAliases>
 	<!-- 2. config DB connection info like tomcat context.xml DataSource -->
 	<environments default="development">
@@ -65,6 +68,7 @@
 		<mapper resource="mybatis/mappers/notificationActionMapper.xml"/>
 		<mapper resource="mybatis/mappers/notificationObjectMapper.xml"/>
 		<mapper resource="mybatis/mappers/notificationsMapper.xml"/>
+		<mapper resource="mybatis/mappers/notiTypeMapper.xml"/>
 		
 		<mapper resource="mybatis/mappers/postMapper.xml"/>
 		<mapper resource="mybatis/mappers/privacyMapper.xml"/>
@@ -75,5 +79,6 @@
 		<mapper resource="mybatis/mappers/subcommentMapper.xml"/>
 		<mapper resource="mybatis/mappers/tagMapper.xml"/>
 		<mapper resource="mybatis/mappers/userMapper.xml"/>
+		<mapper resource="mybatis/mappers/verificationTokenMapper.xml"/>
 	</mappers>
 </configuration>

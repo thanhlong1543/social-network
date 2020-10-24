@@ -27,4 +27,14 @@ public class RoleUser {
         this.userId = param.getUserId();
         this.roleId = param.getRoleId();
     }
+
+	public RoleUser() {
+	}
+
+	public RoleUser(Integer userId, Integer roleId) {
+		this.userId = userId;
+		this.roleId = roleId;
+	}
+    
+    
 }

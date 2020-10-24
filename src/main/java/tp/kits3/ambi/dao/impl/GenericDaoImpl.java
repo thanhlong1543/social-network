@@ -54,7 +54,6 @@ public abstract class GenericDaoImpl<T> implements GenericDao<T>{
 		session.insert( "mappers." +mapper + ".insert", param);
 		session.commit();
 		session.close();
-		
 	}
 	@Override
 	public void update(T param) {

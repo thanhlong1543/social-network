@@ -13,7 +13,13 @@ public class About {
     private String birthday;
 
     private Integer userId;
-
+    
+    private String bio;
+    
+    private String comeFrom;
+    
+    private String company;
+    
     public Integer getAboutId() {
         return aboutId;
     }
@@ -62,13 +68,55 @@ public class About {
         this.userId = userId;
     }
 
-    public void CopyData(About param)
-    {
-        this.aboutId = param.getAboutId();
-        this.education = param.getEducation();
-        this.country = param.getCountry();
-        this.lives = param.getLives();
-        this.birthday = param.getBirthday();
-        this.userId = param.getUserId();
-    }
+    
+    public String getBio() {
+		return bio;
+	}
+
+	public void setBio(String bio) {
+		this.bio = bio;
+	}
+	
+	public String getCompany() {
+		return company;
+	}
+
+	public void setCompany(String company) {
+		this.company = company;
+	}
+
+	public String getComeFrom() {
+		return comeFrom;
+	}
+
+	public void setComeFrom(String comeFrom) {
+		this.comeFrom = comeFrom;
+	}
+
+	public About() {
+	}
+
+	public About(String education, String country, String lives, String birthday, Integer userId, String bio,
+			String comeFrom, String company) {
+		super();
+		this.education = education;
+		this.country = country;
+		this.lives = lives;
+		this.birthday = birthday;
+		this.userId = userId;
+		this.bio = bio;
+		this.comeFrom = comeFrom;
+		this.company = company;
+	}
+
+	@Override
+	public String toString() {
+		return "About [aboutId=" + aboutId + ", education=" + education + ", country=" + country + ", lives=" + lives
+				+ ", birthday=" + birthday + ", userId=" + userId + ", bio=" + bio + ", comeFrom=" + comeFrom + ", company="
+				+ company + "]";
+	}
+
+	
+
+	
 }

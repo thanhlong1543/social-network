@@ -29,6 +29,12 @@
 			where userid = #{id}
 		]]>
 	</select>
+	<select id="selectConByUserid" resultMap="conversationUserResult" parameterType="int">
+		<![CDATA[
+			SELECT * FROM conversation_user 
+			WHERE userid = #{id} GROUP BY conid
+		]]>
+	</select>
 	<insert id="insert" parameterType="conversationUserVO">
 		<![CDATA[
 			insert into conversation_user

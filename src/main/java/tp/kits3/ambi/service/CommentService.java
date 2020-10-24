@@ -13,5 +13,7 @@ public interface CommentService {
 	void update(Comment comment);
 
 	void isdelete(int id, int i);
+	
+	Comment selectByIdComment(int id);
 
 }

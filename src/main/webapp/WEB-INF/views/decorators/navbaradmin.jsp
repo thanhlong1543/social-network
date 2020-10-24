@@ -58,7 +58,7 @@
     				</a>
    						 <div class="setting-account" id="setting-acc" aria-labelledby="dropdownMenuLink" style="display: none;">
       						<a class="dropdown-item" href="setting">Setting</a>
-      						<a class="dropdown-item" href="/ambi/login">Logout</a>
+      						<a class="dropdown-item" href="/ambi/logout">Logout</a>
               			</div>
               		</li>
               		</ul>

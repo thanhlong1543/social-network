@@ -40,6 +40,9 @@
       </div>
 
     <content tag="scripts">
+     		<!--
+ 		@author: Truong
+ 		  -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     	<script type="text/javascript">
 			$(document).ready(function() {
@@ -55,6 +58,7 @@
 			
 			deletePost = function(id) {
 				$.ajax({
+					headers: { 'Authorization': localStorage.getItem('token') },
 					type: "PUT",
 					url: "http://localhost:8080/ambi/api/post/"+id,
 					success : function() {

@@ -15,9 +15,10 @@
 	<select id="selectOne" resultMap="roleResult" parameterType="int">
 		<![CDATA[
 			select * from role
-			where roleid = #{roleid}
+			where roleid = #{roleId}
 		]]>
 	</select>
+	
 	<insert id="insert" parameterType="roleVO">
 		<![CDATA[
 			insert into role
@@ -32,14 +33,14 @@
 			update role set
 			description = #{description},
 			name = #{name}
-			where roleid = #{roleid}
+			where roleid = #{roleId}
 		]]>
 	</update>
 	
 	<delete id="delete" parameterType="int">
 		<![CDATA[
 			delete from role
-			where roleid = #{roleid}
+			where roleid = #{roleId}
 		]]>
 		
 	</delete>

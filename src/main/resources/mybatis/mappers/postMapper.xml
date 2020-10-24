@@ -20,10 +20,10 @@
 	<select id="selectByUserid" resultMap="postResult" parameterType="int">
 		<![CDATA[
 		select * from post
-		where userId = #{userid}
+		where userId = #{userid} and isdelete = 0
 		]]>
 	</select>
-	<insert id="insert" parameterType="postVO">
+	<insert id="insert" useGeneratedKeys="true" keyProperty="postId"  keyColumn = "postid" parameterType="postVO">
 		<![CDATA[
 			insert into post 
 			(content,postdate,totallike,userid,privacyid,isdelete)

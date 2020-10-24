@@ -4,6 +4,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
@@ -12,7 +13,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Configuration
 @EnableWebMvc
 @ComponentScan(basePackages = "tp.kits3.ambi")
-public abstract class WebConfig implements WebMvcConfigurer {
+public class WebConfig implements WebMvcConfigurer {
 
 	public void configureViewResolvers(ViewResolverRegistry registry) {
 		registry.jsp("/WEB-INF/views/", ".jsp");
@@ -26,6 +27,12 @@ public abstract class WebConfig implements WebMvcConfigurer {
 		 * "/albums/imagesOfPost");
 		 */
 	}
+	
+	@Override
+    public void addCorsMappings(CorsRegistry registry) {
+        registry.addMapping("/**")
+                .allowedMethods("HEAD", "GET", "PUT", "POST", "DELETE", "PATCH");
+    }
 
 	@Bean
 	public CommonsMultipartResolver multipartResolver() {
@@ -35,6 +42,7 @@ public abstract class WebConfig implements WebMvcConfigurer {
 		return resolver;
 	}
 
+	
 	/*
 	 * @Bean MultipartResolver multipartResolver() { return new
 	 * StandardServletMultipartResolver(); }

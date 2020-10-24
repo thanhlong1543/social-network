@@ -1,168 +1,201 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+ <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<!-- Chuc Kim Thien -->
 
-<div class="col-md-7">
-
-	<!-- Post Create Box
+<!-- Post Create Box
             ================================================= -->
-	<div class="create-post">
-		<div class="row">
-			<div class="col-md-7 col-sm-7">
-				<div class="form-group">
-					<img
-						src='<c:url value="/images/users/user-1.jpg"></c:url>'
-						alt="" class="profile-photo-md" />
-					<textarea name="texts" id="exampleTextarea" cols="30" rows="1"
-						class="form-control" placeholder="Write what you wish"></textarea>
+
+		<div class="create-post">
+			<div class="row">
+				
+					<div>
+						<div class="form-box">
+							<img
+								src='<c:url value="/albums/user/avt/${user.useravt}"></c:url>'
+								alt="" class="profile-photo-md" />
+								<textarea name="texts"  cols="30" rows="1"
+								class="form-text" data-target="#postStatus" data-toggle="modal" placeholder="What's on your mind?"></textarea>
+						</div>
+					</div>
+				
+				<div  class="modal fade "  id="postStatus" 
+				tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+					<div id="postDiv" class="modal-dialog">
+						<div id="postForm" class="postForm">
+							<div class="content-post">
+								<h1>Create Post</h1>
+							</div>
+							<form id="post-form" class="post-form">
+								<div class="user-info">
+									<a href=""><img class="avatar"
+										src='<c:url value="/albums/user/avt/${user.useravt}"></c:url>'
+										alt=""></a>
+									<div class="user-priva">
+										<a href="${routes.profile }/${user.userUrl}"><h4>${user.name}</h4></a> <select name="privacy"
+											id="privacy" class="privacy">
+											<option value="1">Public</option>
+											<option value="2">Private</option>
+										</select>
+									</div>
+								</div>
+									<textarea name="content" id="exampleTextarea" class="postTextarea" cols="30" rows="1"
+										class="form-control" placeholder="What's on your mind?"></textarea>
+										  <label class="upImg" for="imgInp" class="btn"><i class="fas fa-images"></i> Upload Image</label>
+									<input type='text' hidden name="userId" value="${user.userId}"/> 
+									<input type='file' id="imgInp" class="imgInp" accept='image/*'/> 
+									<div id="blockImg" class="blockImg">
+										<img id="blah" class="blah"src="#" /> 
+										<div class="positionClose imageClose" id="imgClose">
+										<i class="fa">&#xf00d</i>
+										</div>
+									</div>
+								<input class="submit-post" type="submit" value="POST" >
+									
+							</form>
+							<div class="positionClose" data-target="#postStatus" data-toggle="modal">
+								<i class="fa">&#xf00d</i>
+							</div>
+						</div>
+					</div>
 				</div>
-			</div>
-			<div class="col-md-5 col-sm-5">
-				<div class="tools">
-					<ul class="publishing-tools list-inline">
-						<li><a href="#"><i class="ion-compose"></i></a></li>
-						<li><a href="#"><i class="ion-images"></i></a></li>
-						<li><a href="#"><i class="ion-ios-videocam"></i></a></li>
-						<li><a href="#"><i class="ion-map"></i></a></li>
-					</ul>
-					<button class="btn btn-primary pull-right" onclick="insertPost()">Publish</button>
+				
+				<div  class="modal fade " id="editStatus" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+					<div id="postDiv" class="modal-dialog">
+						<div id="editForm" class="postForm">
+							<div class="content-post">
+								<h1>Edit Post</h1>
+							</div>
+							<form id="edit-form" class="post-form">
+								<div class="user-info">
+									<a href=""><img class="avatar"
+										src='<c:url value="/albums/user/avt/${user.useravt}"></c:url>'
+										alt=""></a>
+									<div class="user-priva">
+										<a href="${routes.profile }/${user.userUrl}"><h4>${user.name}</h4></a> <select name="privacy"
+											id="editprivacy" class="privacy">
+											<option value="1">Public</option>
+											<option value="2">Private</option>
+										</select>
+									</div>
+								</div>
+								<div id="postContent">
+									
+								</div>
+							</form>
+							<div class="positionClose" id="closeEdit" data-target="#editStatus" data-toggle="modal">
+								<i class="fa">&#xf00d</i>
+							</div>
+						</div>
+					</div>
 				</div>
+				
+			
 			</div>
 		</div>
-	</div>
-	<!-- Post Create Box End-->
-
-	<!-- Post Content
-            ================================================= -->
-    <div class="post-container">
-	    <c:forEach items="${posts}" var="post">
-	    	<div class="post-content">
-			<img src='<c:url value="/images/post-images/1.jpg"></c:url>'
-				alt="post-image" class="img-responsive post-image" />
-			<div class="post-container">
-				<img src='<c:url value="/albums/user/avt/${post.user.useravt}"></c:url>'
-					alt="user" class="profile-photo-md pull-left" />
-				<div class="post-detail">
-					<div class="user-info">
-						<h5>
-							<a href="timeline.html" class="profile-link">${post.user.name}</a> <span
-								class="following">following</span>
-						</h5>
-						<p class="text-muted">Published a photo about 3 mins ago</p>
-					</div>
-					<div class="reaction">
-						<a class="btn text-green"><i class="icon ion-thumbsup"></i> ${post.totalLike}</a>
-						<a class="btn text-red"><i class="fa fa-thumbs-down"></i> 0</a>
-					</div>
-					<div class="line-divider"></div>
-					<div class="post-text">
-						<p>
-							${post.content}
-							 <i class="em em-anguished"></i> <i class="em em-anguished"></i> <i
-								class="em em-anguished"></i>
-						</p>
-					</div>
-					<div class="line-divider"></div>
-					<c:forEach items="${post.comments}" var="comment">
-						<div class="row">
-	                    	<div class="col-sm-2 col-md-2">
-	                        	<img class="avt-comment" src='<c:url value="/albums/user/avt/${comment.user.useravt}"></c:url>' alt="">
-	                    	</div>
-		                    <div class="col-sm-10 col-md-10">
-		                        <div class="comment-content">
-		                            <span><a href="#">${comment.user.name}</a></span>
-		                            <p>${comment.content} </p>
-		                            <div class="row">
-		                                <a href="#">Reply</a>
-		                                <a href="" class="show-replies">Show more replies <i>---------</i></a>
-		                            </div>
-		                        </div>
-		                        <c:forEach items="${comment.subComments}" var="subcomment">
-			                        <div class="row sub-comment">
-			                            <div class="col-sm-2 col-md-2">
-			                                <img  class="avt-comment" src='<c:url value="/albums/user/avt/${subcomment.user.useravt}"></c:url>' alt="">
-			                            </div>
-			                            <div class="col-sm-10 col-md-10">
-			                                <span><a href="#">${subcomment.user.name}</a></span>
-			                                <p>${subcomment.content}</p>
-			                            </div>
-			                        </div>
-								</c:forEach>
-		
-		                    </div>
 	
-	                	</div>
-						<div class="row reply-comment">
-                            <form action="">
-                                <div class="col-sm-10 col-md-10">
-                                    <textarea class="form-control reply-content" aria-label="With textarea"></textarea>
-                                </div>
-                                <div class="col-sm-2 col-md-2">
-                                    <input type="submit" class="btn btn-danger">
-                                </div>
-                            </form>
-                        </div>
-					</c:forEach>
+<!-- Post Create Box End-->
+
+<!-- Post Content
+            ================================================= -->
+<div class="row">
+	<c:forEach items="${posts}" var="post">
+		<div class="col-md-12 post-container">
+			<div class='sub-menu action-top'>
+							<div class='dot-more'>
+								<span class='dot dot-home'></span> <span class='dot dot-home'></span> <span
+									class='dot dot-home'></span>
+							</div>
+							<c:if test="${post.user.userId == user.userId }">
+								<div class='sub-container sub-container-home'>
+									<a class='sub sub-home' onclick='editPost(${post.postId },"${post.content}","${post.image.imgName}",${post.totalLike},${user.userId })' 
+									data-target="#editStatus" data-toggle="modal">Edit post</a>							
+									<a class='sub sub-home' onclick="deletePost(${post.postId})">Delete post</a>
+								</div>
+							</c:if>
+							<c:if test="${post.user.userId != user.userId }">
+								<div class='sub-container sub-container-home'>
+									<a class='sub sub-home' onclick="hidePost(${post.postId})">Hide post</a>
+								</div>
+							</c:if>
+						</div>
+			<div class="post-top">
+				<div class="img-box">
+					<img src='<c:url value="/albums/user/avt/${post.user.useravt}"></c:url>' />
+				</div>
+				<h5><a href="${routes.profile }/${post.user.userUrl}">${post.user.name}</a></h5>
+
+			</div>
+			<div class="post-body">
+				<c:if test="${not empty post.image.imgName}">
+					<img src='<c:url value="/albums/imagesOfPost/${post.image.imgName}"/>'/>
+				</c:if>
 					
+				<div class="post-content">
+					<p>
+						<span>${post.content}</span><br> ${post.postDate}
+					</p>
 				</div>
+				<div class="like">
+					<c:if test="${post.islike==true}"> 
+						<i class="fa fa-thumbs-up fa-2x" onmouseover="loadName(${post.postId})" onmouseout="hideName(${post.postId})" 
+						style="display:block;color:#40A798;" 
+						id="like${post.postId}" onclick="unlike(${post.postId})" aria-hidden="true"></i>
+						<i class="fa fa-thumbs-up fa-2x" style="display:none;color:#c8c8c8;"
+						id="unlike${post.postId}" onmouseover="loadName(${post.postId})" onmouseout="hideName(${post.postId})"  onclick="like(${post.postId})" aria-hidden="true"></i>
+					</c:if>	
+					<c:if test="${post.islike==false}"> 
+						<i class="fa fa-thumbs-up fa-2x" style="display:none;color:#40A798;" 
+						id="like${post.postId}" onmouseover="loadName(${post.postId})" onmouseout="hideName(${post.postId})"  onclick="unlike(${post.postId})" aria-hidden="true"></i>
+						<i class="fa fa-thumbs-up fa-2x" onmouseover="loadName(${post.postId})" onmouseout="hideName(${post.postId})" 
+						style="display:block;color:#c8c8c8;"
+						id="unlike${post.postId}" onclick="like(${post.postId})" aria-hidden="true"></i>
+					</c:if>	
+					<p id="totalLike${post.postId}">${post.totalLike}</p>				
+					</div>
+					<div class="hide-detail loadName" id="getName${post.postId}">	
+					</div>
+			</div>
+			<div class="post-comment"  id="comment${post.postId}" class="line-divider">
+				<c:forEach items="${post.comments}" var="comment">
+					<div class="comment-line" id ="commentinput${comment.commentId}">
+							<div class="avt-left">
+								<div class="img-box">
+									<img  src='<c:url value="/albums/user/avt/${comment.user.useravt}"></c:url>' alt="">
+								</div>
+							</div>
+							<div class="comment-right" >
+								<a href="">${comment.user.name}</a><span class="text-day">${comment.commentDate}</span>
+								<p>${comment.content}</p>
+								<a class="reply-btn" onclick='createSubCmtInput(${comment.commentId},"${user.name}","${user.useravt}","${user.userId}")'><i class="fas fa-reply"></i>Reply</a>
+								<div id ="replycomment${comment.commentId}">
+									<c:forEach items="${comment.subComments}" var="subcomment">
+										<div class="sub-comment">
+											<div class="avt-left">
+												<div class="img-box">
+													<img src='<c:url value="/albums/user/avt/${subcomment.user.useravt}"></c:url>' alt="">
+												</div>
+				
+											</div>
+											<div class="comment-right">
+												<a href="">${subcomment.user.name}</a><span class="text-day">${subcomment.commentDate}</span>
+												<p>${subcomment.content}</p>
+											</div>
+										</div>
+									</c:forEach>
+								</div>
+								
+								
+							</div>
+					</div>
+				</c:forEach>
+				
+			</div>
+			<div class="write-comment">
+				<textarea id="inputcomment${post.postId}" placeholder="Write a comment..."></textarea>
+				<button class="btn-cuaduc" onclick='sendComment(${post.postId},"${user.name}","${user.useravt}",${user.userId})'>Post</button>
 			</div>
 		</div>
-		<div class="col-sm-12 col-md-12 reply-comment">
-                        <form action="">
-                            <div class="col-sm-10 col-md-10">
-                                <textarea class="form-control reply-content" aria-label="With textarea"></textarea>
-                            </div>
-                            <div class="col-sm-2 col-md-2">
-                                <input type="submit" class="btn btn-danger">
-                            </div>
-                        </form>
-        </div>
-	    </c:forEach>        
-    </div>
-    
 	
+	</c:forEach>
 </div>
-<style>
-    .avt-comment {
-        max-width: 80%;
-        border-radius: 50%;
-    }
-    
-    span {
-        padding-right: 5px;
-    }
-    
-    p {
-        display: inline;
-    }
-    
-    i {
-        letter-spacing: -3px;
-    }
-    
-    .sub-comment {}
-    
-    .show-replies {
-        float: right;
-    }
-    
-    .reply-content {
-        width: 100%;
-        height: 10vh;
-    }
-</style>
-<script>
-	function insertPost() {
-		 $.ajax({
-        	 contentType : 'application/json; charset=utf-8',
-             type: "POST",
-             url: "http://localhost:8080/ambi/api/sendmail",
-             success : function(callback){
- 				console.log("success");
- 				/*window.location.replace('http://localhost:8080/livedinner/menu');*/
-             },
-             error : function(e){
-             }
-        });
-	}	
-</script>

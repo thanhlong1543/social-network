@@ -9,9 +9,20 @@
 	
 	<select id="selectAll" resultMap="roleUserResult">
 		<![CDATA[
-		
+			SELECT * FROM role_user
 		]]>
 	</select>
-
-
+	<select id="selectByUserId" resultMap="roleUserResult"  parameterType="int">
+		<![CDATA[
+			SELECT * FROM role_user WHERE userid = #{userId}
+		]]>
+	</select>
+	<insert id="insert" parameterType="roleUserVO">
+		<![CDATA[
+			insert into role_user
+			(userid,roleid)
+			values
+			(#{userId},#{roleId})
+		]]>
+	</insert>
 </mapper>

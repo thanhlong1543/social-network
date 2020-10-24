@@ -4,14 +4,14 @@ import java.util.Collection;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
 
 /**
  * @author Vu Thanh Long
  */
-public class CustomUserDetails extends User {
+@SuppressWarnings("serial")
+public class CustomUserDetails extends User implements UserDetails{
 
-	private static final long serialVersionUID = 1L;
-	
 	
 	public CustomUserDetails(String email, String password, Collection<? extends GrantedAuthority> authorities) {
 		

@@ -32,9 +32,9 @@
 	<insert id="insert" parameterType="subcommentVO">
 		<![CDATA[
 			insert into subcomment
-			(content,commentdate,commentid,remotion,isdelete)
+			(content,commentdate,commentid,userid,remotion,isdelete)
 			values
-			(#{content},#{commentDate},#{commentId},#{remotion},#{isdelete})
+			(#{content},#{commentDate},#{commentId},#{userId},#{remotion},#{isdelete})
 		]]>
 	</insert>
 	<update id="update" parameterType="subcommentVO">
@@ -43,6 +43,7 @@
 			content=#{content},
 			commentdate=#{commentDate},
 			commentid=#{commentId},
+			userid = #{userId},
 			remotion=#{remotion},
 			isdelete=#{isdelete}
 			where subcommentid = #{subcommentId}

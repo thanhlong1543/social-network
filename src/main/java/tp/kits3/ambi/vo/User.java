@@ -14,8 +14,6 @@ public class User {
 
     private Boolean isactive;
 
-    private Integer roleId;
-
     private String userUrl;
     
     private String useravt;
@@ -70,13 +68,7 @@ public class User {
         this.isactive = isactive;
     }
 
-    public Integer getRoleId() {
-        return roleId;
-    }
 
-    public void setRoleId(Integer roleId) {
-        this.roleId = roleId;
-    }
 
     public String getUserUrl() {
         return userUrl;
@@ -111,7 +103,6 @@ public class User {
         this.email = param.getEmail();
         this.password = param.getPassword();
         this.isactive = param.getIsactive();
-        this.roleId = param.getRoleId();
         this.userUrl = param.getUserUrl();
         this.useravt = param.getUseravt();
         this.userbgr = param.getUserbgr();

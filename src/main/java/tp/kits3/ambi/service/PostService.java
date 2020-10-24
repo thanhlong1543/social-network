@@ -19,4 +19,10 @@ public interface PostService {
 
 	void isdelete(int id, int i);
 	
+	List<PostDto> selectPostInfoUserAndFriendByUserid(int userId);
+	
+	List<PostDto> selectPostByIdPost(int id);
+	
+	Post selectOneByIdPost(int id);
+
 }
